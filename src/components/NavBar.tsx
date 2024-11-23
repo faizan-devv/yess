@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { Menu } from "lucide-react";
 import Link from "next/link";
@@ -33,13 +32,14 @@ const NavHeader = () => {
           </Link>
           <div className="relative group">
             <button className="text-white flex  items-center">
-              Services <Image
-            src="/images/down-white-arrow.svg"
-            alt="Logo"
-            width={20} 
-            height={20}
-            priority
-          />
+              Services{" "}
+              <Image
+                src="/images/down-white-arrow.svg"
+                alt="Logo"
+                width={20}
+                height={20}
+                priority
+              />
             </button>
             <div className="absolute left-0 mt-2 w-60 rounded-md shadow-lg hidden group-hover:block">
               <div className="py-2">
@@ -64,16 +64,10 @@ const NavHeader = () => {
               </div>
             </div>
           </div>
-          <Link
-            href="/about"
-            className="text-white mr-[51px]"
-          >
+          <Link href="/about" className="text-white mr-[51px]">
             About Us
           </Link>
-          <Link
-            href="/faq"
-            className="text-white"
-          >
+          <Link href="/faq" className="text-white">
             FAQ
           </Link>
         </div>
@@ -91,7 +85,7 @@ const NavHeader = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
+      {!!isOpen && (
         <div className="md:hidden mt-4 bg-slate-800">
           <Link
             href="/"

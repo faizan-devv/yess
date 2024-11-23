@@ -1,4 +1,4 @@
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import NavHeader from "./NavBar";
 const Banner = () => {
   return (
@@ -93,7 +93,7 @@ const Banner = () => {
                 display: "inline-block",
                 backgroundColor: "#282D4047",
                 marginTop: "54px",
-                lineHeight:"30px"
+                lineHeight: "30px",
               }}
               className=""
             >
