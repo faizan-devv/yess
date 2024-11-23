@@ -11,6 +11,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        greycolor:'background: linear-gradient(101.13deg, #FFFFFF 24.57%, rgba(16, 13, 49, 0) 74.19%)',
       },
     },
   },
