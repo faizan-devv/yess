@@ -27,3 +27,23 @@ body {
 .our-vsion {
   background: url("/images/vision-bg.svg") no-repeat center/cover;
 }
+.projects-header{
+  background: url("/images/projects-bg.gif") no-repeat center/cover;
+}
+.blue-circle::after {
+  content: '';
+  position: absolute;
+  top: 26%;
+  width: 310px;
+  height: 260px;
+  background-color: #397EF5;
+  filter: blur(80px);
+  z-index: -1;
+  border-radius: 50%;
+}
+.right-section .blue-circle::after{
+  right: 50% !important;
+}
+.left-section .blue-circle::after{
+  left: 50% !important;
+}

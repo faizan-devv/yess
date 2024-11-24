@@ -67,8 +67,14 @@ const NavHeader = () => {
           <Link href="/about" className="text-white mr-[51px]">
             About Us
           </Link>
-          <Link href="/faq" className="text-white">
+          <Link href="/faq" className="text-white mr-[51px]">
             FAQ
+          </Link>
+          <Link href="/faq" className="text-white  mr-[51px]">
+            Digital Landscape System
+          </Link>
+          <Link href="/faq" className="text-white">
+            Partners & Clients
           </Link>
         </div>
         <div className="hidden md:flex self-center">

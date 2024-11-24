@@ -1,22 +1,13 @@
 import { Typography, Box } from "@mui/material";
+import GradientHeading from "./GradientHeading";
+
 const OurVision = () => {
   return (
     <div className="our-vsion px-[70px] min-h-screen flex items-center justify-center text-center">
       <Box sx={{width:"60%"}}>
-        <Typography
-          variant="h1"
-          sx={{
-            fontSize: { xs: "2.5rem", md: "5rem" },
-            fontWeight: 800,
-            mb: 2,
-            background:
-              "linear-gradient(130deg, #FFFFFF 31.58%, #100D31 98.2%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
+        <GradientHeading>
           Saudi Vision 2030
-        </Typography>
+        </GradientHeading>
         <div className="">
         <Typography
           variant="h1"
@@ -24,8 +15,7 @@ const OurVision = () => {
             fontSize: { xs: "20px", md: "30px" },
             fontWeight: 400,
             mb: 2,
-            color:'#FFFFFFCC'
-          }}
+          }} className="text-white80"
         >
          empowers us to drive innovation and shape the future
          of technology in the Kingdom

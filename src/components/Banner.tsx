@@ -1,5 +1,7 @@
 import { Typography, Box } from "@mui/material";
 import NavHeader from "./NavBar";
+import GradientHeading from "./GradientHeading";
+
 const Banner = () => {
   return (
     <div className="">
@@ -15,20 +17,9 @@ const Banner = () => {
         >
           {/* Left content */}
           <Box sx={{ flex: 1 }}>
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: { xs: "2.5rem", md: "5rem" },
-                fontWeight: 800,
-                mb: 2,
-                background:
-                  "linear-gradient(101.13deg, #FFFFFF 24.57%, rgba(16, 13, 49, 0) 74.19%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
+            <GradientHeading>
               Linking Minds
-            </Typography>
+            </GradientHeading>
 
             <Typography
               variant="subtitle1"
@@ -64,20 +55,9 @@ const Banner = () => {
               bottom: "-511%",
             }}
           >
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: { xs: "2.5rem", md: "5rem" },
-                fontWeight: 800,
-                mb: 2,
-                background:
-                  "linear-gradient(130deg, #FFFFFF 31.58%, #100D31 98.2%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
+            <GradientHeading>
               Bridging Worlds
-            </Typography>
+            </GradientHeading>
 
             <Typography
               variant="subtitle1"
