@@ -1,12 +1,39 @@
+"use client";
+import { useRef, useEffect, useState } from "react";
+import gsap from "gsap";
 import { Typography, Box } from "@mui/material";
 import NavHeader from "./NavBar";
 import GradientHeading from "./GradientHeading";
 
 const Banner = () => {
+  const [animationStarted, setAnimationStarted] = useState(false);
+  const container = useRef<HTMLDivElement>(null);
+  const box1Ref = useRef<HTMLDivElement>(null);
+  const box2Ref = useRef<HTMLDivElement>(null);
+  const box3Ref = useRef<HTMLDivElement>(null);
+  const box4Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Initialize GSAP timeline
+    setAnimationStarted(true);
+    const tl = gsap.timeline();
+
+    // Animate all elements simultaneously
+    tl.from(box1Ref.current, { x: -500, duration: 1 }, 0)
+      .from(box2Ref.current, { x: -500, duration: 1 }, 0)
+      .from(box3Ref.current, { x: 1500, duration: 1 }, 0)
+      .from(box4Ref.current, { x: 1500, duration: 1 }, 0);
+
+    // Cleanup
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   return (
-    <div className="">
+    <div>
       <NavHeader />
-      <div className="banner px-[70px] pt-[165px] min-h-screen">
+      <div ref={container} className="banner px-[70px] pt-[165px] min-h-screen">
         <Box
           sx={{
             display: "flex",
@@ -17,11 +44,15 @@ const Banner = () => {
         >
           {/* Left content */}
           <Box sx={{ flex: 1 }}>
-            <GradientHeading>
+            <GradientHeading
+              className={animationStarted ? "show" : "hide"}
+              ref={box1Ref}
+            >
               Linking Minds
             </GradientHeading>
 
             <Typography
+              ref={box2Ref}
               variant="subtitle1"
               sx={{
                 fontSize: { xs: ".875rem", md: "1.25rem" },
@@ -40,7 +71,7 @@ const Banner = () => {
                 display: "inline-block",
                 backgroundColor: "#282D4047",
               }}
-              className="tech-sol"
+              className={animationStarted ? "show tech-sol" : "hide tech-sol"}
             >
               Technology Solutions
             </Typography>
@@ -55,11 +86,16 @@ const Banner = () => {
               bottom: "-511%",
             }}
           >
-            <GradientHeading>
+            <GradientHeading
+              className={animationStarted ? "show" : "hide"}
+              ref={box3Ref}
+            >
               Bridging Worlds
             </GradientHeading>
 
             <Typography
+              className={animationStarted ? "show" : "hide"}
+              ref={box4Ref}
               variant="subtitle1"
               sx={{
                 fontSize: { xs: ".75rem", md: ".875rem" },
@@ -75,7 +111,6 @@ const Banner = () => {
                 marginTop: "54px",
                 lineHeight: "30px",
               }}
-              className=""
             >
               YES Solutions (Al Yamamah Engineering Systems Solutions) is a
               Saudi company that has been growing rapidly in IT solutions by
