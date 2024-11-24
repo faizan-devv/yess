@@ -121,7 +121,7 @@ const Projects = () => {
             02
           </Typography>
         </div>
-        <div className="left-section px-[47px] flex items-center">
+        <div className="left-section px-[47px] flex items-center border-b border-customGray">
           <Typography className="text-white font-bold text-2xl pl-[19px] pr-20">
             03
           </Typography>
