@@ -1,4 +1,4 @@
-import { MainLayout, Banner, OurVision, Projects } from '@/components'; 
+import { MainLayout, Banner, OurVision, Projects, Services } from '@/components'; 
 
 export default function Home() {
   return (
@@ -6,6 +6,7 @@ export default function Home() {
       <Banner />
       <OurVision />
       <Projects />
+      <Services />
     </MainLayout>
   );
 }
