@@ -64,7 +64,7 @@ const NavHeader = () => {
               </div>
             </div>
           </div>
-          <Link href="/about" className="text-white mr-[51px]">
+          <Link href="/about-us" className="text-white mr-[51px]">
             About Us
           </Link>
           <Link href="/faq" className="text-white mr-[51px]">

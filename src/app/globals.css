@@ -55,3 +55,21 @@ body {
 .show {
   opacity: 1;
 }
+
+.about-us-banner {
+  background: url("/images/about-us-bg.svg") no-repeat center/cover;
+  height: 100vh;
+}
+
+.gradient-border {
+  border: 1px solid transparent;
+  border-image-source: linear-gradient(
+    138.35deg,
+    #29313f -0.03%,
+    #397ef5 30.27%,
+    #29313f 100.96%
+  );
+  border-image-slice: 1;
+
+  border-radius: 8px;
+}
