@@ -27,6 +27,7 @@ const Banner = () => {
     // Cleanup
     return () => {
       tl.kill();
+      setAnimationStarted(false);
     };
   }, []);
 
