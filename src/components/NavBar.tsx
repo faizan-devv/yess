@@ -16,8 +16,8 @@ const NavHeader = () => {
           <Image
             src="/images/logo.svg"
             alt="Logo"
-            width={120} 
-            height={63} 
+            width={120}
+            height={63}
             priority
           />
         </Link>
@@ -33,18 +33,21 @@ const NavHeader = () => {
           <Link href="/landscape" className="text-white  mr-[51px]">
             Digital Landscape System
           </Link>
+          <Link href="#services" className="text-white  mr-[51px]">
+            Services
+          </Link>
           <div className="relative group">
             <button className="text-white flex  items-center">
-              Services{" "}
+              {/* Services{" "}
               <Image
                 src="/images/down-white-arrow.svg"
                 alt="Logo"
                 width={20}
                 height={20}
                 priority
-              />
+              /> */}
             </button>
-            <div className="absolute left-0 mt-2 w-60 rounded-md shadow-lg hidden group-hover:block">
+            {/* <div className="absolute left-0 mt-2 w-60 rounded-md shadow-lg hidden group-hover:block">
               <div className="py-2">
                 <Link
                   href="/service1"
@@ -65,19 +68,17 @@ const NavHeader = () => {
                   Service 3
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
-          <Link href="/faq" className="text-white">
+          <Link href="#clients" className="text-white">
             Partners & Clients
           </Link>
           <Link href="/about-us" className="text-white mr-[51px]">
             About Us
           </Link>
-          <Link href="/faq" className="text-white mr-[51px]">
+          {/* <Link href="/faq" className="text-white mr-[51px]">
             FAQ
-          </Link>
-         
-         
+          </Link> */}
         </div>
         <div className="hidden md:flex self-center">
           <Button variant="outlined">Contact Us</Button>

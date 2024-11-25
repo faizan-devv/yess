@@ -1,10 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 const ServiceSlider = () => {
@@ -21,6 +18,54 @@ const ServiceSlider = () => {
     },
     {
       title: "DevOps Services",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "Blockchain Solutions",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "Online Marketplace Development",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "PWA Development",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "Digitalization & Transformation",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "Digitalization & Transformation",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "Digitalization & Transformation",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "AI and Machine Learning Solutions",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "MVP Development",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "UI/UX Design",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "Oracle-Based Services",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "Edge Computing Solutions",
+      icon: "/images/message-programming.svg",
+    },
+    {
+      title: "Product Discovery",
       icon: "/images/message-programming.svg",
     },
   ];
@@ -69,7 +114,11 @@ const ServiceSlider = () => {
             >
               <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-br from-[#397EF5] via-[#29313F] to-[#397EF5]">
                 <div className="w-full h-full bg-darkBlue backdrop-blur-[30px] rounded-2xl p-10  flex flex-col items-center transform transition-transform">
-                <div className={`p-10 rounded-[31px] flex items-center justify-center border border-[#397EF5] absolute top-[-16%] ${index === currentSlide ? 'bg-[#397EF5]' : 'bg-darkBlue'}`}>
+                  <div
+                    className={`p-10 rounded-[31px] flex items-center justify-center border border-[#397EF5] absolute top-[-16%] ${
+                      index === currentSlide ? "bg-[#397EF5]" : "bg-darkBlue"
+                    }`}
+                  >
                     <Image
                       src={service.icon}
                       alt={service.title}

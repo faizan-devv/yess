@@ -4,40 +4,36 @@ import Image from "next/image";
 import { Typography, Box } from "@mui/material";
 import GradientHeading from "./GradientHeading";
 
-const OurClients = () => {
-  const clients = [
+const OurPartners = () => {
+  const partners = [
     {
-      name: "Ministry of Defence",
-      nameAr: "وزارة الدفاع",
-      logo: "/images/mod-logo.svg",
+      url: "",
+
+      logo: "/images/next-sense-logo.svg",
     },
     {
-      name: "Ministry of Interior",
-      nameAr: "وزارة الداخلية",
-      logo: "/images/moi-logo.svg",
+      url: "",
+      logo: "/images/ipers-logo.svg",
     },
     {
-      name: "GIP",
-      nameAr: "رئاسة الاستخبارات العامة",
-      logo: "/images/gip-logo.svg",
+      url: "",
+      logo: "/images/Zubr-Curio.svg",
     },
     {
-      name: "PSS/GID",
-      nameAr: "المنصة الوطنية الموحدة",
-      logo: "/images/pss-logo.svg",
+      url: "",
+      logo: "/images/alyamama.svg",
     },
     {
-      name: "Royal Guards",
-      nameAr: "الحرس الملكي",
-      logo: "/images/rg-logo.svg",
+      url: "",
+      logo: "/images/mds-arabia.svg",
     },
   ];
 
   return (
-    <div id="clients" className="our-clients mt-[100px] px-[70px]">
+    <div className="our-clients mt-[100px] px-[70px]">
       <div className="flex justify-center">
         <Box sx={{ width: "60%" }} className="text-center">
-          <GradientHeading>Our Clients</GradientHeading>
+          <GradientHeading>Our Partners</GradientHeading>
           <div className="">
             <Typography
               variant="h1"
@@ -58,12 +54,12 @@ const OurClients = () => {
       {/* Clients Grid */}
       <div className=" mt-[100px]">
         <div className="flex flex-wrap justify-center items-center gap-6 md:gap-0">
-          {clients.map((client, index) => (
+          {partners.map((client, index) => (
             <div
-              key={client.name}
+              key={index}
               className="relative flex flex-col items-center w-full md:w-1/5"
             >
-              {index !== clients.length - 1 && (
+              {index !== partners.length - 1 && (
                 <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-32">
                   <div
                     className="w-full h-full"
@@ -80,12 +76,12 @@ const OurClients = () => {
                 <div className="w-[200px] h-[200px] mb-5 relative">
                   <Image
                     src={client.logo}
-                    alt={client.name}
+                    alt={client.url}
                     fill
                     className="object-contain"
                   />
                 </div>
-                <GradientHeading
+                {/* <GradientHeading
                   variant="subtitle1"
                   fontSize={{ xs: "16px", md: "20px" }}
                   gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
@@ -102,7 +98,7 @@ const OurClients = () => {
                   }}
                 >
                   {client.nameAr}
-                </Typography>
+                </Typography> */}
               </div>
             </div>
           ))}
@@ -112,4 +108,4 @@ const OurClients = () => {
   );
 };
 
-export default OurClients;
+export default OurPartners;
