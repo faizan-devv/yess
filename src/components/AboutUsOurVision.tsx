@@ -1,5 +1,4 @@
 import React from "react";
-import NavHeader from "./NavBar";
 import { Stack, Typography, Grid2 as Grid, Box } from "@mui/material";
 
 const AboutUsOurVisionBanner = () => {
@@ -40,6 +39,7 @@ const AboutUsOurVisionBanner = () => {
           </Stack>
         </Grid>
         <Grid size={6}>
+
           <Box
             className="gradient-border"
             display="flex"

@@ -5,8 +5,7 @@ import GradientHeading from "./GradientHeading";
 import Image from "next/image";
 
 const RegistrationForm = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     // Handle form submission
   };
 
