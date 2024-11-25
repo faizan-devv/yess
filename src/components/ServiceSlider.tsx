@@ -34,8 +34,8 @@ const ServiceSlider = () => {
   };
 
   return (
-    <section className="w-full bg-[#090921]">
-      <div className="max-w-[90%] h-[571px] mx-auto relative">
+    <section className="w-full">
+      <div className="max-w-[95%] h-[571px] mx-auto relative">
         {/* Navigation buttons */}
         <button
           onClick={previousSlide}
@@ -67,9 +67,9 @@ const ServiceSlider = () => {
                   : "opacity-50 translate-x-[100%] rotate-12 z-10 top-[35%]"
               }`}
             >
-              <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-r from-[#29313F] via-[#397EF5] to-[#29313F]">
-                <div className="w-full h-full bg-darkBlue backdrop-blur-[30px] rounded-2xl p-10  flex flex-col items-center transform transition-transform hover:scale-105">
-                  <div className="p-10 rounded-[31px] bg-[#397EF5] flex items-center justify-center absolute top-[-16%]">
+              <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-br from-[#397EF5] via-[#29313F] to-[#397EF5]">
+                <div className="w-full h-full bg-darkBlue backdrop-blur-[30px] rounded-2xl p-10  flex flex-col items-center transform transition-transform">
+                <div className={`p-10 rounded-[31px] flex items-center justify-center border border-[#397EF5] absolute top-[-16%] ${index === currentSlide ? 'bg-[#397EF5]' : 'bg-darkBlue'}`}>
                     <Image
                       src={service.icon}
                       alt={service.title}
@@ -86,7 +86,7 @@ const ServiceSlider = () => {
                   className="absolute inset-0 rounded-2xl"
                   style={{
                     background:
-                      "linear-gradient(138.35deg, #29313F -0.03%, #397EF5 30.27%, #29313F 100.96%)",
+                      "linear-gradient(135deg, #397EF5 0%, #29313F 50%, #397EF5 100%)",
                     opacity: "0.1",
                     mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                     maskComposite: "xor",
