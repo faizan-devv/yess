@@ -4,3 +4,8 @@ export {default as NavBar} from './NavBar'
 export {default as OurVision} from './OurVision';
 export {default as Projects} from './Projects';
 export {default as Services} from './Services';
+export {default as OurClients} from './OurClients';
+export {default as ExcellenceSection} from './ExcellenceSection';
+export {default as RegistrationForm} from './RegistrationForm';
+export {default as Footer} from './Footer';
+export {default as LandscapeSystem} from './LandscapeSystem';

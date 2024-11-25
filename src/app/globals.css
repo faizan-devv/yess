@@ -30,6 +30,18 @@ body {
 .projects-header{
   background: url("/images/projects-bg.gif") no-repeat center/cover;
 }
+.services{
+  background: url("/images/services-bg.svg") no-repeat center/cover;
+}
+.excelence{
+  background: url("/images/excelence-bg.svg") no-repeat center/cover;
+}
+.land-scape{
+  background: url("/images/landscape-bg.svg") no-repeat center/cover;
+}
+.about-us{
+  background: url("/images/aboutus-bg.svg") no-repeat center/cover;
+}
 .blue-circle::after {
   content: '';
   position: absolute;

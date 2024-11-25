@@ -16,8 +16,8 @@ const NavHeader = () => {
           <Image
             src="/images/logo.svg"
             alt="Logo"
-            width={120} // Specify width
-            height={63} // Specify height
+            width={120} 
+            height={63} 
             priority
           />
         </Link>
@@ -29,6 +29,9 @@ const NavHeader = () => {
             className="text-white hover:text-blue-400 transition-colors"
           >
             Home
+          </Link>
+          <Link href="/landscape" className="text-white  mr-[51px]">
+            Digital Landscape System
           </Link>
           <div className="relative group">
             <button className="text-white flex  items-center">
@@ -64,18 +67,17 @@ const NavHeader = () => {
               </div>
             </div>
           </div>
+          <Link href="/faq" className="text-white">
+            Partners & Clients
+          </Link>
           <Link href="/about" className="text-white mr-[51px]">
             About Us
           </Link>
           <Link href="/faq" className="text-white mr-[51px]">
             FAQ
           </Link>
-          <Link href="/faq" className="text-white  mr-[51px]">
-            Digital Landscape System
-          </Link>
-          <Link href="/faq" className="text-white">
-            Partners & Clients
-          </Link>
+         
+         
         </div>
         <div className="hidden md:flex self-center">
           <Button variant="outlined">Contact Us</Button>
