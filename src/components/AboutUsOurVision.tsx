@@ -1,7 +1,6 @@
 import React from "react";
 import { Stack, Typography, Grid2 as Grid, Box } from "@mui/material";
 import Image from "next/image";
-import { relative } from "path";
 
 const AboutUsOurVisionBanner = () => {
   return (
