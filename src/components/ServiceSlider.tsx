@@ -70,13 +70,59 @@ const ServiceSlider = () => {
     setCurrentSlide((prev) => (prev === 0 ? services.length - 1 : prev - 1));
   };
 
+  const getSlideStyles = (index) => {
+    // Calculate the relative position from current slide
+    const position = (index - currentSlide + services.length) % services.length;
+    
+    // Base styles that will be applied to all slides
+    const baseStyles = {
+      transition: 'all 700ms ease-in-out',
+      position: 'absolute',
+      width: '350px',
+      height: '350px',
+    };
+
+    // Position-specific styles
+    if (position === 0) { // Current slide
+      return {
+        ...baseStyles,
+        transform: 'translateX(0) scale(1.1)',
+        opacity: 1,
+        zIndex: 20,
+      };
+    } else if (position === 1 || position === -services.length + 1) { // Next slide
+      return {
+        ...baseStyles,
+        transform: 'translateX(calc(100% + 1rem)) rotate(12deg) translateY(30%)',
+        opacity: 0.5,
+        zIndex: 10,
+      };
+    } else if (position === -1 || position === services.length - 1) { // Previous slide
+      return {
+        ...baseStyles,
+        transform: 'translateX(calc(-100% - 1rem)) rotate(-12deg) translateY(30%)',
+        opacity: 0.5,
+        zIndex: 10,
+      };
+    } else { // Hidden slides
+      return {
+        ...baseStyles,
+        transform: position > 0 
+          ? 'translateX(calc(200% + 8rem)) scale(0.8)' 
+          : 'translateX(calc(-200% - 8rem)) scale(0.8)',
+        opacity: 0,
+        zIndex: -1,
+      };
+    }
+  };
+
   return (
     <section className="w-full">
-      <div className="max-w-[95%] h-[571px] mx-auto relative">
+      <div className="max-w-[95%] h-[390px] mx-auto relative">
         {/* Navigation buttons */}
         <button
           onClick={previousSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-[60px] h-[60px] rounded-full  border border-[#397EF5] flex items-center justify-center hover:bg-gray-900 transition-colors z-10"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-[60px] h-[60px] rounded-full border border-[#397EF5] flex items-center justify-center hover:bg-gray-900 transition-colors z-30"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-6 h-6 text-white" />
@@ -84,7 +130,7 @@ const ServiceSlider = () => {
 
         <button
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-[60px] h-[60px] rounded-full  border border-[#397EF5] flex items-center justify-center hover:bg-gray-900 transition-colors z-10"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-[60px] h-[60px] rounded-full border border-[#397EF5] flex items-center justify-center hover:bg-gray-900 transition-colors z-30"
           aria-label="Next slide"
         >
           <ChevronRight className="w-6 h-6 text-white" />
@@ -95,19 +141,12 @@ const ServiceSlider = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`absolute w-[390px] h-[390px] transition-all duration-500 ${
-                index === currentSlide
-                  ? "opacity-100 z-20 scale-110"
-                  : index ===
-                    (currentSlide - 1 + services.length) % services.length
-                  ? "opacity-50 -translate-x-[100%] -rotate-12 z-10 top-[35%]"
-                  : "opacity-50 translate-x-[100%] rotate-12 z-10 top-[35%]"
-              }`}
+              style={getSlideStyles(index)}
             >
               <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-br from-[#397EF5] via-[#29313F] to-[#397EF5]">
-                <div className="w-full h-full bg-darkBlue backdrop-blur-[30px] rounded-2xl p-10  flex flex-col items-center transform transition-transform">
+                <div className="w-full h-full bg-darkBlue backdrop-blur-[30px] rounded-2xl p-10 flex flex-col items-center">
                   <div
-                    className={`p-10 rounded-[31px] flex items-center justify-center border border-[#397EF5] absolute top-[-16%] ${
+                    className={`p-10 rounded-[31px] flex items-center justify-center border border-[#397EF5] absolute top-[-16%] transition-colors duration-700 ${
                       index === currentSlide ? "bg-[#397EF5]" : "bg-darkBlue"
                     }`}
                   >

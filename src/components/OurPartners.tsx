@@ -1,36 +1,22 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import { Typography, Box } from "@mui/material";
 import GradientHeading from "./GradientHeading";
 
 const OurPartners = () => {
   const partners = [
-    {
-      url: "",
-
-      logo: "/images/next-sense-logo.svg",
-    },
-    {
-      url: "",
-      logo: "/images/ipers-logo.svg",
-    },
-    {
-      url: "",
-      logo: "/images/Zubr-Curio.svg",
-    },
-    {
-      url: "",
-      logo: "/images/alyamama.svg",
-    },
-    {
-      url: "",
-      logo: "/images/mds-arabia.svg",
-    },
+    { url: "", logo: "/images/next-sense-logo.svg" },
+    { url: "", logo: "/images/IPeraLogo.svg" },
+    { url: "", logo: "/images/Zubr-Curio.svg" },
+    { url: "", logo: "/images/alyamama.svg" },
+    { url: "", logo: "/images/mds-arabia.svg" },
+    { url: "", logo: "/images/thep.svg" },
   ];
 
   return (
-    <div className="our-clients mt-[100px] px-[70px]">
+    <div className="our-clients partners-section mt-[100px] px-[70px]">
       <div className="flex justify-center">
         <Box sx={{ width: "60%" }} className="text-center">
           <GradientHeading>Our Partners</GradientHeading>
@@ -51,54 +37,41 @@ const OurPartners = () => {
         </Box>
       </div>
 
-      {/* Clients Grid */}
-      <div className=" mt-[100px]">
-        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-0">
-          {partners.map((client, index) => (
+      {/* Scrolling Partners */}
+      <div className="mt-[100px] relative w-full overflow-hidden">
+        <div className="partners-slider">
+          {partners.map((partner, index) => (
             <div
               key={index}
-              className="relative flex flex-col items-center w-full md:w-1/5"
+              className="partner-item w-[20%] flex-shrink-0 px-2"
             >
-              {index !== partners.length - 1 && (
-                <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-32">
-                  <div
-                    className="w-full h-full"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, #0B0920 6.69%, #FFFFFF 55.61%, #0B0920 96.46%)",
-                    }}
-                  />
-                </div>
-              )}
-
-              {/* Client Logo and Text */}
-              <div className="flex flex-col items-center p-6">
-                <div className="w-[200px] h-[200px] mb-5 relative">
+              <div className="relative flex flex-col items-center">
+                <div className="w-[180px] h-[180px] relative">
                   <Image
-                    src={client.logo}
-                    alt={client.url}
+                    src={partner.logo}
+                    alt={partner.url}
                     fill
                     className="object-contain"
                   />
                 </div>
-                {/* <GradientHeading
-                  variant="subtitle1"
-                  fontSize={{ xs: "16px", md: "20px" }}
-                  gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-                  fontWeight={600}
-                >
-                  {client.name}
-                </GradientHeading>
-                <Typography
-                  variant="subtitle1"
-                  className="text-white"
-                  sx={{
-                    fontSize: { xs: "16px", md: "20px" },
-                    fontWeight: 600,
-                  }}
-                >
-                  {client.nameAr}
-                </Typography> */}
+              </div>
+            </div>
+          ))}
+          {/* Duplicate Items for Infinite Scrolling */}
+          {partners.map((partner, index) => (
+            <div
+              key={`duplicate-${index}`}
+              className="partner-item w-[15%] flex-shrink-0 px-2"
+            >
+              <div className="relative flex flex-col items-center">
+                <div className="w-[180px] h-[180px] relative">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.url}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             </div>
           ))}

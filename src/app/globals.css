@@ -15,7 +15,27 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+/* all styles */
 .banner {
   background: url("/images/man2-bg.svg") no-repeat center/cover;
 }
@@ -85,3 +105,112 @@ body {
 
   border-radius: 8px;
 }
+
+
+/* scroll */
+
+
+.fullpage-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+  -webkit-overflow-scrolling: touch; 
+  perspective: 1px; 
+}
+
+.fullpage-section {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  will-change: transform; 
+  transform: translateZ(0); 
+  backface-visibility: hidden;
+  transition: transform 0.3s ease;
+}
+
+.normal-scroll-sections {
+  width: 100%;
+  position: relative;
+  scroll-snap-align: none;
+  height: auto;
+  min-height: min-content;
+  overflow: visible;
+}
+
+.normal-scroll-sections > * {
+  transform: translateZ(0);
+}
+
+/* Scrollbar styling */
+.fullpage-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.fullpage-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fullpage-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.fullpage-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.partners-section .partners-slider {
+  display: flex;
+  width: max-content; 
+  animation: scrollSlider 15s linear infinite;
+}
+
+.partner-item {
+  flex: 0 0 15%; 
+}
+
+@keyframes scrollSlider {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .fullpage-section {
+    height: 100dvh; 
+    scroll-snap-align: start;
+    scroll-snap-stop: normal; 
+  }
+
+  .normal-scroll-sections {
+    padding: 2rem 0;
+  }
+}
+
+/* Prevent content jump on load */
+@supports (height: 100dvh) {
+  .fullpage-section {
+    height: 100dvh;
+  }
+}
+
+.fullpage-section, .normal-scroll-sections {
+  transition: opacity 0.3s ease;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .fullpage-section {
+    height: -webkit-fill-available;
+  }
+}
+
+

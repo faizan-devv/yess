@@ -8,8 +8,20 @@ import Button from "@mui/material/Button";
 const NavHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      setIsOpen(false); // Close mobile menu after clicking
+    }
+  };
+
   return (
-    <nav className="pt-9 px-[70px]">
+    <nav className="pt-[37px] px-[70px]">
       <div className="flex justify-between items-end">
         {/* Logo Section */}
         <Link href="/">
@@ -23,102 +35,81 @@ const NavHeader = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center rounded-[100px] space-x-8 border border-[#3D3D3D] py-[12px] px-[51px]">
+        <div className="hidden lg:flex items-center rounded-[100px] space-x-8 border border-[#3D3D3D] py-[12px] px-[51px]">
           <Link
             href="/"
             className="text-white hover:text-blue-400 transition-colors"
           >
             Home
           </Link>
-          <Link href="/landscape" className="text-white  mr-[51px]">
-            Digital Landscape System
-          </Link>
-          <Link href="#services" className="text-white  mr-[51px]">
+         
+          <a
+            href="#services"
+            onClick={(e) => scrollToSection(e, 'services')}
+            className="text-white mr-[51px] cursor-pointer"
+          >
             Services
-          </Link>
-          <div className="relative group">
-            <button className="text-white flex  items-center">
-              {/* Services{" "}
-              <Image
-                src="/images/down-white-arrow.svg"
-                alt="Logo"
-                width={20}
-                height={20}
-                priority
-              /> */}
+          </a>
+          {/* <div className="relative group">
+            <button className="text-white flex items-center">
             </button>
-            {/* <div className="absolute left-0 mt-2 w-60 rounded-md shadow-lg hidden group-hover:block">
-              <div className="py-2">
-                <Link
-                  href="/service1"
-                  className="block px-4 py-2 hover:bg-slate-700"
-                >
-                  Service 1
-                </Link>
-                <Link
-                  href="/service2"
-                  className="block px-4 py-2 hover:bg-slate-700"
-                >
-                  Service 2
-                </Link>
-                <Link
-                  href="/service3"
-                  className="block px-4 py-2 hover:bg-slate-700"
-                >
-                  Service 3
-                </Link>
-              </div>
-            </div> */}
-          </div>
-          <Link href="#clients" className="text-white">
-            Partners & Clients
-          </Link>
+          </div> */}
+
           <Link href="/about-us" className="text-white mr-[51px]">
             About Us
           </Link>
-          {/* <Link href="/faq" className="text-white mr-[51px]">
-            FAQ
-          </Link> */}
+          <Link href="/landscape" className="text-white  mr-[51px]">
+          Smart Solutions
+          </Link>
+          <a
+            href="#clients"
+            onClick={(e) => scrollToSection(e, 'clients')}
+            className="text-white cursor-pointer"
+          >
+            Partners & Clients
+          </a>
         </div>
-        <div className="hidden md:flex self-center">
+        <div className="hidden lg:flex">
           <Button variant="outlined">Contact Us</Button>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white"
+          className="lg:hidden text-white self-center"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <Menu size={24} />
+          <Menu size={32} />
         </button>
       </div>
 
       {/* Mobile Menu */}
       {!!isOpen && (
-        <div className="md:hidden mt-4 bg-slate-800">
+        <div className="lg:hidden mt-4 bg-slate-800">
           <Link
             href="/"
             className="block px-4 py-2 text-white hover:bg-slate-700"
           >
             Home
           </Link>
-          <Link
-            href="/services"
-            className="block px-4 py-2 text-white hover:bg-slate-700"
+          <a
+            href="#services"
+            onClick={(e) => scrollToSection(e, 'services')}
+            className="block px-4 py-2 text-white hover:bg-slate-700 cursor-pointer"
           >
             Services
-          </Link>
+          </a>
+          <a
+            href="#clients"
+            onClick={(e) => scrollToSection(e, 'clients')}
+            className="block px-4 py-2 text-white hover:bg-slate-700 cursor-pointer"
+          >
+            Partners & Clients
+          </a>
           <Link
-            href="/about"
+            href="/about-us"
             className="block px-4 py-2 text-white hover:bg-slate-700"
           >
             About Us
-          </Link>
-          <Link
-            href="/faq"
-            className="block px-4 py-2 text-white hover:bg-slate-700"
-          >
-            FAQ
           </Link>
           <Button variant="outlined">Contact Us</Button>
         </div>

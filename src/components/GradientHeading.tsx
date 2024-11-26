@@ -15,8 +15,8 @@ const GradientHeading = ({
   children,
   variant = "h1",
   gradient = "linear-gradient(130deg, #FFFFFF 31.58%, #100D31 98.2%)",
-  fontSize = { xs: "2.5rem", md: "5rem" },
-  fontWeight = 800,
+  fontSize = { xs: "2rem", md: "3.75rem" },
+  fontWeight = 700,
   sx,
   ...props
 }: GradientHeadingProps) => {

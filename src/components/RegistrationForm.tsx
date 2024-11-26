@@ -30,7 +30,7 @@ const RegistrationForm = () => {
               <Typography
                 variant="subtitle1"
                 className="text-white mt-[20px]"
-                sx={{ fontSize: "20px", lineHeight: "25px" }}
+                sx={{ fontSize: "20px", lineHeight: "25px", marginBottom:"23px" }}
                 mb={6}
               >
                 Email
@@ -66,6 +66,7 @@ const RegistrationForm = () => {
                 sx={{
                   "& .MuiFilledInput-root": {
                     backgroundColor: "#1A1D41",
+                    borderRadius: "10px",
                     "&:hover": {
                       backgroundColor: "#1A1D41",
                     },
@@ -89,7 +90,7 @@ const RegistrationForm = () => {
               <Typography
                 variant="subtitle1"
                 className="text-white mt-[20px]"
-                sx={{ fontSize: "20px", lineHeight: "25px" }}
+                sx={{ fontSize: "20px", lineHeight: "25px", marginBottom:"23px" }}
                 mb={6}
               >
                 Company Name
@@ -125,6 +126,7 @@ const RegistrationForm = () => {
                 sx={{
                   "& .MuiFilledInput-root": {
                     backgroundColor: "#1A1D41",
+                    borderRadius: "10px",
                     "&:hover": {
                       backgroundColor: "#1A1D41",
                     },
@@ -148,7 +150,7 @@ const RegistrationForm = () => {
               <Typography
                 variant="subtitle1"
                 className="text-white mt-[20px]"
-                sx={{ fontSize: "20px", lineHeight: "25px" }}
+                sx={{ fontSize: "20px", lineHeight: "25px", marginBottom:"23px" }}
                 mb={6}
               >
                 Message
@@ -186,6 +188,7 @@ const RegistrationForm = () => {
                 sx={{
                   "& .MuiFilledInput-root": {
                     backgroundColor: "#1A1D41",
+                    borderRadius: "10px",
                     "&:hover": {
                       backgroundColor: "#1A1D41",
                     },
@@ -206,7 +209,7 @@ const RegistrationForm = () => {
               />
             </div>
 
-            <Button variant="outlined">Submit</Button>
+            <Button variant="outlined" sx={{paddingInline:'36px'}}>Submit</Button>
           </form>
         </div>
 

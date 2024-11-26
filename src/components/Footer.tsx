@@ -22,7 +22,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="mb-[100px]">
+    <footer className="mb-[100px] footer-section">
       <div className="px-[240px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="">

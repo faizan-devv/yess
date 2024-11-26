@@ -1,3 +1,6 @@
+// app/page.js
+"use client";
+import { useEffect, useRef } from 'react';
 import {
   MainLayout,
   Banner,
@@ -9,20 +12,60 @@ import {
   RegistrationForm,
   Footer,
   OurPartners,
+  NavBar
 } from "@/components";
 
 export default function Home() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    // Handle initial hash navigation if any
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
+
   return (
     <MainLayout>
-      <Banner />
-      <OurVision />
-      <Projects />
-      <Services />
-      <OurClients />
-      <OurPartners />
-      <ExcellenceSection />
-      <RegistrationForm />
-      <Footer />
+      <NavBar />
+      
+      <div className="fullpage-container" ref={containerRef}>
+        {/* Full-page snap sections */}
+        <section className="fullpage-section">
+          <Banner />
+        </section>
+
+        <section className="fullpage-section">
+          <OurVision />
+        </section>
+
+        <section id="services" className="fullpage-section">
+          <Services />
+        </section>
+
+        <div className="normal-scroll-sections">
+          <Projects />
+          <OurClients />
+        </div>
+
+        <section className="fullpage-section">
+          <ExcellenceSection />
+        </section>
+        <div className="normal-scroll-sections">
+          <OurPartners />
+        </div>
+        <section className="fullpage-section">
+          <RegistrationForm />
+        </section>
+
+        <div className="normal-scroll-sections">
+          <Footer />
+        </div>
+      </div>
     </MainLayout>
   );
 }

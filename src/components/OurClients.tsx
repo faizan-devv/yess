@@ -34,7 +34,7 @@ const OurClients = () => {
   ];
 
   return (
-    <div id="clients" className="our-clients mt-[100px] px-[70px]">
+    <div id="clients" className="our-clients clients-section mt-[100px] px-[70px]">
       <div className="flex justify-center">
         <Box sx={{ width: "60%" }} className="text-center">
           <GradientHeading>Our Clients</GradientHeading>

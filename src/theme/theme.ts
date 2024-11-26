@@ -54,6 +54,7 @@ let theme = createTheme({
           outlineColor: "#3D3D3D",
           borderColor: "#3D3D3D",
           transition: "none",
+          textTransform: 'capitalize',
           "&:hover": {
             backgroundColor: "#e3e5e724",
           },

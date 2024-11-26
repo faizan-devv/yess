@@ -5,7 +5,7 @@ import ServiceSlider from "./ServiceSlider";
 const Services = () => {
   return (
     <div id="services" className="min-h-screen services mt-[100px] px-[70px]">
-      <div className="flex justify-center text-center ">
+      <div className="flex justify-center text-center mb-[100px]">
         <Box sx={{ width: "60%" }}>
           <GradientHeading>Our Services</GradientHeading>
           <div className="">
@@ -25,7 +25,7 @@ const Services = () => {
         </Box>
       </div>
 
-      <div className="mt-20">
+      <div className="">
         <ServiceSlider />
       </div>
     </div>

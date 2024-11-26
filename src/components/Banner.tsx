@@ -33,7 +33,7 @@ const Banner = () => {
 
   return (
     <div>
-      <NavHeader />
+      {/* <NavHeader /> */}
       <div ref={container} className="banner px-[70px] pt-[165px] min-h-screen">
         <Box
           sx={{
@@ -48,6 +48,8 @@ const Banner = () => {
             <GradientHeading
               className={animationStarted ? "show" : "hide"}
               ref={box1Ref}
+              fontSize={{ xs: "40px", md: "80px" }}
+              fontWeight={800}
             >
               Linking Minds
             </GradientHeading>
@@ -90,6 +92,8 @@ const Banner = () => {
             <GradientHeading
               className={animationStarted ? "show" : "hide"}
               ref={box3Ref}
+              fontSize={{ xs: "40px", md: "80px" }}
+              fontWeight={800}
             >
               Bridging Worlds
             </GradientHeading>
