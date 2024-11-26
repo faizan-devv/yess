@@ -37,14 +37,6 @@ const ServiceSlider = () => {
       icon: "/images/message-programming.svg",
     },
     {
-      title: "Digitalization & Transformation",
-      icon: "/images/message-programming.svg",
-    },
-    {
-      title: "Digitalization & Transformation",
-      icon: "/images/message-programming.svg",
-    },
-    {
       title: "AI and Machine Learning Solutions",
       icon: "/images/message-programming.svg",
     },
