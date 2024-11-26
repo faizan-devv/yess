@@ -1,7 +1,7 @@
 import React from "react";
 import NavHeader from "./NavBar";
 import { Stack, Typography } from "@mui/material";
-
+import GradientHeading from "./GradientHeading";
 const AboutUsBanner = () => {
   return (
     <div>
@@ -14,17 +14,18 @@ const AboutUsBanner = () => {
           alignItems="center"
           textAlign="center"
         >
-          <Typography fontSize="3.75rem" fontWeight={700} color="#FFFFFF">
+          <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
             About Us
-          </Typography>
+          </GradientHeading>
           <Typography
-            fontSize="1.875rem"
-            fontWeight={400}
-            color="#FFFFFFCC"
-            maxWidth="1300px"
-            textAlign="center"
-            letterSpacing={-1}
-          >
+              variant="h1"
+              sx={{
+                fontSize: { xs: "20px", md: "30px" },
+                fontWeight: 400,
+                mb: 2,
+              }}
+              className="text-white80 w-3/4"
+            >
             YES Solutions (Al Yamamah Engineering Systems Solutions) is a Saudi
             company that has been growing rapidly in IT solutions by following a
             specialized path. YES Solutions provides design and implementation
