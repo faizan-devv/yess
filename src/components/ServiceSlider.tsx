@@ -70,7 +70,7 @@ const ServiceSlider = () => {
     setCurrentSlide((prev) => (prev === 0 ? services.length - 1 : prev - 1));
   };
 
-  const getSlideStyles = (index) => {
+  const getSlideStyles = (index: number) => {
     // Calculate the relative position from current slide
     const position = (index - currentSlide + services.length) % services.length;
     
@@ -141,7 +141,7 @@ const ServiceSlider = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              style={getSlideStyles(index)}
+              style={getSlideStyles(index) as any}
             >
               <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-br from-[#397EF5] via-[#29313F] to-[#397EF5]">
                 <div className="w-full h-full bg-darkBlue backdrop-blur-[30px] rounded-2xl p-10 flex flex-col items-center">

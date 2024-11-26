@@ -2,7 +2,6 @@
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { Typography, Box } from "@mui/material";
-import NavHeader from "./NavBar";
 import GradientHeading from "./GradientHeading";
 
 const Banner = () => {

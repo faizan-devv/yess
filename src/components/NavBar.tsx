@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 const NavHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (e, sectionId) => {
+  const scrollToSection = (e: any, sectionId: any) => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
@@ -42,10 +42,10 @@ const NavHeader = () => {
           >
             Home
           </Link>
-         
+
           <a
             href="#services"
-            onClick={(e) => scrollToSection(e, 'services')}
+            onClick={(e) => scrollToSection(e, "services")}
             className="text-white mr-[51px] cursor-pointer"
           >
             Services
@@ -59,11 +59,11 @@ const NavHeader = () => {
             About Us
           </Link>
           <Link href="/landscape" className="text-white  mr-[51px]">
-          Smart Solutions
+            Smart Solutions
           </Link>
           <a
             href="#clients"
-            onClick={(e) => scrollToSection(e, 'clients')}
+            onClick={(e) => scrollToSection(e, "clients")}
             className="text-white cursor-pointer"
           >
             Partners & Clients
@@ -93,14 +93,14 @@ const NavHeader = () => {
           </Link>
           <a
             href="#services"
-            onClick={(e) => scrollToSection(e, 'services')}
+            onClick={(e) => scrollToSection(e, "services")}
             className="block px-4 py-2 text-white hover:bg-slate-700 cursor-pointer"
           >
             Services
           </a>
           <a
             href="#clients"
-            onClick={(e) => scrollToSection(e, 'clients')}
+            onClick={(e) => scrollToSection(e, "clients")}
             className="block px-4 py-2 text-white hover:bg-slate-700 cursor-pointer"
           >
             Partners & Clients
