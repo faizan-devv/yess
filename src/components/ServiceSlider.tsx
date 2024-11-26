@@ -11,54 +11,80 @@ const ServiceSlider = () => {
     {
       title: "Custom Software Development",
       icon: "/images/simcard.svg",
+      description:
+        "We develop high-performance, tailor-made software solutions for businesses that require more than standard applications. Our bespoke software services provide robust, scalable solutions designed to boost operational efficiency and drive growth.",
     },
     {
       title: "SaaS Development",
       icon: "/images/programming-arrow.svg",
+      description:
+        "Thinking about transitioning to the cloud? Our SaaS development services offer cost-efective, scalable solutions. We help you lead your industry by improving accessibility, lowering costs, and enhancing user experience with our SaaS applications.",
     },
     {
       title: "DevOps Services",
       icon: "/images/message-programming.svg",
+      description:
+        "Our DevOps services streamline IT processes and reduce costs. By providing seamless IT infrastructure monitoring and integration, we boost the effciency and reliability of your IT environment.",
     },
     {
       title: "Blockchain Solutions",
       icon: "/images/message-programming.svg",
+      description:
+        "Our Blockchain solutions enhance security and transparency. By leveraging decentralized technology, we enable efficient, tamper-proof transactions and streamlined processes for your business.",
     },
     {
       title: "Online Marketplace Development",
       icon: "/images/message-programming.svg",
+      description:
+        "Online Marketplace Development enables businesses to build scalable platforms that connect buyers and sellers effortlessly. With intuitive interfaces and advanced features, these marketplaces foster growth and enhance user engagement.",
     },
     {
       title: "PWA Development",
       icon: "/images/message-programming.svg",
+      description:
+        "PWA Development delivers fast, reliable, and engaging web applications that function seamlessly across devices. By combining the best of web and mobile experiences, it ensures improved performance and user retention.",
     },
     {
       title: "Digitalization & Transformation",
       icon: "/images/message-programming.svg",
+      description:
+        "Digitalization & Transformation revolutionizes business operations by integrating modern technologies and workflows. This approach enhances efficiency, drives innovation, and positions organizations for sustainable growth in a digital-first world.",
     },
     {
       title: "AI and Machine Learning Solutions",
       icon: "/images/message-programming.svg",
+      description:
+        "AI and Machine Learning Solutions harness the power of data to deliver intelligent automation and predictive insights. These technologies optimize decision-making, enhance user experiences, and drive innovation across industries.",
     },
     {
       title: "MVP Development",
       icon: "/images/message-programming.svg",
+      description:
+        "MVP Development focuses on creating a functional prototype to validate ideas quickly and cost-effectively. This approach accelerates market entry, gathers user feedback, and lays the foundation for scalable product growth.",
     },
     {
       title: "UI/UX Design",
       icon: "/images/message-programming.svg",
+      description:
+        "UI/UX Design crafts intuitive and visually appealing interfaces that enhance user engagement. By prioritizing functionality and aesthetics, it ensures seamless interactions and a satisfying user experience across platforms.",
     },
     {
       title: "Oracle-Based Services",
       icon: "/images/message-programming.svg",
+      description:
+        "Oracle-Based Services provide robust database solutions and enterprise-grade applications to streamline business processes. These services enhance data management, scalability, and operational efficiency for organizations of all sizes.",
     },
     {
       title: "Edge Computing Solutions",
       icon: "/images/message-programming.svg",
+      description:
+        "Edge Computing Solutions bring processing power closer to data sources, reducing latency and improving performance. By enabling real-time data analysis and decision-making, these solutions enhance efficiency and support scalable, distributed applications.",
     },
     {
       title: "Product Discovery",
       icon: "/images/message-programming.svg",
+      description:
+        "Product Discovery focuses on understanding user needs and market demands to guide the development of innovative solutions. Through research and testing, it ensures that products are aligned with customer expectations, reducing risks and enhancing success.",
     },
   ];
 
@@ -73,43 +99,50 @@ const ServiceSlider = () => {
   const getSlideStyles = (index: number) => {
     // Calculate the relative position from current slide
     const position = (index - currentSlide + services.length) % services.length;
-    
+
     // Base styles that will be applied to all slides
     const baseStyles = {
-      transition: 'all 700ms ease-in-out',
-      position: 'absolute',
-      width: '350px',
-      height: '350px',
+      transition: "all 700ms ease-in-out",
+      position: "absolute",
+      width: "350px",
+      height: "350px",
     };
 
     // Position-specific styles
-    if (position === 0) { // Current slide
+    if (position === 0) {
+      // Current slide
       return {
         ...baseStyles,
-        transform: 'translateX(0) scale(1.1)',
+        transform: "translateX(0) scale(1.1)",
         opacity: 1,
         zIndex: 20,
       };
-    } else if (position === 1 || position === -services.length + 1) { // Next slide
+    } else if (position === 1 || position === -services.length + 1) {
+      // Next slide
       return {
         ...baseStyles,
-        transform: 'translateX(calc(100% + 1rem)) rotate(12deg) translateY(30%)',
+        transform:
+          "translateX(calc(100% + 1rem)) rotate(12deg) translateY(30%)",
         opacity: 0.5,
         zIndex: 10,
       };
-    } else if (position === -1 || position === services.length - 1) { // Previous slide
+    } else if (position === -1 || position === services.length - 1) {
+      // Previous slide
       return {
         ...baseStyles,
-        transform: 'translateX(calc(-100% - 1rem)) rotate(-12deg) translateY(30%)',
+        transform:
+          "translateX(calc(-100% - 1rem)) rotate(-12deg) translateY(30%)",
         opacity: 0.5,
         zIndex: 10,
       };
-    } else { // Hidden slides
+    } else {
+      // Hidden slides
       return {
         ...baseStyles,
-        transform: position > 0 
-          ? 'translateX(calc(200% + 8rem)) scale(0.8)' 
-          : 'translateX(calc(-200% - 8rem)) scale(0.8)',
+        transform:
+          position > 0
+            ? "translateX(calc(200% + 8rem)) scale(0.8)"
+            : "translateX(calc(-200% - 8rem)) scale(0.8)",
         opacity: 0,
         zIndex: -1,
       };
@@ -139,10 +172,7 @@ const ServiceSlider = () => {
         {/* Cards Container */}
         <div className="relative h-full flex items-center justify-center">
           {services.map((service, index) => (
-            <div
-              key={index}
-              style={getSlideStyles(index) as any}
-            >
+            <div key={index} style={getSlideStyles(index) as any}>
               <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-br from-[#397EF5] via-[#29313F] to-[#397EF5]">
                 <div className="w-full h-full bg-darkBlue backdrop-blur-[30px] rounded-2xl p-10 flex flex-col items-center">
                   <div
@@ -160,8 +190,10 @@ const ServiceSlider = () => {
                   <h3 className="text-[25px] font-bold text-white80 text-center mt-10 w-[70%]">
                     {service.title}
                   </h3>
+                  <h3 className="text-[12px] font-normal text-white80 text-center mt-4 ">
+                    {service.description}
+                  </h3>
                 </div>
-
                 <div
                   className="absolute inset-0 rounded-2xl"
                   style={{

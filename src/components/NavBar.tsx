@@ -70,7 +70,9 @@ const NavHeader = () => {
           </a>
         </div>
         <div className="hidden lg:flex">
-          <Button variant="outlined">Contact Us</Button>
+          <a href="#footer" onClick={(e) => scrollToSection(e, "footer")}>
+            <Button variant="outlined">Contact Us</Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -111,7 +113,9 @@ const NavHeader = () => {
           >
             About Us
           </Link>
-          <Button variant="outlined">Contact Us</Button>
+          <a href="#footer" onClick={(e) => scrollToSection(e, "footer")}>
+            <Button variant="outlined">Contact Us</Button>
+          </a>
         </div>
       )}
     </nav>

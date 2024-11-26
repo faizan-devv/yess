@@ -7,12 +7,15 @@ import GradientHeading from "./GradientHeading";
 
 const OurPartners = () => {
   const partners = [
-    { url: "", logo: "/images/next-sense-logo.svg" },
-    { url: "", logo: "/images/IPeraLogo.svg" },
-    { url: "", logo: "/images/Zubr-Curio.svg" },
-    { url: "", logo: "/images/alyamama.svg" },
-    { url: "", logo: "/images/mds-arabia.svg" },
-    { url: "", logo: "/images/thep.svg" },
+    { url: "", logo: "/images/partner-1.svg" },
+    { url: "", logo: "/images/partner-2.svg" },
+    { url: "", logo: "/images/partner-3.svg" },
+    { url: "", logo: "/images/partner-4.svg" },
+    { url: "", logo: "/images/partner-5.svg" },
+    { url: "", logo: "/images/partner-6.svg" },
+    { url: "", logo: "/images/partner-7.svg" },
+    { url: "", logo: "/images/partner-8.svg" },
+    { url: "", logo: "/images/partner-10.svg" },
   ];
 
   return (

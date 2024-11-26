@@ -37,7 +37,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* all styles */
 .banner {
-  background: url("/images/man2-bg.svg") no-repeat center/cover;
+  background: url("/images/man2-bg.png") no-repeat center/cover;
 }
 .tech-sol {
   position: absolute;
@@ -50,16 +50,16 @@ body::-webkit-scrollbar-thumb:hover {
 .projects-header {
   background: url("/images/projects-bg.gif") no-repeat center/cover;
 }
-.services{
+.services {
   background: url("/images/services-bg.svg") no-repeat center/cover;
 }
-.excelence{
+.excelence {
   background: url("/images/excelence-bg.svg") no-repeat center/cover;
 }
-.land-scape{
+.land-scape {
   background: url("/images/landscape-bg.svg") no-repeat center/cover;
 }
-.about-us{
+.about-us {
   background: url("/images/aboutus-bg.svg") no-repeat center/cover;
 }
 .blue-circle::after {
@@ -106,16 +106,14 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 8px;
 }
 
-
 /* scroll */
-
 
 .fullpage-container {
   height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y proximity;
-  -webkit-overflow-scrolling: touch; 
-  perspective: 1px; 
+  -webkit-overflow-scrolling: touch;
+  perspective: 1px;
 }
 
 .fullpage-section {
@@ -127,8 +125,8 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  will-change: transform; 
-  transform: translateZ(0); 
+  will-change: transform;
+  transform: translateZ(0);
   backface-visibility: hidden;
   transition: transform 0.3s ease;
 }
@@ -166,12 +164,13 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .partners-section .partners-slider {
   display: flex;
-  width: max-content; 
+  width: max-content;
   animation: scrollSlider 15s linear infinite;
 }
 
 .partner-item {
-  flex: 0 0 15%; 
+  flex: 0 0 15%;
+  max-width: 300px;
 }
 
 @keyframes scrollSlider {
@@ -186,9 +185,9 @@ body::-webkit-scrollbar-thumb:hover {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .fullpage-section {
-    height: 100dvh; 
+    height: 100dvh;
     scroll-snap-align: start;
-    scroll-snap-stop: normal; 
+    scroll-snap-stop: normal;
   }
 
   .normal-scroll-sections {
@@ -203,7 +202,8 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
-.fullpage-section, .normal-scroll-sections {
+.fullpage-section,
+.normal-scroll-sections {
   transition: opacity 0.3s ease;
 }
 
@@ -212,5 +212,3 @@ body::-webkit-scrollbar-thumb:hover {
     height: -webkit-fill-available;
   }
 }
-
-

@@ -10,7 +10,7 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="px-[240px] py-[100px]">
+    <div id="contact" className="px-[240px] py-[100px]">
       <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
         Register your interest
       </GradientHeading>
@@ -30,7 +30,11 @@ const RegistrationForm = () => {
               <Typography
                 variant="subtitle1"
                 className="text-white mt-[20px]"
-                sx={{ fontSize: "20px", lineHeight: "25px", marginBottom:"23px" }}
+                sx={{
+                  fontSize: "20px",
+                  lineHeight: "25px",
+                  marginBottom: "23px",
+                }}
                 mb={6}
               >
                 Email
@@ -90,7 +94,11 @@ const RegistrationForm = () => {
               <Typography
                 variant="subtitle1"
                 className="text-white mt-[20px]"
-                sx={{ fontSize: "20px", lineHeight: "25px", marginBottom:"23px" }}
+                sx={{
+                  fontSize: "20px",
+                  lineHeight: "25px",
+                  marginBottom: "23px",
+                }}
                 mb={6}
               >
                 Company Name
@@ -150,7 +158,11 @@ const RegistrationForm = () => {
               <Typography
                 variant="subtitle1"
                 className="text-white mt-[20px]"
-                sx={{ fontSize: "20px", lineHeight: "25px", marginBottom:"23px" }}
+                sx={{
+                  fontSize: "20px",
+                  lineHeight: "25px",
+                  marginBottom: "23px",
+                }}
                 mb={6}
               >
                 Message
@@ -209,7 +221,9 @@ const RegistrationForm = () => {
               />
             </div>
 
-            <Button variant="outlined" sx={{paddingInline:'36px'}}>Submit</Button>
+            <Button variant="outlined" sx={{ paddingInline: "36px" }}>
+              Submit
+            </Button>
           </form>
         </div>
 

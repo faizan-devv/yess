@@ -1,6 +1,6 @@
 // app/page.js
 "use client";
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 import {
   MainLayout,
   Banner,
@@ -12,7 +12,7 @@ import {
   RegistrationForm,
   Footer,
   OurPartners,
-  NavBar
+  NavBar,
 } from "@/components";
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
       const id = window.location.hash.substring(1);
       const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, []);
@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <MainLayout>
       <NavBar />
-      
+
       <div className="fullpage-container" ref={containerRef}>
         {/* Full-page snap sections */}
         <section className="fullpage-section">
@@ -58,7 +58,7 @@ export default function Home() {
         <div className="normal-scroll-sections">
           <OurPartners />
         </div>
-        <section className="fullpage-section">
+        <section id="contact" className="fullpage-section">
           <RegistrationForm />
         </section>
 
