@@ -63,6 +63,9 @@ body::-webkit-scrollbar-thumb:hover {
 .about-us {
   background: url("/images/aboutus-bg.svg") no-repeat center/cover;
 }
+.form{
+  background: url("/images/contact.svg") no-repeat center/cover;
+}
 .blue-circle::after {
   content: "";
   position: absolute;

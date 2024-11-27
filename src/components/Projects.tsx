@@ -3,7 +3,7 @@ import GradientHeading from "./GradientHeading";
 
 const Projects = () => {
   return (
-    <div className="projects projects-section min-h-dvh lg:min-h-screenmt-[100px]">
+    <div className="projects projects-section min-h-dvh lg:min-h-screen mt-[100px]">
       <div className="flex justify-center lg:border-l border-customGray mx-5 md:mx-[164px]">
         <Box
           sx={{

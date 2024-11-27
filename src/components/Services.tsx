@@ -4,7 +4,7 @@ import ServiceSlider from "./ServiceSlider";
 
 const Services = () => {
   return (
-    <div id="services" className="min-h-dvh lg:min-h-screenservices mt-[100px] px-[70px]">
+    <div id="services" className="min-h-dvh lg:min-h-screen services mt-[100px] px-[70px]">
       <div className="flex justify-center text-center mb-[15px]">
         <Box sx={{ width: {
           sm:"100%" ,

@@ -35,7 +35,7 @@ const Banner = () => {
   return (
     <div className="">
      {/*  <NavBar /> */}
-      <div ref={container} className="px-[70px] pt-[165px] min-h-dvh lg:min-h-screen">
+      <div ref={container} className="px-[70px] pt-[165px] min-h-dvh lg:min-h-screen ">
         <Box
           sx={{
             display: "flex",

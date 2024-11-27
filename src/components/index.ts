@@ -13,3 +13,4 @@ export { default as Footer } from "./Footer";
 export { default as LandscapeSystem } from "./LandscapeSystem";
 export { default as CEOMessage } from "./CEOMessage";
 export { default as OurPartners } from "./OurPartners";
+export { default as ContactUs } from "./ContactUs";

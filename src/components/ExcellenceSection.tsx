@@ -38,7 +38,7 @@ const ExcellenceSection = () => {
 
   return (
     <div className="">
-      <div className="min-h-dvh lg:min-h-screenpt-[100px] px-[70px] excelence">
+      <div className="min-h-dvh lg:min-h-screen  pt-[100px] px-[70px] excelence">
         <div className="flex justify-center">
           <Box sx={{ width: "70%" }} className="text-center">
             <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">

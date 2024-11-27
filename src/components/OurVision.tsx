@@ -3,7 +3,7 @@ import GradientHeading from "./GradientHeading";
 
 const OurVision = () => {
   return (
-    <div className="our-vsion px-[70px] min-h-dvh lg:min-h-screen flex items-center justify-center text-center">
+    <div className="our-vsion px-[70px] min-h-dvh lg:min-h-screen  flex items-center justify-center text-center">
       <Box sx={{width: {
           sm:"100%" ,
           md:"80%", 
