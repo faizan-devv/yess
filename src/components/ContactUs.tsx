@@ -49,7 +49,7 @@ const ContactUs = () => {
     source: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log(formData);
   };
@@ -230,20 +230,28 @@ const ContactUs = () => {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="hidden lg:block col-span-1 h-full">
+              <div className="rounded-3xl h-[83%] w-[100%]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.8673004774145!2d50.0984!3d26.4235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49ef85c961edcd%3A0x7b2db98f2941c78c!2sAl%20Yamama%20Company%20for%20trading%20and%20Contracting!5e0!3m2!1sen!2sus!4v1658247416186!5i0"
+                  style={{
+                    border: 0,
+                    width: "100%",
+                    height: "100%",
+                    minHeight: "418px",
+                    borderRadius: "1.5rem",
+                    position: "relative",
+                    top: "10%",
+                    left: "-45%",
+                  }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="rounded-tr-[50px] rounded-br-[50px]"
+                ></iframe>
               </div>
-              <div className="hidden lg:block col-span-1 h-full">
-           <div className="rounded-3xl h-[83%] w-[100%]">
-           <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.8673004774145!2d50.0984!3d26.4235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49ef85c961edcd%3A0x7b2db98f2941c78c!2sAl%20Yamama%20Company%20for%20trading%20and%20Contracting!5e0!3m2!1sen!2sus!4v1658247416186!5i0"
-              style={{ border: 0, width: '100%', height: '100%', minHeight: '418px', borderRadius:'1.5rem', position:'relative', top:'10%' ,left:'-45%' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-tr-[50px] rounded-br-[50px]"
-            ></iframe>
-           </div>
-          </div>
-            
+            </div>
           </div>
         </div>
       </div>

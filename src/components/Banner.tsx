@@ -3,8 +3,6 @@ import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { Typography, Box } from "@mui/material";
 import GradientHeading from "./GradientHeading";
-import NavBar from "./NavBar";
-
 
 const Banner = () => {
   const [animationStarted, setAnimationStarted] = useState(false);
@@ -34,8 +32,11 @@ const Banner = () => {
 
   return (
     <div className="">
-     {/*  <NavBar /> */}
-      <div ref={container} className="px-[70px] pt-[165px] min-h-dvh lg:min-h-screen ">
+      {/*  <NavBar /> */}
+      <div
+        ref={container}
+        className="px-[70px] pt-[165px] min-h-dvh lg:min-h-screen "
+      >
         <Box
           sx={{
             display: "flex",
