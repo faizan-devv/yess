@@ -35,7 +35,7 @@ const NavHeader = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center rounded-[100px] space-x-8 border border-[#3D3D3D] py-[12px] px-[51px]">
+        <div className="hidden lg:flex items-center rounded-[100px] space-x-8 border border-[#3D3D3D] py-[12px] px-[51px] bg-opacity-20 bg-[#1E1E1E] backdrop-blur-md backdrop-filter">
           <Link
             href="/"
             className="text-white hover:text-blue-400 transition-colors"

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button, Box } from "@mui/material";
+
 const Footer = () => {
   const services = [
     { name: "Email Marketing", href: "/services/email-marketing" },
@@ -21,47 +22,64 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="footer" className="mb-[100px] footer-section">
-      <div className="px-[240px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-6">
-          <div className="">
+    <footer id="footer" className="mb-8 md:mb-16 lg:mb-[100px] footer-section">
+      <div className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-[240px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-6">
+          {/* Logo and Contact Section */}
+          <div className="sm:col-span-2 lg:col-span-1">
             <Image
               src="/images/logo.svg"
               alt="Logo"
               width={120}
               height={63}
               priority
+              className="max-w-[100px] md:max-w-[120px]"
             />
-            <div className="my-4">
-              <h6 className="text-[17px] font-normal mb-1">Office Location:</h6>
+            <div className="my-4 space-y-4">
+              <h6 className="text-base md:text-[17px] font-medium">Office Location:</h6>
               <a
-                href="https://www.google.com/maps?q=Al+Yamama+Company+for+trading+and+Contracting,+Muhammed+Ibn+Saud,+5470+al+hareth+bin+morah+al+amir%D8%8C+Dammam+32241&ftid=0x3e49fb73dfc682bf:0x62aad8072ecbec45&hl=en-SA&gl=sa&entry=gps&coh=0&g_ep=CAISBjYuNDAuNBgAINeCAw%3D%3D&g_st=iw"
+                href="https://www.google.com/maps?q=Al+Yamama+Company+for+trading+and+Contracting,+Muhammed+Ibn+Saud,+5470+al+hareth+bin+morah+al+amir%D8%8C+Dammam+32241"
                 target="_blank"
+                rel="noopener noreferrer"
+                className="block"
               >
-                <Box sx={{ maxWidth: "230px" }}>
-                  <h6 className="text-[17px] font-normal mb-5 ">
-                    8384, Prince Mohammed Bin Fahd Road, Al Firdaws, 5237 PO Box
-                    2150 Postal Code 34251
+                <Box className="max-w-[230px]">
+                  <h6 className="text-base md:text-[17px] font-normal mb-4">
+                    King Abdulaziz Road, Riyad, KSA
                   </h6>
                 </Box>
               </a>
-              <h6 className="text-[17px] font-normal mb-6">
+              <h6 className="text-base md:text-[17px] font-medium">Head Office Location:</h6>
+              {/* <a
+                href="https://www.google.com/maps?q=Al+Yamama+Company+for+trading+and+Contracting,+Muhammed+Ibn+Saud,+5470+al+hareth+bin+morah+al+amir%D8%8C+Dammam+32241"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              > */}
+                <Box className="max-w-[230px]">
+                  <h6 className="text-base md:text-[17px] font-normal mb-4">
+                    8384, Prince Mohammed Bin Fahd Road, Al Firdaws, 5237 PO Box 2150 Postal Code 34251
+                  </h6>
+                </Box>
+             {/*  </a> */}
+              <h6 className="text-base md:text-[17px] font-normal mb-4">
                 Quick Contact: +966-13-828-1002
               </h6>
-
-              <Button variant="outlined">Get Started</Button>
+              <Button variant="outlined" className="w-full sm:w-auto">
+                Get Started
+              </Button>
             </div>
           </div>
 
           {/* Services */}
-          <div>
-            <h3 className="text-[17px] leading-[21px] font-normal mb-[21px]">
+          <div className="mt-6 sm:mt-0">
+            <h3 className="text-base md:text-[17px] leading-[21px] font-normal mb-4">
               Services
             </h3>
             <ul className="space-y-3">
               {services.map((item) => (
                 <li key={item.name}>
-                  <Box className="text-[15px] leading-[18px] font-normal text-white mb-[21px]">
+                  <Box className="text-sm md:text-[15px] leading-[18px] font-normal text-white mb-3">
                     {item.name}
                   </Box>
                 </li>
@@ -70,14 +88,14 @@ const Footer = () => {
           </div>
 
           {/* About */}
-          <div>
-            <h3 className="text-[17px] leading-[21px] font-normal mb-[21px]">
+          <div className="mt-6 sm:mt-0">
+            <h3 className="text-base md:text-[17px] leading-[21px] font-normal mb-4">
               About
             </h3>
             <ul className="space-y-3">
               {about.map((item) => (
                 <li key={item.name}>
-                  <Box className="text-[15px] leading-[18px] font-normal text-white mb-[21px]">
+                  <Box className="text-sm md:text-[15px] leading-[18px] font-normal text-white mb-3">
                     {item.name}
                   </Box>
                 </li>
@@ -86,14 +104,14 @@ const Footer = () => {
           </div>
 
           {/* Help */}
-          <div>
-            <h3 className="text-[17px] leading-[21px] font-normal mb-[21px]">
+          <div className="mt-6 sm:mt-0">
+            <h3 className="text-base md:text-[17px] leading-[21px] font-normal mb-4">
               Help
             </h3>
             <ul className="space-y-3">
               {help.map((item) => (
                 <li key={item.name}>
-                  <Box className="text-[15px] leading-[18px] font-normal text-white mb-[21px]">
+                  <Box className="text-sm md:text-[15px] leading-[18px] font-normal text-white mb-3">
                     {item.name}
                   </Box>
                 </li>
@@ -103,37 +121,40 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex space-x-6 mb-4 md:mb-0">
-            <Box className="text-[15px] leading-[19px] font-normal text-white mr-10">
+        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center space-y-6 sm:space-y-0">
+          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 items-center sm:items-start">
+            <Box className="text-sm md:text-[15px] leading-[19px] font-normal text-white sm:mr-10">
               Terms & Conditions
             </Box>
-            <Box className="text-[15px] leading-[19px] font-normal text-white">
+            <Box className="text-sm md:text-[15px] leading-[19px] font-normal text-white">
               Privacy Policy
             </Box>
           </div>
 
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 mt-6 sm:mt-0">
             <Image
               src="/images/fb.svg"
-              alt="Logo"
+              alt="Facebook"
               width={10}
               height={20}
               priority
+              className="w-4 sm:w-auto"
             />
             <Image
               src="/images/twitter.svg"
-              alt="Logo"
+              alt="Twitter"
               width={22}
               height={22}
               priority
+              className="w-5 sm:w-auto"
             />
             <Image
               src="/images/insta.svg"
-              alt="Logo"
+              alt="Instagram"
               width={22}
               height={22}
               priority
+              className="w-5 sm:w-auto"
             />
           </div>
         </div>

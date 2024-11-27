@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "@/app/styles/components/ServiceSlider.css";
 
 :root {
   --background: #ffffff;
@@ -37,7 +38,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* all styles */
 .banner {
-  background: url("/images/man2-bg.png") no-repeat center/cover;
+  background: url("/images/banner-bg.webp") no-repeat center/cover;
 }
 .tech-sol {
   position: absolute;
@@ -79,7 +80,12 @@ body::-webkit-scrollbar-thumb:hover {
 .left-section .blue-circle::after {
   left: 50% !important;
 }
-
+.mb-section .blue-circle::after {
+  left: 35% !important;
+  top: 35% !important;
+  width: 260px !important;
+  height: 170px !important;
+}
 .hide {
   opacity: 0;
 }
@@ -146,7 +152,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Scrollbar styling */
 .fullpage-container::-webkit-scrollbar {
-  width: 6px;
+  width: 0px;
 }
 
 .fullpage-container::-webkit-scrollbar-track {
@@ -162,24 +168,41 @@ body::-webkit-scrollbar-thumb:hover {
 .fullpage-container::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
-.partners-section .partners-slider {
+/* Styles for OurPartners component */
+.partners-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.partners-slider {
   display: flex;
-  width: max-content;
-  animation: scrollSlider 15s linear infinite;
+  animation: scroll 25s linear infinite;
+  gap: 16px; /* Space between items */
 }
 
 .partner-item {
-  flex: 0 0 15%;
-  max-width: 300px;
+  display: inline-block;
+  text-align: center;
 }
 
-@keyframes scrollSlider {
+@keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(calc(-50%)); /* Only move half the distance since we have duplicates */
   }
+}
+
+/* Pause animation on hover */
+.partners-slider:hover {
+  animation-play-state: paused;
+}
+
+/* Ensure smooth GPU-accelerated animation */
+.partners-slider {
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Responsive adjustments */

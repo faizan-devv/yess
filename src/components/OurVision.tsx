@@ -3,8 +3,12 @@ import GradientHeading from "./GradientHeading";
 
 const OurVision = () => {
   return (
-    <div className="our-vsion px-[70px] min-h-screen flex items-center justify-center text-center">
-      <Box sx={{width:"60%"}}>
+    <div className="our-vsion px-[70px] min-h-dvh lg:min-h-screen flex items-center justify-center text-center">
+      <Box sx={{width: {
+          sm:"100%" ,
+          md:"80%", 
+          lg:"60%" 
+        }}}>
         <GradientHeading>
           Saudi Vision 2030
         </GradientHeading>

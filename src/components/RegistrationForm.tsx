@@ -10,32 +10,34 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div id="contact" className="px-[240px] py-[100px]">
+    <div id="contact" className="px-4 sm:px-8 md:px-16 lg:px-[240px] py-12 md:py-[100px]">
       <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
         Register your interest
       </GradientHeading>
 
       <Typography
         variant="subtitle1"
-        className="text-white70 mt-[20px]"
-        sx={{ fontSize: "30px", lineHeight: "39px" }}
+        className="text-white70 mt-4 md:mt-[20px]"
+        sx={{ 
+          fontSize: { xs: "24px", md: "30px" },
+          lineHeight: { xs: "32px", md: "39px" }
+        }}
       >
         Earthworks will start in 2024.
       </Typography>
 
-      <div className="grid grid-cols-2 items-center mt-[50px]">
-        <div className="space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center mt-8 md:mt-[50px] gap-8">
+        <div className="space-y-4 w-full">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="mb-[38px]">
+            <div className="mb-6 md:mb-[38px]">
               <Typography
                 variant="subtitle1"
-                className="text-white mt-[20px]"
+                className="text-white mt-4 md:mt-[20px]"
                 sx={{
-                  fontSize: "20px",
-                  lineHeight: "25px",
-                  marginBottom: "23px",
+                  fontSize: { xs: "18px", md: "20px" },
+                  lineHeight: { xs: "22px", md: "25px" },
+                  marginBottom: { xs: "16px", md: "23px" },
                 }}
-                mb={6}
               >
                 Email
               </Typography>
@@ -90,16 +92,15 @@ const RegistrationForm = () => {
                 }}
               />
             </div>
-            <div className="mb-[38px]">
+            <div className="mb-6 md:mb-[38px]">
               <Typography
                 variant="subtitle1"
-                className="text-white mt-[20px]"
+                className="text-white mt-4 md:mt-[20px]"
                 sx={{
-                  fontSize: "20px",
-                  lineHeight: "25px",
-                  marginBottom: "23px",
+                  fontSize: { xs: "18px", md: "20px" },
+                  lineHeight: { xs: "22px", md: "25px" },
+                  marginBottom: { xs: "16px", md: "23px" },
                 }}
-                mb={6}
               >
                 Company Name
               </Typography>
@@ -154,16 +155,15 @@ const RegistrationForm = () => {
                 }}
               />
             </div>
-            <div className="mb-[38px]">
+            <div className="mb-6 md:mb-[38px]">
               <Typography
                 variant="subtitle1"
-                className="text-white mt-[20px]"
+                className="text-white mt-4 md:mt-[20px]"
                 sx={{
-                  fontSize: "20px",
-                  lineHeight: "25px",
-                  marginBottom: "23px",
+                  fontSize: { xs: "18px", md: "20px" },
+                  lineHeight: { xs: "22px", md: "25px" },
+                  marginBottom: { xs: "16px", md: "23px" },
                 }}
-                mb={6}
               >
                 Message
               </Typography>
@@ -221,13 +221,19 @@ const RegistrationForm = () => {
               />
             </div>
 
-            <Button variant="outlined" sx={{ paddingInline: "36px" }}>
+            <Button 
+              variant="outlined" 
+              sx={{ 
+                paddingInline: { xs: "24px", md: "36px" },
+                width: { xs: "100%", sm: "auto" }
+              }}
+            >
               Submit
             </Button>
           </form>
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <div className="flex items-center justify-center">
             <Image
               src="/images/yess-logo.svg"

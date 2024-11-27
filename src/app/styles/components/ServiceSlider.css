@@ -1,0 +1,13 @@
+.service-card-gradient {
+    background: linear-gradient(135deg, #397EF5 0%, #29313F 50%, #397EF5 100%);
+  }
+  
+  .service-border {
+    background: linear-gradient(135deg, #397EF5 0%, #29313F 50%, #397EF5 100%);
+    opacity: 0.1;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    padding: 1px;
+  }

@@ -31,13 +31,14 @@ export default function Home() {
 
   return (
     <MainLayout>
-      <NavBar />
-
       <div className="fullpage-container" ref={containerRef}>
         {/* Full-page snap sections */}
-        <section className="fullpage-section">
-          <Banner />
-        </section>
+        <div className="banner">
+          <section className="fullpage-section">
+           <div className="relative top-[5.5%]"> <NavBar /></div>
+            <Banner />
+          </section>
+        </div>
 
         <section className="fullpage-section">
           <OurVision />

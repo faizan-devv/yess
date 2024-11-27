@@ -6,6 +6,7 @@ import Image from "next/image";
 
 const ServiceSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [direction, setDirection] = useState<'next' | 'prev'>('next');
 
   const services = [
     {
@@ -33,14 +34,14 @@ const ServiceSlider = () => {
         "Our Blockchain solutions enhance security and transparency. By leveraging decentralized technology, we enable efficient, tamper-proof transactions and streamlined processes for your business.",
     },
     {
-      title: "Online Marketplace Development",
+      title: "Online Marketplace Development", 
       icon: "/images/message-programming.svg",
       description:
         "Online Marketplace Development enables businesses to build scalable platforms that connect buyers and sellers effortlessly. With intuitive interfaces and advanced features, these marketplaces foster growth and enhance user engagement.",
     },
     {
       title: "PWA Development",
-      icon: "/images/message-programming.svg",
+      icon: "/images/message-programming.svg", 
       description:
         "PWA Development delivers fast, reliable, and engaging web applications that function seamlessly across devices. By combining the best of web and mobile experiences, it ensures improved performance and user retention.",
     },
@@ -89,15 +90,16 @@ const ServiceSlider = () => {
   ];
 
   const nextSlide = () => {
+    setDirection('next');
     setCurrentSlide((prev) => (prev === services.length - 1 ? 0 : prev + 1));
   };
 
   const previousSlide = () => {
+    setDirection('prev');
     setCurrentSlide((prev) => (prev === 0 ? services.length - 1 : prev - 1));
   };
 
   const getSlideStyles = (index: number) => {
-    // Calculate the relative position from current slide
     const position = (index - currentSlide + services.length) % services.length;
 
     // Base styles that will be applied to all slides
@@ -121,8 +123,7 @@ const ServiceSlider = () => {
       // Next slide
       return {
         ...baseStyles,
-        transform:
-          "translateX(calc(100% + 1rem)) rotate(12deg) translateY(30%)",
+        transform: "translateX(calc(100% + 1rem)) rotate(12deg) translateY(30%)",
         opacity: 0.5,
         zIndex: 10,
       };
@@ -130,19 +131,30 @@ const ServiceSlider = () => {
       // Previous slide
       return {
         ...baseStyles,
-        transform:
-          "translateX(calc(-100% - 1rem)) rotate(-12deg) translateY(30%)",
+        transform: "translateX(calc(-100% - 1rem)) rotate(-12deg) translateY(30%)",
         opacity: 0.5,
         zIndex: 10,
       };
     } else {
       // Hidden slides
+      const isJustRemoved = 
+        (direction === 'next' && (position === -2 || position === services.length - 2)) ||
+        (direction === 'prev' && (position === 2 || position === -services.length + 2));
+
+      if (isJustRemoved) {
+        return {
+          ...baseStyles,
+          transform: "translateY(100vh)",
+          opacity: 0,
+          zIndex: -1,
+        };
+      }
+
       return {
         ...baseStyles,
-        transform:
-          position > 0
-            ? "translateX(calc(200% + 8rem)) scale(0.8)"
-            : "translateX(calc(-200% - 8rem)) scale(0.8)",
+        transform: position > 0 
+          ? "translateX(calc(200% + 8rem)) rotate(12deg) translateY(30%)"
+          : "translateX(calc(-200% - 8rem)) rotate(-12deg) translateY(30%)",
         opacity: 0,
         zIndex: -1,
       };
@@ -151,7 +163,7 @@ const ServiceSlider = () => {
 
   return (
     <section className="w-full">
-      <div className="max-w-[95%] h-[390px] mx-auto relative">
+      <div className="max-w-[95%] h-[615px] mx-auto relative">
         {/* Navigation buttons */}
         <button
           onClick={previousSlide}
@@ -170,7 +182,7 @@ const ServiceSlider = () => {
         </button>
 
         {/* Cards Container */}
-        <div className="relative h-full flex items-center justify-center">
+        <div className="relative h-full flex items-center justify-center overflow-hidden">
           {services.map((service, index) => (
             <div key={index} style={getSlideStyles(index) as any}>
               <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-br from-[#397EF5] via-[#29313F] to-[#397EF5]">
@@ -190,7 +202,7 @@ const ServiceSlider = () => {
                   <h3 className="text-[25px] font-bold text-white80 text-center mt-10 w-[70%]">
                     {service.title}
                   </h3>
-                  <h3 className="text-[12px] font-normal text-white80 text-center mt-4 ">
+                  <h3 className="text-[12px] font-normal text-white80 text-center mt-4">
                     {service.description}
                   </h3>
                 </div>
