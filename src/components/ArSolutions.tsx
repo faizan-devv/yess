@@ -75,7 +75,7 @@ const ArSolutions = () => {
               className=""
             >
               <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
-                Contact Us
+              AR/VR Solution
               </GradientHeading>
               <div className="">
                 <Typography
@@ -87,8 +87,7 @@ const ArSolutions = () => {
                   }}
                   className="text-white80"
                 >
-                  Intelligent digitalsolutionsfor secure envorinmenst through
-                  automation &smart controls
+                  Intelligent digitalsolutionsfor secure envorinmenst through automation &smart controls
                 </Typography>
               </div>
             </Box>
