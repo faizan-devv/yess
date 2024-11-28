@@ -8,10 +8,7 @@ import Footer from "./Footer";
 import { useState, useEffect } from "react";
 
 const useWindowSize = () => {
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,12 +18,17 @@ const useWindowSize = () => {
       });
     };
 
+    // Initialize size on mount
+    handleResize();
+
+    // Add event listener for resize
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return windowSize;
 };
+
 const services = [
   { image: "/images/document-text.svg", title: "Calibrated AR" },
   { image: "/images/mobile.svg", title: "Unity Apps" },
@@ -41,7 +43,15 @@ const services = [
   { image: "/images/mirroring-screen.svg", title: "Info Hotspots" },
   { image: "/images/video-play.svg", title: "Promo Videos" },
 ];
-const ServiceCard = ({ image, title, bgColor }) => (
+const ServiceCard = ({
+  image,
+  title,
+  bgColor,
+}: {
+  image: string;
+  title: string;
+  bgColor: string;
+}) => (
   <div
     className={`p-6 rounded-lg transition-all duration-300 hover:bg-gray-800 cursor-pointer flex flex-col items-center gap-4 ${bgColor}`}
   >
@@ -75,7 +85,7 @@ const ArSolutions = () => {
               className=""
             >
               <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
-              AR/VR Solution
+                AR/VR Solution
               </GradientHeading>
               <div className="">
                 <Typography
@@ -87,7 +97,8 @@ const ArSolutions = () => {
                   }}
                   className="text-white80"
                 >
-                  Intelligent digitalsolutionsfor secure envorinmenst through automation &smart controls
+                  Intelligent digitalsolutionsfor secure envorinmenst through
+                  automation &smart controls
                 </Typography>
               </div>
             </Box>
