@@ -25,7 +25,7 @@ const AboutUsBanner = () => {
                 fontWeight: 400,
                 mb: 2,
               }}
-              className="text-white80 w-3/4"
+              className="text-white80 sm:w-3/4"
             >
               YES Solutions (Al Yamamah Engineering Systems Solutions) is a
               Saudi company that has been growing rapidly in IT solutions by
