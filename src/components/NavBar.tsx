@@ -89,7 +89,7 @@ const NavHeader = () => {
 
       {/* Mobile Menu */}
       {!!isOpen && (
-        <div className="lg:hidden mt-4 bg-slate-800">
+        <div className="lg:hidden mt-4 p-4 bg-darkBlue">
           <Link
             href="/"
             className="block px-4 py-2 text-white hover:bg-slate-700"

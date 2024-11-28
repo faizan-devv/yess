@@ -1,13 +1,34 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
+// Custom hook for media query
+const useMediaQuery = (query) => {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+   
+    const media = window.matchMedia(query);
+    setMatches(media.matches);
+    const listener = (e) => {
+      setMatches(e.matches);
+    };
+    media.addEventListener('change', listener);
+    return () => {
+      media.removeEventListener('change', listener);
+    };
+  }, [query]);
+
+  return matches;
+};
+
 const ServiceSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
-  const [direction, setDirection] = useState<'next' | 'prev'>('next');
-
+  const [direction, setDirection] = useState('next');
+  const isSmallScreen = useMediaQuery('(max-width: 512px)');
+  
   const services = [
     {
       title: "Custom Software Development",
@@ -29,61 +50,61 @@ const ServiceSlider = () => {
     },
     {
       title: "Blockchain Solutions",
-      icon: "/images/message-programming.svg",
+      icon: "/images/icon1.svg",
       description:
         "Our Blockchain solutions enhance security and transparency. By leveraging decentralized technology, we enable efficient, tamper-proof transactions and streamlined processes for your business.",
     },
     {
       title: "Online Marketplace Development", 
-      icon: "/images/message-programming.svg",
+      icon: "/images/icon2.svg",
       description:
         "Online Marketplace Development enables businesses to build scalable platforms that connect buyers and sellers effortlessly. With intuitive interfaces and advanced features, these marketplaces foster growth and enhance user engagement.",
     },
     {
       title: "PWA Development",
-      icon: "/images/message-programming.svg", 
+      icon: "/images/icon3.svg", 
       description:
         "PWA Development delivers fast, reliable, and engaging web applications that function seamlessly across devices. By combining the best of web and mobile experiences, it ensures improved performance and user retention.",
     },
     {
       title: "Digitalization & Transformation",
-      icon: "/images/message-programming.svg",
+      icon: "/images/icon4.svg",
       description:
         "Digitalization & Transformation revolutionizes business operations by integrating modern technologies and workflows. This approach enhances efficiency, drives innovation, and positions organizations for sustainable growth in a digital-first world.",
     },
     {
       title: "AI and Machine Learning Solutions",
-      icon: "/images/message-programming.svg",
+      icon: "/images/icon5.svg",
       description:
         "AI and Machine Learning Solutions harness the power of data to deliver intelligent automation and predictive insights. These technologies optimize decision-making, enhance user experiences, and drive innovation across industries.",
     },
     {
       title: "MVP Development",
-      icon: "/images/message-programming.svg",
+      icon: "/images/icon6.svg",
       description:
         "MVP Development focuses on creating a functional prototype to validate ideas quickly and cost-effectively. This approach accelerates market entry, gathers user feedback, and lays the foundation for scalable product growth.",
     },
     {
       title: "UI/UX Design",
-      icon: "/images/message-programming.svg",
+      icon: "/images/icon7.svg",
       description:
         "UI/UX Design crafts intuitive and visually appealing interfaces that enhance user engagement. By prioritizing functionality and aesthetics, it ensures seamless interactions and a satisfying user experience across platforms.",
     },
     {
       title: "Oracle-Based Services",
-      icon: "/images/message-programming.svg",
+      icon: "/images/icon8.svg",
       description:
         "Oracle-Based Services provide robust database solutions and enterprise-grade applications to streamline business processes. These services enhance data management, scalability, and operational efficiency for organizations of all sizes.",
     },
     {
       title: "Edge Computing Solutions",
-      icon: "/images/message-programming.svg",
+      icon: "/images/icon9.svg",
       description:
         "Edge Computing Solutions bring processing power closer to data sources, reducing latency and improving performance. By enabling real-time data analysis and decision-making, these solutions enhance efficiency and support scalable, distributed applications.",
     },
     {
       title: "Product Discovery",
-      icon: "/images/message-programming.svg",
+      icon: "/images/icon10.svg",
       description:
         "Product Discovery focuses on understanding user needs and market demands to guide the development of innovative solutions. Through research and testing, it ensures that products are aligned with customer expectations, reducing risks and enhancing success.",
     },
@@ -99,7 +120,7 @@ const ServiceSlider = () => {
     setCurrentSlide((prev) => (prev === 0 ? services.length - 1 : prev - 1));
   };
 
-  const getSlideStyles = (index: number) => {
+  const getSlideStyles = (index) => {
     const position = (index - currentSlide + services.length) % services.length;
 
     // Base styles that will be applied to all slides
@@ -115,7 +136,7 @@ const ServiceSlider = () => {
       // Current slide
       return {
         ...baseStyles,
-        transform: "translateX(0) scale(1.1)",
+        transform: isSmallScreen ? "translateX(35px) scale(1.1)" : "translateX(0) scale(1.1)",
         opacity: 1,
         zIndex: 20,
       };
@@ -161,9 +182,20 @@ const ServiceSlider = () => {
     }
   };
 
+  // Add client-side only rendering for the slider content
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null; // or a loading state
+  }
+
   return (
     <section className="w-full">
-      <div className="max-w-[95%] h-[615px] mx-auto relative">
+      <div className="max-w-full sm:max-w-[95%] h-[615px] mx-auto relative">
         {/* Navigation buttons */}
         <button
           onClick={previousSlide}
@@ -184,11 +216,11 @@ const ServiceSlider = () => {
         {/* Cards Container */}
         <div className="relative h-full flex items-center justify-center overflow-hidden">
           {services.map((service, index) => (
-            <div key={index} style={getSlideStyles(index) as any}>
-              <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-br from-[#397EF5] via-[#29313F] to-[#397EF5]">
-                <div className="w-full h-full bg-darkBlue backdrop-blur-[30px] rounded-2xl p-10 flex flex-col items-center">
+            <div key={index} style={getSlideStyles(index)}>
+              <div className="relative w-[80%] sm:w-full h-full rounded-2xl p-[1px] bg-gradient-to-br from-[#397EF5] via-[#29313F] to-[#397EF5]">
+                <div className="w-full h-full bg-darkBlue backdrop-blur-[30px] rounded-2xl sm:p-10 flex flex-col items-center">
                   <div
-                    className={`p-10 rounded-[31px] flex items-center justify-center border border-[#397EF5] absolute top-[-16%] transition-colors duration-700 ${
+                    className={`p-4 sm:p-10 rounded-[31px] flex items-center justify-center border border-[#397EF5] absolute top-[-16%] transition-colors duration-700 ${
                       index === currentSlide ? "bg-[#397EF5]" : "bg-darkBlue"
                     }`}
                   >
@@ -199,7 +231,7 @@ const ServiceSlider = () => {
                       height={40}
                     />
                   </div>
-                  <h3 className="text-[25px] font-bold text-white80 text-center mt-10 w-[70%]">
+                  <h3 className="text-[25px] font-bold text-white80 text-center mt-12 sm:mt-10 w-full md:w-[70%]">
                     {service.title}
                   </h3>
                   <h3 className="text-[12px] font-normal text-white80 text-center mt-4">

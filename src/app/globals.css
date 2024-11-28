@@ -38,7 +38,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* all styles */
 .banner {
-  background: url("/images/banner-bg.webp") no-repeat center/cover;
+  background: url("/images/banner-bg.svg") no-repeat center/cover;
 }
 .tech-sol {
   position: absolute;
@@ -228,7 +228,14 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 2rem 0;
   }
 }
-
+@media (max-width: 320px) {
+  .tech-sol {
+    top: 110% !important;
+  }
+  .banner-box{
+    bottom: -500% !important;
+  }
+}
 /* Prevent content jump on load */
 @supports (height: 100dvh) {
   .fullpage-section {

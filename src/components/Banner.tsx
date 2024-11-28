@@ -46,11 +46,12 @@ const Banner = () => {
           }}
         >
           {/* Left content */}
-          <Box sx={{ flex: 1 }}>
+          <Box 
+          sx={{ flex: 1, display: { xs: "none", sm: "inline" } }}>
             <GradientHeading
               className={animationStarted ? "show" : "hide"}
               ref={box1Ref}
-              fontSize={{ xs: "40px", md: "80px" }}
+              fontSize={{ xs: "30px", md: "80px" }}
               fontWeight={800}
             >
               Linking Minds
@@ -60,7 +61,7 @@ const Banner = () => {
               ref={box2Ref}
               variant="subtitle1"
               sx={{
-                fontSize: { xs: ".875rem", md: "1.25rem" },
+                fontSize: { xs: ".75rem", md: "1.25rem" },
                 border: "1px solid #397EF5",
                 background: "#282D4047",
                 backgroundImage:
@@ -75,8 +76,14 @@ const Banner = () => {
                 backdropFilter: "blur(30px)",
                 display: "inline-block",
                 backgroundColor: "#282D4047",
+                position: "absolute",
+                left: "16%",
+                top: {
+                  xs: "110%",
+                  sm: "220%",
+                },
               }}
-              className={animationStarted ? "show tech-sol" : "hide tech-sol"}
+              className={animationStarted ? "show" : "hide"}
             >
               Technology Solutions
             </Typography>
@@ -84,17 +91,26 @@ const Banner = () => {
 
           {/* Right image */}
           <Box
+            className="banner-box"
             sx={{
               flex: 1,
               position: "absolute",
-              right: "12%",
-              bottom: "-511%",
+              right: {
+                xs: "-7%",
+                sm: "-6%",
+                md:"12%"
+              },
+              bottom: {
+                xs:"-470px",
+                sm: "-830%",
+                md: "-511%",
+              },
             }}
           >
             <GradientHeading
               className={animationStarted ? "show" : "hide"}
               ref={box3Ref}
-              fontSize={{ xs: "40px", md: "80px" }}
+              fontSize={{ xs: "30px", md: "80px" }}
               fontWeight={800}
             >
               Bridging Worlds
@@ -110,7 +126,7 @@ const Banner = () => {
                 background: "#282D4047",
                 color: " #FFFFFFBD",
                 padding: "25px",
-                width: "540px",
+                width: { sm: "540px" },
                 borderRadius: "31px",
                 backdropFilter: "blur(30px)",
                 display: "inline-block",

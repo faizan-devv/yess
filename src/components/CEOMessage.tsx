@@ -21,7 +21,7 @@ const CEOMessage = () => {
               Digital Saudia
             </GradientHeading>
             <Typography
-              fontSize="25px"
+              fontSize={{xs:"20px",sm:"25px"}}
               fontWeight={400}
               letterSpacing={-1}
               color="#FFFFFFCC"

@@ -1,13 +1,13 @@
 import React from "react";
-import {Typography, Box } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import Image from "next/image";
 import GradientHeading from "./GradientHeading";
 
 const AboutUsOurVisionBanner = () => {
   return (
     <Box className="px-[70px]">
-      <div className="grid grid-cols-2 pb-[95px] pt-5 justify-center">
-        <div className="border-r border-[#454545] relative">
+      <div className="grid grid-cols-1 sm:grid-cols-2 pb-[95px] pt-5 justify-center">
+        <div className="sm:border-r border-[#454545] relative">
           <div className="">
             <GradientHeading
               gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
@@ -22,7 +22,7 @@ const AboutUsOurVisionBanner = () => {
                 fontWeight: 400,
                 mb: 2,
               }}
-              className="text-white80 max-w-[90%]"
+              className="text-white80 sm:max-w-[90%]"
             >
               Empowered by Vision 2030, we aim to become a leading national hub
               for knowledge transfer in emerging technologies such as artificial
@@ -35,7 +35,7 @@ const AboutUsOurVisionBanner = () => {
                 fontSize: { xs: "20px", md: "25px" },
                 fontWeight: 400,
               }}
-              className="text-white80 max-w-[90%]"
+              className="text-white80 sm:max-w-[90%]"
             >
               Our mission is to set new benchmarks for efficiency and
               competitiveness across all sectors, while implementing smart
@@ -86,7 +86,7 @@ const AboutUsOurVisionBanner = () => {
                 >
                   <GradientHeading
                     gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-                    fontSize={{ xs: "320px", md: "25px" }}
+                    fontSize={{ xs: "20px", md: "25px" }}
                     sx={{ width: "89%" }}
                   >
                     Our mission is to understand and address the unique
@@ -189,8 +189,8 @@ const AboutUsOurVisionBanner = () => {
                 width: "100%",
                 height: "325px",
                 borderRadius: "31px",
-                left: "37%",
-                bottom: "167px",
+                left: { xs: "0%", xl: "37%" },
+                bottom: { xs: "0px", xl: "167px" },
               }}
             >
               <Box
@@ -219,7 +219,7 @@ const AboutUsOurVisionBanner = () => {
                 >
                   <GradientHeading
                     gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-                    fontSize={{ xs: "320px", md: "25px" }}
+                    fontSize={{ xs: "20px", md: "25px" }}
                     sx={{ width: "89%" }}
                   >
                     New market opportunities to help you achieve your goals
@@ -352,8 +352,8 @@ const AboutUsOurVisionBanner = () => {
                 >
                   <GradientHeading
                     gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-                    fontSize={{ xs: "320px", md: "25px" }}
-                    sx={{ width: "89%", textAlign:"center" }}
+                    fontSize={{ xs: "20px", md: "25px" }}
+                    sx={{ width: "89%", textAlign: "center" }}
                   >
                     Innovative technologies transforming cities across the KSA
                   </GradientHeading>
@@ -441,7 +441,7 @@ const AboutUsOurVisionBanner = () => {
               </Box>
             </Box>
           </Box>
-          <div className="pl-[70px]">
+          <div className="sm:pl-[70px]">
             <GradientHeading
               gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
               fontSize={{ xs: "30px", md: "50px" }}
