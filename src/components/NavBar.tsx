@@ -61,6 +61,9 @@ const NavHeader = () => {
           <Link href="/landscape" className="text-white  mr-[51px]">
             Smart Solutions
           </Link>
+          <Link href="/ar-solutions" className="text-white  mr-[51px]">
+            AR Solutions
+          </Link>
           <a
             href="#clients"
             onClick={(e) => scrollToSection(e, "clients")}
@@ -112,6 +115,18 @@ const NavHeader = () => {
             className="block px-4 py-2 text-white hover:bg-slate-700"
           >
             About Us
+          </Link>
+          <Link
+            href="/landscape"
+            className="block px-4 py-2 text-white hover:bg-slate-700"
+          >
+            Smart Solutions
+          </Link>
+          <Link
+            href="/ar-solutions"
+            className="block px-4 py-2 text-white hover:bg-slate-700"
+          >
+            AR Solutions
           </Link>
           {/* <a href="#footer" onClick={(e) => scrollToSection(e, "footer")}> */}
           <Link href="/contact-us">
