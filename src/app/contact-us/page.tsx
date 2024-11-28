@@ -1,6 +1,6 @@
 import { MainLayout, ContactUs } from '@/components'; 
 
-export default function Landscape() {
+export default function Contact() {
   return (
     <MainLayout>
       <ContactUs />

@@ -66,6 +66,9 @@ body::-webkit-scrollbar-thumb:hover {
 .form{
   background: url("/images/contact.svg") no-repeat center/cover;
 }
+.ar-banner{
+  background: url("/images/galaxy.svg") no-repeat center/cover;
+}
 .blue-circle::after {
   content: "";
   position: absolute;
@@ -88,6 +91,11 @@ body::-webkit-scrollbar-thumb:hover {
   top: 35% !important;
   width: 260px !important;
   height: 170px !important;
+}
+.ar-banner .blue-circle::after{
+  bottom: 4% !important;
+  width: 100%;
+  filter: blur(60px);
 }
 .hide {
   opacity: 0;
