@@ -5,19 +5,18 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 // Custom hook for media query
-const useMediaQuery = (query) => {
+const useMediaQuery = (query: any) => {
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
-   
     const media = window.matchMedia(query);
     setMatches(media.matches);
-    const listener = (e) => {
+    const listener = (e: any) => {
       setMatches(e.matches);
     };
-    media.addEventListener('change', listener);
+    media.addEventListener("change", listener);
     return () => {
-      media.removeEventListener('change', listener);
+      media.removeEventListener("change", listener);
     };
   }, [query]);
 
@@ -26,9 +25,9 @@ const useMediaQuery = (query) => {
 
 const ServiceSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
-  const [direction, setDirection] = useState('next');
-  const isSmallScreen = useMediaQuery('(max-width: 512px)');
-  
+  const [direction, setDirection] = useState("next");
+  const isSmallScreen = useMediaQuery("(max-width: 512px)");
+
   const services = [
     {
       title: "Custom Software Development",
@@ -55,14 +54,14 @@ const ServiceSlider = () => {
         "Our Blockchain solutions enhance security and transparency. By leveraging decentralized technology, we enable efficient, tamper-proof transactions and streamlined processes for your business.",
     },
     {
-      title: "Online Marketplace Development", 
+      title: "Online Marketplace Development",
       icon: "/images/icon2.svg",
       description:
         "Online Marketplace Development enables businesses to build scalable platforms that connect buyers and sellers effortlessly. With intuitive interfaces and advanced features, these marketplaces foster growth and enhance user engagement.",
     },
     {
       title: "PWA Development",
-      icon: "/images/icon3.svg", 
+      icon: "/images/icon3.svg",
       description:
         "PWA Development delivers fast, reliable, and engaging web applications that function seamlessly across devices. By combining the best of web and mobile experiences, it ensures improved performance and user retention.",
     },
@@ -111,16 +110,16 @@ const ServiceSlider = () => {
   ];
 
   const nextSlide = () => {
-    setDirection('next');
+    setDirection("next");
     setCurrentSlide((prev) => (prev === services.length - 1 ? 0 : prev + 1));
   };
 
   const previousSlide = () => {
-    setDirection('prev');
+    setDirection("prev");
     setCurrentSlide((prev) => (prev === 0 ? services.length - 1 : prev - 1));
   };
 
-  const getSlideStyles = (index) => {
+  const getSlideStyles = (index: number) => {
     const position = (index - currentSlide + services.length) % services.length;
 
     // Base styles that will be applied to all slides
@@ -136,7 +135,9 @@ const ServiceSlider = () => {
       // Current slide
       return {
         ...baseStyles,
-        transform: isSmallScreen ? "translateX(35px) scale(1.1)" : "translateX(0) scale(1.1)",
+        transform: isSmallScreen
+          ? "translateX(35px) scale(1.1)"
+          : "translateX(0) scale(1.1)",
         opacity: 1,
         zIndex: 20,
       };
@@ -144,7 +145,8 @@ const ServiceSlider = () => {
       // Next slide
       return {
         ...baseStyles,
-        transform: "translateX(calc(100% + 1rem)) rotate(12deg) translateY(30%)",
+        transform:
+          "translateX(calc(100% + 1rem)) rotate(12deg) translateY(30%)",
         opacity: 0.5,
         zIndex: 10,
       };
@@ -152,15 +154,18 @@ const ServiceSlider = () => {
       // Previous slide
       return {
         ...baseStyles,
-        transform: "translateX(calc(-100% - 1rem)) rotate(-12deg) translateY(30%)",
+        transform:
+          "translateX(calc(-100% - 1rem)) rotate(-12deg) translateY(30%)",
         opacity: 0.5,
         zIndex: 10,
       };
     } else {
       // Hidden slides
-      const isJustRemoved = 
-        (direction === 'next' && (position === -2 || position === services.length - 2)) ||
-        (direction === 'prev' && (position === 2 || position === -services.length + 2));
+      const isJustRemoved =
+        (direction === "next" &&
+          (position === -2 || position === services.length - 2)) ||
+        (direction === "prev" &&
+          (position === 2 || position === -services.length + 2));
 
       if (isJustRemoved) {
         return {
@@ -173,9 +178,10 @@ const ServiceSlider = () => {
 
       return {
         ...baseStyles,
-        transform: position > 0 
-          ? "translateX(calc(200% + 8rem)) rotate(12deg) translateY(30%)"
-          : "translateX(calc(-200% - 8rem)) rotate(-12deg) translateY(30%)",
+        transform:
+          position > 0
+            ? "translateX(calc(200% + 8rem)) rotate(12deg) translateY(30%)"
+            : "translateX(calc(-200% - 8rem)) rotate(-12deg) translateY(30%)",
         opacity: 0,
         zIndex: -1,
       };
@@ -216,7 +222,7 @@ const ServiceSlider = () => {
         {/* Cards Container */}
         <div className="relative h-full flex items-center justify-center overflow-hidden">
           {services.map((service, index) => (
-            <div key={index} style={getSlideStyles(index)}>
+            <div key={index} style={getSlideStyles(index) as any}>
               <div className="relative w-[80%] sm:w-full h-full rounded-2xl p-[1px] bg-gradient-to-br from-[#397EF5] via-[#29313F] to-[#397EF5]">
                 <div className="w-full h-full bg-darkBlue backdrop-blur-[30px] rounded-2xl sm:p-10 flex flex-col items-center">
                   <div
