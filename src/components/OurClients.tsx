@@ -34,7 +34,7 @@ const OurClients = () => {
   ];
 
   return (
-    <div id="clients" className="our-clients clients-section my-[100px] px-[70px]">
+    <div id="clients" className="our-clients clients-section my-[100px] px-[70px] blue-circle">
       <div className="flex justify-center">
         <Box sx={{ width: {
           sm:"100%" ,

@@ -44,7 +44,7 @@ export default function Home() {
           <OurVision />
         </section>
 
-        <section id="services" className="fullpage-section">
+        <section id="services" className="fullpage-section overflow-hidden">
           <Services />
         </section>
 

@@ -37,7 +37,7 @@ const ExcellenceSection = () => {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full excelence-container">
       <div className="min-h-dvh lg:min-h-screen px-4 sm:px-6 md:px-8 lg:px-[70px] pt-16 sm:pt-20 lg:pt-[100px] excelence">
         <div className="flex justify-center">
           <Box sx={{ width: { xs: "90%", sm: "80%", md: "70%" } }} className="text-center">

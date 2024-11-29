@@ -92,10 +92,21 @@ body::-webkit-scrollbar-thumb:hover {
   width: 260px !important;
   height: 170px !important;
 }
-.ar-banner .blue-circle::after{
-  bottom: 4% !important;
-  width: 100%;
-  filter: blur(60px);
+.services .blue-circle::after {
+  top: -20% !important;
+  width: 615px !important;
+  filter: blur(165px) !important;
+}
+.excelence-container .blue-circle::after {
+  top: -20% !important;
+  width: 615px !important;
+  filter: blur(165px) !important;
+}
+.our-clients.blue-circle::after {
+    top: 7%;
+    height: 90%;
+    filter: blur(167px);
+    left: -10%;
 }
 .hide {
   opacity: 0;
