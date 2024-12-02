@@ -1,4 +1,3 @@
-import Providers from "../components/Providers";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -14,11 +13,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-mui-color-scheme="dark">
-      <body
-        suppressHydrationWarning
-        className="antialiased bg-[--background] text-[--foreground]"
-      >
-        <Providers>{children}</Providers>
+      <body className="antialiased bg-[--background] text-[--foreground]">
+        {children}
       </body>
     </html>
   );

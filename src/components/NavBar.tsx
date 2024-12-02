@@ -69,13 +69,14 @@ const NavHeader = () => {
           <Link href="/ar-solutions" className="text-white  mr-[51px]">
             AR Solutions
           </Link>
-          <a
-            href="#clients"
-            onClick={(e) => scrollToSection(e, "clients")}
-            className="text-white cursor-pointer"
-          >
-            Partners & Clients
-          </a>
+          <Link href="/">
+            <div
+              onClick={(e) => scrollToSection(e, "clients")}
+              className="text-white cursor-pointer"
+            >
+              Partners & Clients
+            </div>
+          </Link>
         </div>
         <div className="hidden lg:flex">
           <Link href="/contact-us">

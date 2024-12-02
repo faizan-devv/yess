@@ -1,13 +1,9 @@
 // components/MainLayout.tsx
-import React from 'react';
-import { Box } from '@mui/material';
+import React from "react";
+import Providers from "./Providers";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <Box>
-      {children}
-    </Box>
-  );
+  return <Providers>{children}</Providers>;
 };
 
 export default MainLayout;

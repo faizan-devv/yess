@@ -1,6 +1,5 @@
 // app/page.js
-"use client";
-import { useEffect, useRef } from "react";
+
 import {
   MainLayout,
   Banner,
@@ -16,26 +15,28 @@ import {
 } from "@/components";
 
 export default function Home() {
-  const containerRef = useRef(null);
+  // const containerRef = useRef(null);
 
-  useEffect(() => {
-    // Handle initial hash navigation if any
-    if (window.location.hash) {
-      const id = window.location.hash.substring(1);
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Handle initial hash navigation if any
+  //   if (window.location.hash) {
+  //     const id = window.location.hash.substring(1);
+  //     const element = document.getElementById(id);
+  //     if (element) {
+  //       element.scrollIntoView({ behavior: "smooth" });
+  //     }
+  //   }
+  // }, []);
 
   return (
     <MainLayout>
-      <div className="fullpage-container" ref={containerRef}>
+      <div className="fullpage-container">
         {/* Full-page snap sections */}
         <div className="banner">
           <section className="fullpage-section">
-           <div className="relative top-[5.5%]"> <NavBar /></div>
+            <div className="relative top-[5.5%]">
+              <NavBar />
+            </div>
             <Banner />
           </section>
         </div>
@@ -44,7 +45,10 @@ export default function Home() {
           <OurVision />
         </section>
 
-        <section id="services" className="fullpage-section overflow-hidden z-10">
+        <section
+          id="services"
+          className="fullpage-section overflow-hidden z-10"
+        >
           <Services />
         </section>
 
