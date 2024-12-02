@@ -37,9 +37,9 @@ const ExcellenceSection = () => {
   ];
 
   return (
-    <div className="w-full excelence-container">
-      <div className="min-h-dvh lg:min-h-screen px-4 sm:px-6 md:px-8 lg:px-[70px] pt-16 sm:pt-20 lg:pt-[100px] excelence">
-        <div className="flex justify-center">
+    <div className="w-full excelence-container overflow-hidden">
+      <div className="min-h-dvh lg:min-h-screen px-4 sm:px-6 md:px-8 lg:px-[70px] pt-16 sm:pt-20 lg:pt-[100px] excelence ">
+        <div className="flex justify-center blue-circle">
           <Box sx={{ width: { xs: "90%", sm: "80%", md: "70%" } }} className="text-center">
             <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
               Over a decade of excellence

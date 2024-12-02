@@ -220,7 +220,7 @@ const ServiceSlider = () => {
         </button>
 
         {/* Cards Container */}
-        <div className="relative h-full flex items-center justify-center overflow-hidden">
+        <div className="relative h-full flex items-center justify-center overflow-hidden pb-[100px]">
           {services.map((service, index) => (
             <div key={index} style={getSlideStyles(index) as any}>
               <div className="relative w-[80%] sm:w-full h-full rounded-2xl p-[1px] bg-gradient-to-br from-[#397EF5] via-[#29313F] to-[#397EF5]">

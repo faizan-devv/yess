@@ -48,8 +48,16 @@ body::-webkit-scrollbar-thumb:hover {
 .our-vsion {
   background: url("/images/vision-bg.svg") no-repeat center/cover;
 }
-.projects-header {
-  background: url("/images/projects-bg.gif") no-repeat center/cover;
+.projects-header::after {
+  content: '';
+  position: absolute;
+  top: -70%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(/images/projects-bg.gif) no-repeat center / cover;
+  z-index: -1;
+  height: 641px;
 }
 .services {
   background: url("/images/services-bg.svg") no-repeat center/cover;
@@ -63,11 +71,14 @@ body::-webkit-scrollbar-thumb:hover {
 .about-us {
   background: url("/images/aboutus-bg.svg") no-repeat center/cover;
 }
-.form{
+.form {
   background: url("/images/contact.svg") no-repeat center/cover;
 }
-.ar-banner{
+.ar-banner {
   background: url("/images/galaxy.svg") no-repeat center/cover;
+}
+.services-banner{
+  background: url("/images/service-bg.svg") no-repeat center/cover;
 }
 .blue-circle::after {
   content: "";
@@ -79,6 +90,18 @@ body::-webkit-scrollbar-thumb:hover {
   filter: blur(80px);
   z-index: -1;
   border-radius: 50%;
+}
+.blue-circleB::before {
+  content: "";
+  position: absolute;
+  height: 260px;
+  background-color: #397ef5;
+  z-index: -1;
+  border-radius: 50%;
+  bottom: -65%;
+  width: 615px;
+  filter: blur(280px);
+  left: 30%;
 }
 .right-section .blue-circle::after {
   right: 50% !important;
@@ -95,18 +118,25 @@ body::-webkit-scrollbar-thumb:hover {
 .services .blue-circle::after {
   top: -20% !important;
   width: 615px !important;
-  filter: blur(165px) !important;
+  filter: blur(245px) !important;
 }
 .excelence-container .blue-circle::after {
   top: -20% !important;
   width: 615px !important;
   filter: blur(165px) !important;
+  z-index: 1000;
 }
 .our-clients.blue-circle::after {
-    top: 7%;
-    height: 90%;
-    filter: blur(167px);
-    left: -10%;
+  height: 90%;
+  top: 0% !important;
+  filter: blur(253px) !important;
+  left: -20% !important;
+}
+.ceo-msg .blue-circle::after {
+  top: -35% !important;
+  width: 615px !important;
+  filter: blur(280px) !important;
+  left: 30%;
 }
 .hide {
   opacity: 0;
@@ -212,7 +242,9 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50%)); /* Only move half the distance since we have duplicates */
+    transform: translateX(
+      calc(-50%)
+    ); /* Only move half the distance since we have duplicates */
   }
 }
 
@@ -243,7 +275,7 @@ body::-webkit-scrollbar-thumb:hover {
   .tech-sol {
     top: 110% !important;
   }
-  .banner-box{
+  .banner-box {
     bottom: -500% !important;
   }
 }

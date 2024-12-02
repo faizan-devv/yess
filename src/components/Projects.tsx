@@ -12,7 +12,7 @@ const Projects = () => {
               lg: "60%",
             },
           }}
-          className="projects-header py-[90px] text-center"
+          className="projects-header py-[90px] text-center relative"
         >
           <GradientHeading>Projects</GradientHeading>
           <div className="">

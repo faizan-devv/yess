@@ -43,13 +43,18 @@ const NavHeader = () => {
             Home
           </Link>
 
-          <a
+          {/*  <a
             href="#services"
             onClick={(e) => scrollToSection(e, "services")}
             className="text-white mr-[51px] cursor-pointer"
+          > */}
+          <Link
+            href="/our-services"
+            className="text-white hover:text-blue-400 transition-colors"
           >
             Services
-          </a>
+          </Link>
+          {/* </a> */}
           {/* <div className="relative group">
             <button className="text-white flex items-center">
             </button>

@@ -44,7 +44,7 @@ export default function Home() {
           <OurVision />
         </section>
 
-        <section id="services" className="fullpage-section overflow-hidden">
+        <section id="services" className="fullpage-section overflow-hidden z-10">
           <Services />
         </section>
 
@@ -53,7 +53,7 @@ export default function Home() {
           <OurClients />
         </div>
 
-        <section className="fullpage-section">
+        <section className="fullpage-section overflow-hidden">
           <ExcellenceSection />
         </section>
         <div className="normal-scroll-sections">

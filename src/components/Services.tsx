@@ -4,8 +4,8 @@ import ServiceSlider from "./ServiceSlider";
 
 const Services = () => {
   return (
-    <div id="services" className="min-h-dvh lg:min-h-screen services mt-[100px] px-[70px]">
-      <div className="flex justify-center text-center mb-[15px] blue-circle">
+    <div id="services" className="min-h-dvh lg:min-h-screen services mt-[100px] px-[70px] relative overflow-hidden">
+      <div className="flex justify-center text-center mb-[15px] blue-circle pt-[100px]">
         <Box sx={{ width: {
           sm:"100%" ,
           md:"80%", 
@@ -29,7 +29,7 @@ const Services = () => {
         </Box>
       </div>
 
-      <div className="">
+      <div>
         <ServiceSlider />
       </div>
     </div>

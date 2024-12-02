@@ -15,7 +15,8 @@ export default {
         white80:'#FFFFFFCC',
         customGray:'#454545',
         white70:"#FFFFFFB2",
-        darkBlue:"#0A081F"
+        darkBlue:"#0A081F",
+        blueGrad:"linear-gradient(270deg, #397EF5 -554.05%, #0B081F 64.53%)"
       },
     },
   },
