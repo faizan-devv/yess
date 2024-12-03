@@ -8,27 +8,27 @@ import Footer from "./Footer";
 const OurService = () => {
   return (
     <div id="our-services">
-      <div className="services-banner ">
+      <div className="services-banner">
         <NavHeader />
-        <div className="py-[187px] px-[70px]">
+        <div className="py-12 md:py-[187px] px-10 md:px-[70px]">
           <Box
             sx={{
               width: {
+                xs: "100%",
                 sm: "100%",
                 md: "80%",
                 lg: "60%",
               },
             }}
-            className=""
           >
             <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
               Over a decade of excellence
             </GradientHeading>
-            <div className="">
+            <div>
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "20px", md: "30px" },
+                  fontSize: { xs: "18px", sm: "20px", md: "30px" },
                   fontWeight: 400,
                 }}
                 className="text-white80"
@@ -40,17 +40,18 @@ const OurService = () => {
           </Box>
         </div>
       </div>
-      <div className="all-service px-[169px] pt-[57px]">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+
+      <div className="all-service px-8 md:px-[169px] pt-8 md:pt-[57px]">
+        {/* First Section */}
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6">
-            <div className="text-[#397EF5] opacity-10 text-[90px] font-bold mb-4 leading-[72px]">
+          <div className="space-y-4 md:space-y-6">
+            <div className="text-[#397EF5] opacity-10 text-[50px] md:text-[90px] font-bold mb-2 md:mb-4 leading-[1.2] md:leading-[72px]">
               01
             </div>
-
             <GradientHeading
               gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-              fontSize={{ xs: "30px", md: "50px" }}
+              fontSize={{ xs: "24px", sm: "30px", md: "50px" }}
               fontWeight={700}
             >
               Signal Engineering and Analysis Systems
@@ -58,9 +59,9 @@ const OurService = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "20px", md: "25px" },
+                fontSize: { xs: "16px", sm: "20px", md: "25px" },
                 fontWeight: 400,
-                lineHeight: "39px",
+                lineHeight: { xs: "1.5", md: "39px" },
               }}
               className="text-white80"
             >
@@ -72,32 +73,37 @@ const OurService = () => {
           </div>
 
           {/* Right Image */}
-          <div className="flex justify-end relative">
+          <div className="flex justify-center lg:justify-end relative mt-8 md:mt-0">
             <div
-              className="blue-shade h-[486px] w-[150px] border-r border-[#397EF5] relative right-[-7%]"
+              className="blue-shade hidden lg:block h-[486px] w-[150px] border-r border-[#397EF5] relative right-[-7%]"
               style={{
                 background:
                   "linear-gradient(270deg, #397EF5 -554.05%, #0B081F 64.53%)",
               }}
-            ></div>
-            <Image
-              src="/images/social.svg"
-              alt="Signal Engineering Visualization"
-              width={516}
-              height={426}
-              style={{ marginRight: "20px" }}
             />
-            <div className="blue-box h-[187px] w-[187px] rounded-[40px] bg-[#397EF5] absolute top-[10%] -z-10"></div>
+            <div className="relative w-full md:w-auto">
+              <Image
+                src="/images/social.svg"
+                alt="Signal Engineering Visualization"
+                width={516}
+                height={426}
+                className=""
+                style={{ marginRight: "20px" }}
+              />
+              <div className="blue-box h-[100px] w-[100px] lg:h-[187px] lg:w-[187px] rounded-[20px] lg:rounded-[40px] bg-[#397EF5] absolute top-[10%] -z-10" />
+            </div>
           </div>
         </div>
-        <div className="flex justify-center items-start gap-12 py-[192px]">
-          <div className="text-[#397EF5] opacity-10 text-[90px] font-bold leading-[72px]">
+
+        {/* Second Section */}
+        <div className="flex flex-col lg:flex-row justify-center items-start gap-6 md:gap-12 py-12 md:py-[192px]">
+          <div className="text-[#397EF5] opacity-10 text-[50px] md:text-[90px] font-bold leading-[1.2] md:leading-[72px]">
             02
           </div>
-          <div className="w-[45%]">
+          <div className="w-full lg:w-[45%]">
             <GradientHeading
               gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-              fontSize={{ xs: "30px", md: "50px" }}
+              fontSize={{ xs: "24px", sm: "30px", md: "50px" }}
               fontWeight={700}
             >
               Signal Jamming Systems
@@ -105,9 +111,9 @@ const OurService = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "20px", md: "25px" },
+                fontSize: { xs: "16px", sm: "20px", md: "25px" },
                 fontWeight: 400,
-                lineHeight: "39px",
+                lineHeight: { xs: "1.5", md: "39px" },
               }}
               className="text-white80"
             >
@@ -119,33 +125,37 @@ const OurService = () => {
             </Typography>
           </div>
         </div>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="flex justify-start relative">
-            <div className="blue-box h-[187px] w-[187px] rounded-[40px] bg-[#397EF5] absolute top-[10%] -z-10"></div>
 
-            <Image
-              src="/images/fiber.svg"
-              alt="Signal Security Systems"
-              width={516}
-              height={426}
-              style={{ marginLeft: "20px" }}
-            />
-            <div
-              className="blue-shade h-[486px] w-[150px] border-l border-[#397EF5] relative left-[-7%]"
-              style={{
-                background:
-                  "linear-gradient(90deg, #397EF5 -554.05%, #0B081F 64.53%)",
-              }}
-            ></div>
+        {/* Third Section */}
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
+          <div className="flex justify-center lg:justify-start relative order-last md:order-first">
+            <div className="blue-box hidden lg:block h-[100px] w-[100px] lg:h-[187px] lg:w-[187px] rounded-[20px] lg:rounded-[40px] bg-[#397EF5] absolute top-[10%] -z-10" />
+            <div className="relative w-full md:w-auto">
+              <Image
+                src="/images/fiber.svg"
+                alt="Signal Security Systems"
+                width={516}
+                height={426}
+                className=""
+                style={{ marginLeft: "20px" }}
+              />
+              <div
+                className="blue-shade hidden lg:block h-[486px] w-[150px] border-l border-[#397EF5] relative left-[-7%]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, #397EF5 -554.05%, #0B081F 64.53%)",
+                }}
+              />
+            </div>
           </div>
-          <div className="space-y-6">
-            <div className="text-[#397EF5] opacity-10 text-[90px] font-bold mb-4 leading-[72px]">
+
+          <div className="space-y-4 md:space-y-6">
+            <div className="text-[#397EF5] opacity-10 text-[50px] md:text-[90px] font-bold mb-2 md:mb-4 leading-[1.2] md:leading-[72px]">
               03
             </div>
-
             <GradientHeading
               gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-              fontSize={{ xs: "30px", md: "50px" }}
+              fontSize={{ xs: "24px", sm: "30px", md: "50px" }}
               fontWeight={700}
             >
               Signal Security Systems
@@ -153,9 +163,9 @@ const OurService = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "20px", md: "25px" },
+                fontSize: { xs: "16px", sm: "20px", md: "25px" },
                 fontWeight: 400,
-                lineHeight: "39px",
+                lineHeight: { xs: "1.5", md: "39px" },
               }}
               className="text-white80"
             >
@@ -166,14 +176,16 @@ const OurService = () => {
             </Typography>
           </div>
         </div>
-        <div className="flex justify-center items-start gap-12 pt-[192px] pb-[95px]">
-          <div className="text-[#397EF5] opacity-10 text-[90px] font-bold leading-[72px]">
+
+        {/* Fourth Section */}
+        <div className="flex flex-col lg:flex-row justify-center items-start gap-6 md:gap-12 pt-12 md:pt-[192px] pb-8 md:pb-[95px]">
+          <div className="text-[#397EF5] opacity-10 text-[50px] md:text-[90px] font-bold leading-[1.2] md:leading-[72px]">
             04
           </div>
-          <div className="w-[45%]">
+          <div className="w-full lg:w-[45%]">
             <GradientHeading
               gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-              fontSize={{ xs: "30px", md: "50px" }}
+              fontSize={{ xs: "24px", sm: "30px", md: "50px" }}
               fontWeight={700}
             >
               Situational Awareness Systems
@@ -181,9 +193,9 @@ const OurService = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "20px", md: "25px" },
+                fontSize: { xs: "16px", sm: "20px", md: "25px" },
                 fontWeight: 400,
-                lineHeight: "39px",
+                lineHeight: { xs: "1.5", md: "39px" },
               }}
               className="text-white80"
             >
@@ -196,6 +208,7 @@ const OurService = () => {
           </div>
         </div>
       </div>
+
       <div className="mb-[100px]">
         <Services />
       </div>
@@ -203,4 +216,5 @@ const OurService = () => {
     </div>
   );
 };
+
 export default OurService;
