@@ -75,7 +75,7 @@ body::-webkit-scrollbar-thumb:hover {
   background: url("/images/contact.svg") no-repeat center/cover;
 }
 .ar-banner {
-  background: url("/images/galaxy.svg") no-repeat center/cover;
+  background: url("/images/arvr-bg.svg") no-repeat center/cover;
 }
 .services-banner{
   background: url("/images/service-bg.svg") no-repeat center/cover;
