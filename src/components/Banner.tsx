@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { Typography, Box } from "@mui/material";
 import GradientHeading from "./GradientHeading";
-
+import { useGSAP } from "@gsap/react";
 const Banner = () => {
   const [animationStarted, setAnimationStarted] = useState(false);
   const container = useRef<HTMLDivElement>(null);
@@ -12,7 +12,7 @@ const Banner = () => {
   const box3Ref = useRef<HTMLDivElement>(null);
   const box4Ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     // Initialize GSAP timeline
     setAnimationStarted(true);
     const tl = gsap.timeline();
@@ -28,7 +28,7 @@ const Banner = () => {
       tl.kill();
       setAnimationStarted(false);
     };
-  }, []);
+  }, {scope: container});
 
   return (
     <div className="">
