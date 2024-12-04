@@ -3,23 +3,27 @@ import Image from "next/image";
 import { Button, Box, Container, Stack, Typography, Link } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-const StyledContainer = styled(Container)({
+const StyledContainer = styled(Container)(({ theme }) => ({
   maxWidth: "1472px !important",
-  paddingLeft: {
-    xs: "16px",
-    sm: "24px",
-    md: "48px",
-    lg: "96px",
-    xl: "240px"
+  paddingLeft: theme.spacing(2), // Default for xs
+  paddingRight: theme.spacing(2), // Default for xs
+  [theme.breakpoints.up("sm")]: {
+    paddingLeft: theme.spacing(3),
+    paddingRight: theme.spacing(3),
   },
-  paddingRight: {
-    xs: "16px",
-    sm: "24px",
-    md: "48px",
-    lg: "96px",
-    xl: "240px"
-  }
-});
+  [theme.breakpoints.up("md")]: {
+    paddingLeft: theme.spacing(6),
+    paddingRight: theme.spacing(6),
+  },
+  [theme.breakpoints.up("lg")]: {
+    paddingLeft: theme.spacing(12),
+    paddingRight: theme.spacing(12),
+  },
+  [theme.breakpoints.up("xl")]: {
+    paddingLeft: theme.spacing(30),
+    paddingRight: theme.spacing(30),
+  },
+}));
 
 const Footer = () => {
   const services = [
@@ -70,9 +74,9 @@ const Footer = () => {
               width={120}
               height={63}
               priority
-              style={{
-                maxWidth: { xs: "100px", md: "120px" }
-              }}
+              // style={{
+              //   maxWidth: { xs: "100px", md: "120px" }
+              // }}
             />
             <Stack spacing={4} sx={{ my: 4 }}>
               <Typography variant="subtitle1" sx={{ fontSize: { xs: 16, md: 17 }, fontWeight: 500 }}>
@@ -283,9 +287,9 @@ const Footer = () => {
               width={10}
               height={20}
               priority
-              style={{
-                width: { xs: "16px", sm: "auto" }
-              }}
+              // style={{
+              //   width: { xs: "16px", sm: "auto" }
+              // }}
             />
             <Image
               src="/images/twitter.svg"
@@ -293,9 +297,9 @@ const Footer = () => {
               width={22}
               height={22}
               priority
-              style={{
-                width: { xs: "20px", sm: "auto" }
-              }}
+              // style={{
+              //   width: { xs: "20px", sm: "auto" }
+              // }}
             />
             <Image
               src="/images/insta.svg"
@@ -303,9 +307,9 @@ const Footer = () => {
               width={22}
               height={22}
               priority
-              style={{
-                width: { xs: "20px", sm: "auto" }
-              }}
+              // style={{
+              //   width: { xs: "20px", sm: "auto" }
+              // }}
             />
           </Stack>
         </Box>

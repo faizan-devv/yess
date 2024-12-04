@@ -11,10 +11,20 @@ import {
   IconButton,
   Typography,
   styled,
+  BoxProps,
+  TypographyProps,
 } from "@mui/material";
 
+interface NavLinkProps extends TypographyProps {
+  component?: React.ElementType;
+  href?: string;
+}
+
+interface StyledNavProps extends BoxProps {
+  component?: React.ElementType; // Include the `component` prop explicitly
+}
 // Styled components to maintain the same design
-const StyledNav = styled(Box)(({ theme }) => ({
+const StyledNav = styled(Box)<StyledNavProps>(() => ({
   paddingTop: "37px",
   paddingLeft: "0px",
   paddingRight: "0px",
@@ -33,7 +43,7 @@ const DesktopNavContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const NavLink = styled(Typography)(({ theme }) => ({
+const NavLink = styled(Typography)<NavLinkProps>(({ theme }) => ({
   color: "white",
   cursor: "pointer",
   transition: "colors 0.3s",
@@ -45,7 +55,7 @@ const NavLink = styled(Typography)(({ theme }) => ({
 const NavHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (e, sectionId) => {
+  const scrollToSection = (e: any, sectionId: any) => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {

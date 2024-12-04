@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { Typography, Box } from "@mui/material";
 import GradientHeading from "./GradientHeading";

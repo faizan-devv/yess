@@ -41,7 +41,15 @@ const services = [
   { image: "/images/video-play.svg", title: "Promo Videos" },
 ];
 
-const ServiceCard = ({ image, title, bgColor }) => (
+const ServiceCard = ({
+  image,
+  title,
+  bgColor,
+}: {
+  image: string;
+  title: string;
+  bgColor: string;
+}) => (
   <Paper
     elevation={0}
     sx={{
@@ -76,9 +84,7 @@ const ArSolutions = () => {
   return (
     <Box>
       <Box className="ar-solutions">
-        <Box
-          className="ar-banner"
-        >
+        <Box className="ar-banner">
           <NavBar />
           <Container
             maxWidth={false}
@@ -88,7 +94,7 @@ const ArSolutions = () => {
           >
             <Box
               sx={{
-                py: { xs: 15, md: 31.25 }, 
+                py: { xs: 15, md: 31.25 },
                 px: { xs: 4, md: 0 },
               }}
             >
