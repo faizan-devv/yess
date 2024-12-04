@@ -1,5 +1,25 @@
+"use client";
 import Image from "next/image";
-import { Button, Box } from "@mui/material";
+import { Button, Box, Container, Stack, Typography, Link } from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+const StyledContainer = styled(Container)({
+  maxWidth: "1472px !important",
+  paddingLeft: {
+    xs: "16px",
+    sm: "24px",
+    md: "48px",
+    lg: "96px",
+    xl: "240px"
+  },
+  paddingRight: {
+    xs: "16px",
+    sm: "24px",
+    md: "48px",
+    lg: "96px",
+    xl: "240px"
+  }
+});
 
 const Footer = () => {
   const services = [
@@ -22,123 +42,250 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="footer" className="mb-8 md:mb-16 lg:mb-[100px] footer-section">
-      <div className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-[240px]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-6">
+    <Box 
+      component="footer" 
+      id="footer" 
+      sx={{ 
+        mb: { xs: 8, md: 16, lg: "100px" }
+      }}
+    >
+      <StyledContainer>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              lg: "repeat(4, 1fr)"
+            },
+            gap: 4,
+            mb: 3
+          }}
+        >
           {/* Logo and Contact Section */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <Box sx={{ gridColumn: { sm: "span 2", lg: "span 1" } }}>
             <Image
               src="/images/logo.svg"
               alt="Logo"
               width={120}
               height={63}
               priority
-              className="max-w-[100px] md:max-w-[120px]"
+              style={{
+                maxWidth: { xs: "100px", md: "120px" }
+              }}
             />
-            <div className="my-4 space-y-4">
-              <h6 className="text-base md:text-[17px] font-medium">Office Location:</h6>
-              <a
-                href="https://www.google.com/maps?q=Al+Yamama+Company+for+trading+and+Contracting,+Muhammed+Ibn+Saud,+5470+al+hareth+bin+morah+al+amir%D8%8C+Dammam+32241"
+            <Stack spacing={4} sx={{ my: 4 }}>
+              <Typography variant="subtitle1" sx={{ fontSize: { xs: 16, md: 17 }, fontWeight: 500 }}>
+                Office Location:
+              </Typography>
+              <Link
+                href="https://www.google.com/maps"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                underline="none"
               >
-                <Box className="max-w-[230px]">
-                  <h6 className="text-base md:text-[17px] font-normal mb-4">
+                <Box sx={{ maxWidth: 230 }}>
+                  <Typography 
+                    variant="subtitle1" 
+                    sx={{ 
+                      fontSize: { xs: 16, md: 17 }, 
+                      fontWeight: 400,
+                      mb: 2 ,
+                      color: "#ffffff"
+                    }}
+                  >
                     King Abdulaziz Road, Riyad, KSA
-                  </h6>
+                  </Typography>
                 </Box>
-              </a>
-              <h6 className="text-base md:text-[17px] font-medium">Head Office Location:</h6>
-              {/* <a
-                href="https://www.google.com/maps?q=Al+Yamama+Company+for+trading+and+Contracting,+Muhammed+Ibn+Saud,+5470+al+hareth+bin+morah+al+amir%D8%8C+Dammam+32241"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              > */}
-                <Box className="max-w-[230px]">
-                  <h6 className="text-base md:text-[17px] font-normal mb-4">
-                    8384, Prince Mohammed Bin Fahd Road, Al Firdaws, 5237 PO Box 2150 Postal Code 34251
-                  </h6>
-                </Box>
-             {/*  </a> */}
-              <h6 className="text-base md:text-[17px] font-normal mb-4">
+              </Link>
+              
+              <Typography variant="subtitle1" sx={{ fontSize: { xs: 16, md: 17 }, fontWeight: 500 }}>
+                Head Office Location:
+              </Typography>
+              <Box sx={{ maxWidth: 230 }}>
+                <Typography 
+                  variant="subtitle1" 
+                  sx={{ 
+                    fontSize: { xs: 16, md: 17 }, 
+                    fontWeight: 400,
+                    mb: 2 
+                  }}
+                >
+                  8384, Prince Mohammed Bin Fahd Road, Al Firdaws, 5237 PO Box 2150 Postal Code 34251
+                </Typography>
+              </Box>
+              
+              <Typography 
+                variant="subtitle1" 
+                sx={{ 
+                  fontSize: { xs: 16, md: 17 }, 
+                  fontWeight: 400,
+                  mb: 2 
+                }}
+              >
                 Quick Contact: +966-13-828-1002
-              </h6>
-              <Button variant="outlined" className="w-full sm:w-auto">
+              </Typography>
+              
+              <Button 
+                variant="outlined" 
+                sx={{ 
+                  width: { xs: "100%", sm: "auto" } 
+                }}
+              >
                 Get Started
               </Button>
-            </div>
-          </div>
+            </Stack>
+          </Box>
 
           {/* Services */}
-          <div className="mt-6 sm:mt-0">
-            <h3 className="text-base md:text-[17px] leading-[21px] font-normal mb-4">
+          <Box sx={{ mt: { xs: 6, sm: 0 } }}>
+            <Typography 
+              variant="subtitle1" 
+              sx={{ 
+                fontSize: { xs: 16, md: 17 }, 
+                lineHeight: "21px",
+                fontWeight: 400,
+                mb: 2 
+              }}
+            >
               Services
-            </h3>
-            <ul className="space-y-3">
+            </Typography>
+            <Stack spacing={1.5}>
               {services.map((item) => (
-                <li key={item.name}>
-                  <Box className="text-sm md:text-[15px] leading-[18px] font-normal text-white mb-3">
-                    {item.name}
-                  </Box>
-                </li>
+                <Typography
+                  key={item.name}
+                  sx={{
+                    fontSize: { xs: 14, md: 15 },
+                    lineHeight: "18px",
+                    fontWeight: 400,
+                    color: "white",
+                    mb: 1.5
+                  }}
+                >
+                  {item.name}
+                </Typography>
               ))}
-            </ul>
-          </div>
+            </Stack>
+          </Box>
 
           {/* About */}
-          <div className="mt-6 sm:mt-0">
-            <h3 className="text-base md:text-[17px] leading-[21px] font-normal mb-4">
+          <Box sx={{ mt: { xs: 6, sm: 0 } }}>
+            <Typography 
+              variant="subtitle1" 
+              sx={{ 
+                fontSize: { xs: 16, md: 17 }, 
+                lineHeight: "21px",
+                fontWeight: 400,
+                mb: 2 
+              }}
+            >
               About
-            </h3>
-            <ul className="space-y-3">
+            </Typography>
+            <Stack spacing={1.5}>
               {about.map((item) => (
-                <li key={item.name}>
-                  <Box className="text-sm md:text-[15px] leading-[18px] font-normal text-white mb-3">
-                    {item.name}
-                  </Box>
-                </li>
+                <Typography
+                  key={item.name}
+                  sx={{
+                    fontSize: { xs: 14, md: 15 },
+                    lineHeight: "18px",
+                    fontWeight: 400,
+                    color: "white",
+                    mb: 1.5
+                  }}
+                >
+                  {item.name}
+                </Typography>
               ))}
-            </ul>
-          </div>
+            </Stack>
+          </Box>
 
           {/* Help */}
-          <div className="mt-6 sm:mt-0">
-            <h3 className="text-base md:text-[17px] leading-[21px] font-normal mb-4">
+          <Box sx={{ mt: { xs: 6, sm: 0 } }}>
+            <Typography 
+              variant="subtitle1" 
+              sx={{ 
+                fontSize: { xs: 16, md: 17 }, 
+                lineHeight: "21px",
+                fontWeight: 400,
+                mb: 2 
+              }}
+            >
               Help
-            </h3>
-            <ul className="space-y-3">
+            </Typography>
+            <Stack spacing={1.5}>
               {help.map((item) => (
-                <li key={item.name}>
-                  <Box className="text-sm md:text-[15px] leading-[18px] font-normal text-white mb-3">
-                    {item.name}
-                  </Box>
-                </li>
+                <Typography
+                  key={item.name}
+                  sx={{
+                    fontSize: { xs: 14, md: 15 },
+                    lineHeight: "18px",
+                    fontWeight: 400,
+                    color: "white",
+                    mb: 1.5
+                  }}
+                >
+                  {item.name}
+                </Typography>
               ))}
-            </ul>
-          </div>
-        </div>
+            </Stack>
+          </Box>
+        </Box>
 
         {/* Bottom Section */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center space-y-6 sm:space-y-0">
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 items-center sm:items-start">
-            <Box className="text-sm md:text-[15px] leading-[19px] font-normal text-white sm:mr-10">
+        <Box
+          sx={{
+            pt: 4,
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: { xs: 3, sm: 0 }
+          }}
+        >
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={{ xs: 2, sm: 3 }}
+            alignItems={{ xs: "center", sm: "flex-start" }}
+          >
+            <Typography
+              sx={{
+                fontSize: { xs: 14, md: 15 },
+                lineHeight: "19px",
+                fontWeight: 400,
+                color: "white",
+                mr: { sm: 5 }
+              }}
+            >
               Terms & Conditions
-            </Box>
-            <Box className="text-sm md:text-[15px] leading-[19px] font-normal text-white">
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: 14, md: 15 },
+                lineHeight: "19px",
+                fontWeight: 400,
+                color: "white"
+              }}
+            >
               Privacy Policy
-            </Box>
-          </div>
+            </Typography>
+          </Stack>
 
-          <div className="flex space-x-6 mt-6 sm:mt-0">
+          <Stack
+            direction="row"
+            spacing={3}
+            sx={{
+              mt: { xs: 3, sm: 0 }
+            }}
+          >
             <Image
               src="/images/fb.svg"
               alt="Facebook"
               width={10}
               height={20}
               priority
-              className="w-4 sm:w-auto"
+              style={{
+                width: { xs: "16px", sm: "auto" }
+              }}
             />
             <Image
               src="/images/twitter.svg"
@@ -146,7 +293,9 @@ const Footer = () => {
               width={22}
               height={22}
               priority
-              className="w-5 sm:w-auto"
+              style={{
+                width: { xs: "20px", sm: "auto" }
+              }}
             />
             <Image
               src="/images/insta.svg"
@@ -154,12 +303,14 @@ const Footer = () => {
               width={22}
               height={22}
               priority
-              className="w-5 sm:w-auto"
+              style={{
+                width: { xs: "20px", sm: "auto" }
+              }}
             />
-          </div>
-        </div>
-      </div>
-    </footer>
+          </Stack>
+        </Box>
+      </StyledContainer>
+    </Box>
   );
 };
 

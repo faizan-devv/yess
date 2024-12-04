@@ -2,7 +2,7 @@
 import Image from "next/image";
 import NavBar from "./NavBar";
 import GradientHeading from "./GradientHeading";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Container, Stack, Grid, Paper } from "@mui/material";
 import RegistrationForm from "./RegistrationForm";
 import Footer from "./Footer";
 import { useState, useEffect } from "react";
@@ -18,10 +18,7 @@ const useWindowSize = () => {
       });
     };
 
-    // Initialize size on mount
     handleResize();
-
-    // Add event listener for resize
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -43,17 +40,24 @@ const services = [
   { image: "/images/mirroring-screen.svg", title: "Info Hotspots" },
   { image: "/images/video-play.svg", title: "Promo Videos" },
 ];
-const ServiceCard = ({
-  image,
-  title,
-  bgColor,
-}: {
-  image: string;
-  title: string;
-  bgColor: string;
-}) => (
-  <div
-    className={`p-6 rounded-lg transition-all duration-300 hover:bg-gray-800 cursor-pointer flex flex-col items-center gap-4 ${bgColor}`}
+
+const ServiceCard = ({ image, title, bgColor }) => (
+  <Paper
+    elevation={0}
+    sx={{
+      padding: 3,
+      borderRadius: 2,
+      transition: "all 0.3s",
+      cursor: "pointer",
+      backgroundColor: bgColor,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 2,
+      "&:hover": {
+        bgcolor: "grey.800",
+      },
+    }}
   >
     <Image src={image} alt={title} width={30} height={30} />
     <GradientHeading
@@ -63,126 +67,153 @@ const ServiceCard = ({
     >
       {title}
     </GradientHeading>
-  </div>
+  </Paper>
 );
 
 const ArSolutions = () => {
   const { width } = useWindowSize();
+
   return (
-    <div>
-      <div className="ar-solutions">
-        <div className="ar-banner ">
+    <Box>
+      <Box className="ar-solutions">
+        <Box
+          className="ar-banner"
+        >
           <NavBar />
-          <div className="py-[250px] px-[70px]">
+          <Container
+            maxWidth={false}
+            sx={{
+              maxWidth: "1472px",
+            }}
+          >
             <Box
               sx={{
-                width: {
-                  sm: "100%",
-                  md: "70%",
-                  lg: "50%",
-                },
+                py: { xs: 15, md: 31.25 }, 
+                px: { xs: 4, md: 0 },
               }}
-              className=""
             >
-              <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
-                AR/VR Solution
-              </GradientHeading>
-              <div className="">
+              <Box
+                sx={{
+                  width: {
+                    xs: "100%",
+                    sm: "100%",
+                    md: "70%",
+                    lg: "50%",
+                  },
+                }}
+              >
+                <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
+                  AR/VR Solution
+                </GradientHeading>
+
                 <Typography
                   variant="h1"
                   sx={{
-                    fontSize: { xs: "20px", md: "30px" },
+                    fontSize: {
+                      xs: "20px",
+                      md: "30px",
+                    },
                     fontWeight: 400,
                     mb: 2,
+                    color: "rgba(255, 255, 255, 0.8)",
+                    lineHeight: { xs: 1.4, md: 1.5 },
                   }}
-                  className="text-white80"
                 >
-                  Intelligent digitalsolutionsfor secure envorinmenst through
-                  automation &smart controls
+                  Intelligent digital solutions for secure environments through
+                  automation & smart controls
                 </Typography>
-              </div>
+              </Box>
             </Box>
-          </div>
-        </div>
-        <div className="px-[70px] py-[100px]">
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: { xs: "16px", md: "20px" },
-              fontWeight: 400,
-              mb: "30px",
-              lineHeight: "39px",
-            }}
-            className="text-white80"
-          >
-            Augmented Reality (AR) and Virtual Reality (VR) are immersive
-            technologies that enhance or create experiences by blending or
-            replacing the physical world with digital elements. These
-            technologies are revolutionizing industries, from entertainment to
-            education, Smart Cities healthcare, and retail. YESS is proposing
-            Zubr Curio: a leading augmented and virtual reality studio
-            specializing in digital interpretation for museums, galleries,
-            libraries, heritage sites, academics and creative
-            practitioners. We’re passionate about working with enthusiastic
-            storytellers with exciting ideas to develop and deliver innovative
-            AR and VR, high quality, audience-centred digital content and unique
-            immersive experiences.
-          </Typography>
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: { xs: "16px", md: "20px" },
-              fontWeight: 400,
-              mb: "30px",
-              lineHeight: "39px",
-            }}
-            className="text-white80"
-          >
-            Our services cover everything from project conception through to app
-            store submissions or in-venue installations, including scripting, 3D
-            scanning, 3D modelling, app development, real-world calibration and
-            analytics
-          </Typography>
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: { xs: "16px", md: "20px" },
-              fontWeight: 400,
-              lineHeight: "39px",
-            }}
-            className="text-white80"
-          >
-            We develop everything from museum interactives and performance art
-            installations to augmented social media filters or education
-            tools, AR binoculars, 3D historically and geographically-accurate
-            models, apps and even virtual events
-          </Typography>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-[100px]">
-            {services.map((service, index) => {
-              const bgColor =
-                width < 768
-                  ? index % 2 === 1
-                    ? "bg-[#282D4063]"
-                    : "bg-transparent"
-                  : [0, 2, 5, 7, 8, 10].includes(index)
-                  ? "bg-[#282D4063]"
-                  : "bg-transparent";
+          </Container>
+        </Box>
 
-              return (
-                <ServiceCard
-                  key={index}
-                  image={service.image}
-                  title={service.title}
-                  bgColor={bgColor}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </div>
+        <Container
+          maxWidth={false}
+          sx={{ maxWidth: "1472px", py: 12.5, px: 8.75 }}
+        >
+          <Stack spacing={3.75}>
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: "16px", md: "20px" },
+                fontWeight: 400,
+                lineHeight: "39px",
+                color: "rgba(255, 255, 255, 0.8)",
+              }}
+            >
+              Augmented Reality (AR) and Virtual Reality (VR) are immersive
+              technologies that enhance or create experiences by blending or
+              replacing the physical world with digital elements. These
+              technologies are revolutionizing industries, from entertainment to
+              education, Smart Cities healthcare, and retail. YESS is proposing
+              Zubr Curio: a leading augmented and virtual reality studio
+              specializing in digital interpretation for museums, galleries,
+              libraries, heritage sites, academics and creative practitioners.
+              We're passionate about working with enthusiastic storytellers with
+              exciting ideas to develop and deliver innovative AR and VR, high
+              quality, audience-centred digital content and unique immersive
+              experiences.
+            </Typography>
+
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: "16px", md: "20px" },
+                fontWeight: 400,
+                lineHeight: "39px",
+                color: "rgba(255, 255, 255, 0.8)",
+              }}
+            >
+              Our services cover everything from project conception through to
+              app store submissions or in-venue installations, including
+              scripting, 3D scanning, 3D modelling, app development, real-world
+              calibration and analytics
+            </Typography>
+
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: "16px", md: "20px" },
+                fontWeight: 400,
+                lineHeight: "39px",
+                color: "rgba(255, 255, 255, 0.8)",
+              }}
+            >
+              We develop everything from museum interactives and performance art
+              installations to augmented social media filters or education
+              tools, AR binoculars, 3D historically and geographically-accurate
+              models, apps and even virtual events
+            </Typography>
+
+            <Grid container spacing={2} sx={{ pt: 12.5 }}>
+              {services.map((service, index) => {
+                const bgColor =
+                  width < 768
+                    ? index % 2 === 1
+                      ? "rgba(40, 45, 64, 0.39)"
+                      : "transparent"
+                    : [0, 2, 5, 7, 8, 10].includes(index)
+                    ? "rgba(40, 45, 64, 0.39)"
+                    : "transparent";
+
+                return (
+                  <Grid item xs={12} md={6} lg={3} key={index}>
+                    <ServiceCard
+                      image={service.image}
+                      title={service.title}
+                      bgColor={bgColor}
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Stack>
+        </Container>
+      </Box>
       <RegistrationForm />
       <Footer />
-    </div>
+    </Box>
   );
 };
+
 export default ArSolutions;

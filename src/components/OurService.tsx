@@ -1,5 +1,5 @@
 import GradientHeading from "./GradientHeading";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Container, Stack } from "@mui/material";
 import Services from "./Services";
 import NavHeader from "./NavBar";
 import Image from "next/image";
@@ -7,48 +7,85 @@ import Footer from "./Footer";
 
 const OurService = () => {
   return (
-    <div id="our-services">
-      <div className="services-banner">
-        <NavHeader />
-        <div className="py-12 md:py-[187px] px-10 md:px-[70px]">
-          <Box
+    <Box id="our-services">
+    <Box className="services-banner">
+    <Container
+        maxWidth={false}
+        sx={{
+          maxWidth: "1472px",
+          px: { xs: 8, md: '0px' },
+        }}
+      >
+      <NavHeader />
+      <Box 
+        sx={{ 
+          py: { xs: 12, md: 23.375 }, 
+          px: { xs: 5, md: 0 }   
+        }}
+      >
+        <Box
+          sx={{
+            maxWidth: {
+              xs: "100%",
+              sm: "100%",
+              md: "80%",
+              lg: "60%"
+            }
+          }}
+        >
+          <GradientHeading 
+            gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
+          >
+            Over a decade of excellence
+          </GradientHeading>
+          
+          <Typography
+            variant="h1"
             sx={{
-              width: {
-                xs: "100%",
-                sm: "100%",
-                md: "80%",
-                lg: "60%",
+              fontSize: { 
+                xs: "18px", 
+                sm: "20px", 
+                md: "30px" 
               },
+              fontWeight: 400,
+              color: "rgba(255, 255, 255, 0.8)",
+              mt: 2 // Adding some margin-top for spacing
             }}
           >
-            <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
-              Over a decade of excellence
-            </GradientHeading>
-            <div>
-              <Typography
-                variant="h1"
-                sx={{
-                  fontSize: { xs: "18px", sm: "20px", md: "30px" },
-                  fontWeight: 400,
-                }}
-                className="text-white80"
-              >
-                Saudi Vision 2030 empowers us to drive innovation and shape the
-                future of technology in the Kingdom
-              </Typography>
-            </div>
-          </Box>
-        </div>
-      </div>
+            Saudi Vision 2030 empowers us to drive innovation and shape the future of technology in the Kingdom
+          </Typography>
+        </Box>
+      </Box>
+    </Container></Box>
 
-      <div className="all-service px-8 md:px-[169px] pt-8 md:pt-[57px]">
+      <Container
+        maxWidth={false}
+        sx={{
+          maxWidth: "1472px",
+          px: { xs: 8, md: '0px' },
+          pt: { xs: 8, md: "57px" },
+        }}
+      >
         {/* First Section */}
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
+        <Stack
+          direction={{ xs: "column", lg: "row" }}
+          spacing={{ xs: 6, md: 12 }}
+          alignItems="center"
+        >
           {/* Left Content */}
-          <div className="space-y-4 md:space-y-6">
-            <div className="text-[#397EF5] opacity-10 text-[50px] md:text-[90px] font-bold mb-2 md:mb-4 leading-[1.2] md:leading-[72px]">
+          <Stack spacing={{ xs: 4, md: 6 }} flex={1}>
+            <Typography
+              sx={{
+                color: "#397EF5",
+                opacity: 0.1,
+                fontSize: { xs: "50px", md: "90px" },
+                fontWeight: 700,
+                lineHeight: { xs: 1.2, md: "72px" },
+                mb: { xs: 2, md: 4 },
+              }}
+            >
               01
-            </div>
+            </Typography>
             <GradientHeading
               gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
               fontSize={{ xs: "24px", sm: "30px", md: "50px" }}
@@ -61,46 +98,84 @@ const OurService = () => {
               sx={{
                 fontSize: { xs: "16px", sm: "20px", md: "25px" },
                 fontWeight: 400,
-                lineHeight: { xs: "1.5", md: "39px" },
+                lineHeight: { xs: 1.5, md: "39px" },
+                color: "rgba(255, 255, 255, 0.8)",
               }}
-              className="text-white80"
             >
               We develop and implement advanced solutions for analyzing and
               managing signals. These systems enhance performance, security, and
               operational efficiency by providing reliable and precise signal
               processing.
             </Typography>
-          </div>
+          </Stack>
 
           {/* Right Image */}
-          <div className="flex justify-center lg:justify-end relative mt-8 md:mt-0">
-            <div
-              className="blue-shade hidden lg:block h-[486px] w-[150px] border-r border-[#397EF5] relative right-[-7%]"
-              style={{
+          <Box
+            flex={1}
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "center", lg: "flex-end" },
+              position: "relative",
+              mt: { xs: 8, md: 0 },
+            }}
+          >
+            <Box
+              sx={{
+                display: { xs: "none", lg: "block" },
+                height: "486px",
+                width: "150px",
+                borderRight: "1px solid #397EF5",
+                position: "relative",
+                right: "-7%",
+                zIndex: 10,
                 background:
                   "linear-gradient(270deg, #397EF5 -554.05%, #0B081F 64.53%)",
               }}
             />
-            <div className="relative w-full md:w-auto">
+            <Box sx={{ position: "relative", display: "flex" }}>
               <Image
                 src="/images/social.svg"
                 alt="Signal Engineering Visualization"
                 width={516}
                 height={426}
-                className=""
                 style={{ marginRight: "20px" }}
               />
-              <div className="blue-box h-[100px] w-[100px] lg:h-[187px] lg:w-[187px] rounded-[20px] lg:rounded-[40px] bg-[#397EF5] absolute top-[10%] -z-10" />
-            </div>
-          </div>
-        </div>
+              <Box
+                sx={{
+                  height: { xs: "100px", lg: "187px" },
+                  width: { xs: "100px", lg: "187px" },
+                  borderRadius: { xs: "20px", lg: "40px" },
+                  bgcolor: "#397EF5",
+                  position: "absolute",
+                  top: "10%",
+                  right: 0,
+                  zIndex: -1,
+                }}
+              />
+            </Box>
+          </Box>
+        </Stack>
 
         {/* Second Section */}
-        <div className="flex flex-col lg:flex-row justify-center items-start gap-6 md:gap-12 py-12 md:py-[192px]">
-          <div className="text-[#397EF5] opacity-10 text-[50px] md:text-[90px] font-bold leading-[1.2] md:leading-[72px]">
+        <Stack
+          direction={{ xs: "column", lg: "row" }}
+          spacing={{ xs: 6, md: 12 }}
+          alignItems="flex-start"
+          justifyContent="center"
+          sx={{ py: { xs: 12, md: "192px" } }}
+        >
+          <Typography
+            sx={{
+              color: "#397EF5",
+              opacity: 0.1,
+              fontSize: { xs: "50px", md: "90px" },
+              fontWeight: 700,
+              lineHeight: { xs: 1.2, md: "72px" },
+            }}
+          >
             02
-          </div>
-          <div className="w-full lg:w-[45%]">
+          </Typography>
+          <Box sx={{ width: { xs: "100%", lg: "45%" } }}>
             <GradientHeading
               gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
               fontSize={{ xs: "24px", sm: "30px", md: "50px" }}
@@ -113,9 +188,9 @@ const OurService = () => {
               sx={{
                 fontSize: { xs: "16px", sm: "20px", md: "25px" },
                 fontWeight: 400,
-                lineHeight: { xs: "1.5", md: "39px" },
+                lineHeight: { xs: 1.5, md: "39px" },
+                color: "rgba(255, 255, 255, 0.8)",
               }}
-              className="text-white80"
             >
               Our team specializes in designing and implementing platforms that
               protect sensitive information, whether they are based on the
@@ -123,36 +198,71 @@ const OurService = () => {
               uninterrupted communication for critical operations by preventing
               unauthorized access and interference
             </Typography>
-          </div>
-        </div>
+          </Box>
+        </Stack>
 
         {/* Third Section */}
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
-          <div className="flex justify-center lg:justify-start relative order-last md:order-first">
-            <div className="blue-box hidden lg:block h-[100px] w-[100px] lg:h-[187px] lg:w-[187px] rounded-[20px] lg:rounded-[40px] bg-[#397EF5] absolute top-[10%] -z-10" />
-            <div className="relative w-full md:w-auto">
+        <Stack
+          direction={{ xs: "column", lg: "row" }}
+          spacing={{ xs: 6, md: 12 }}
+          alignItems="center"
+        >
+          <Box
+            flex={1}
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "center", lg: "flex-start" },
+              position: "relative",
+            }}
+          >
+            <Box
+              sx={{
+                display: { xs: "none", lg: "block" },
+                height: "187px",
+                width: "187px",
+                borderRadius: "40px",
+                bgcolor: "#397EF5",
+                position: "absolute",
+                top: "10%",
+                zIndex: -1,
+              }}
+            />
+            <Box sx={{ position: "relative", display: "flex" }}>
               <Image
                 src="/images/fiber.svg"
                 alt="Signal Security Systems"
                 width={516}
                 height={426}
-                className=""
                 style={{ marginLeft: "20px" }}
               />
-              <div
-                className="blue-shade hidden lg:block h-[486px] w-[150px] border-l border-[#397EF5] relative left-[-7%]"
-                style={{
+              <Box
+                sx={{
+                  display: { xs: "none", lg: "block" },
+                  height: "486px",
+                  width: "150px",
+                  borderLeft: "1px solid #397EF5",
+                  position: "relative",
+                  left: "-7%",
                   background:
                     "linear-gradient(90deg, #397EF5 -554.05%, #0B081F 64.53%)",
                 }}
               />
-            </div>
-          </div>
+            </Box>
+          </Box>
 
-          <div className="space-y-4 md:space-y-6">
-            <div className="text-[#397EF5] opacity-10 text-[50px] md:text-[90px] font-bold mb-2 md:mb-4 leading-[1.2] md:leading-[72px]">
+          <Stack spacing={{ xs: 4, md: 6 }} flex={1}>
+            <Typography
+              sx={{
+                color: "#397EF5",
+                opacity: 0.1,
+                fontSize: { xs: "50px", md: "90px" },
+                fontWeight: 700,
+                lineHeight: { xs: 1.2, md: "72px" },
+                mb: { xs: 2, md: 4 },
+              }}
+            >
               03
-            </div>
+            </Typography>
             <GradientHeading
               gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
               fontSize={{ xs: "24px", sm: "30px", md: "50px" }}
@@ -165,24 +275,41 @@ const OurService = () => {
               sx={{
                 fontSize: { xs: "16px", sm: "20px", md: "25px" },
                 fontWeight: 400,
-                lineHeight: { xs: "1.5", md: "39px" },
+                lineHeight: { xs: 1.5, md: "39px" },
+                color: "rgba(255, 255, 255, 0.8)",
               }}
-              className="text-white80"
             >
               Our signal security solutions offer reliable protection against
               potential threats. We design our systems in such a way that they
               detect, prevent, and mitigate risks, allowing our clients to feel
               confident that their communications infrastructure is secure.
             </Typography>
-          </div>
-        </div>
+          </Stack>
+        </Stack>
 
         {/* Fourth Section */}
-        <div className="flex flex-col lg:flex-row justify-center items-start gap-6 md:gap-12 pt-12 md:pt-[192px] pb-8 md:pb-[95px]">
-          <div className="text-[#397EF5] opacity-10 text-[50px] md:text-[90px] font-bold leading-[1.2] md:leading-[72px]">
+        <Stack
+          direction={{ xs: "column", lg: "row" }}
+          spacing={{ xs: 6, md: 12 }}
+          alignItems="flex-start"
+          justifyContent="center"
+          sx={{
+            pt: { xs: 12, md: "192px" },
+            pb: { xs: 8, md: "95px" },
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#397EF5",
+              opacity: 0.1,
+              fontSize: { xs: "50px", md: "90px" },
+              fontWeight: 700,
+              lineHeight: { xs: 1.2, md: "72px" },
+            }}
+          >
             04
-          </div>
-          <div className="w-full lg:w-[45%]">
+          </Typography>
+          <Box sx={{ width: { xs: "100%", lg: "45%" } }}>
             <GradientHeading
               gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
               fontSize={{ xs: "24px", sm: "30px", md: "50px" }}
@@ -195,9 +322,9 @@ const OurService = () => {
               sx={{
                 fontSize: { xs: "16px", sm: "20px", md: "25px" },
                 fontWeight: 400,
-                lineHeight: { xs: "1.5", md: "39px" },
+                lineHeight: { xs: 1.5, md: "39px" },
+                color: "rgba(255, 255, 255, 0.8)",
               }}
-              className="text-white80"
             >
               We provide situational awareness systems that deliver real-time
               data and insights, enabling informed decision-making and strategic
@@ -205,15 +332,15 @@ const OurService = () => {
               to provide a comprehensive picture of the operational environment,
               which enhances situational awareness and response capabilities
             </Typography>
-          </div>
-        </div>
-      </div>
+          </Box>
+        </Stack>
+      </Container>
 
-      <div className="mb-[100px]">
+      <Box sx={{ mb: "100px" }}>
         <Services />
-      </div>
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 };
 

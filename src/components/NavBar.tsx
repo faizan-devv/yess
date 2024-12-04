@@ -3,12 +3,49 @@ import React, { useState } from "react";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import Button from "@mui/material/Button";
+import {
+  Box,
+  Container,
+  Stack,
+  Button,
+  IconButton,
+  Typography,
+  styled,
+} from "@mui/material";
+
+// Styled components to maintain the same design
+const StyledNav = styled(Box)(({ theme }) => ({
+  paddingTop: "37px",
+  paddingLeft: "0px",
+  paddingRight: "0px",
+}));
+
+const DesktopNavContainer = styled(Box)(({ theme }) => ({
+  display: "none",
+  alignItems: "center",
+  borderRadius: "100px",
+  border: "1px solid #3D3D3D",
+  padding: "12px 51px",
+  backgroundColor: "rgba(30, 30, 30, 0.2)",
+  backdropFilter: "blur(8px)",
+  [theme.breakpoints.up("lg")]: {
+    display: "flex",
+  },
+}));
+
+const NavLink = styled(Typography)(({ theme }) => ({
+  color: "white",
+  cursor: "pointer",
+  transition: "colors 0.3s",
+  "&:hover": {
+    color: theme.palette.primary.main,
+  },
+}));
 
 const NavHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (e: any, sectionId: any) => {
+  const scrollToSection = (e, sectionId) => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
@@ -16,132 +53,128 @@ const NavHeader = () => {
         behavior: "smooth",
         block: "start",
       });
-      setIsOpen(false); // Close mobile menu after clicking
+      setIsOpen(false);
     }
   };
 
   return (
-    <nav className="pt-[37px] px-[70px]">
-      <div className="flex justify-between items-end">
-        {/* Logo Section */}
-        <Link href="/">
-          <Image
-            src="/images/logo.svg"
-            alt="Logo"
-            width={120}
-            height={63}
-            priority
-          />
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center rounded-[100px] space-x-8 border border-[#3D3D3D] py-[12px] px-[51px] bg-opacity-20 bg-[#1E1E1E] backdrop-blur-md backdrop-filter">
-          <Link
-            href="/"
-            className="text-white hover:text-blue-400 transition-colors"
-          >
-            Home
-          </Link>
-
-          {/*  <a
-            href="#services"
-            onClick={(e) => scrollToSection(e, "services")}
-            className="text-white mr-[51px] cursor-pointer"
-          > */}
-          <Link
-            href="/our-services"
-            className="text-white hover:text-blue-400 transition-colors"
-          >
-            Services
-          </Link>
-          {/* </a> */}
-          {/* <div className="relative group">
-            <button className="text-white flex items-center">
-            </button>
-          </div> */}
-
-          <Link href="/about-us" className="text-white mr-[51px]">
-            About Us
-          </Link>
-          <Link href="/landscape" className="text-white  mr-[51px]">
-            Smart Solutions
-          </Link>
-          <Link href="/ar-solutions" className="text-white  mr-[51px]">
-            AR Solutions
-          </Link>
-          <Link href="/">
-            <div
-              onClick={(e) => scrollToSection(e, "clients")}
-              className="text-white cursor-pointer"
-            >
-              Partners & Clients
-            </div>
-          </Link>
-        </div>
-        <div className="hidden lg:flex">
-          <Link href="/contact-us">
-            <Button variant="outlined">Contact Us</Button>
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden text-white self-center"
-          onClick={() => setIsOpen(!isOpen)}
+    <StyledNav component="nav">
+      <Container maxWidth={false} sx={{ maxWidth: "1472px", px: { sm: "0" } }}>
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="flex-end"
         >
-          <Menu size={32} />
-        </button>
-      </div>
+          {/* Logo Section */}
+          <Link href="/">
+            <Image
+              src="/images/logo.svg"
+              alt="Logo"
+              width={120}
+              height={63}
+              priority
+            />
+          </Link>
 
-      {/* Mobile Menu */}
-      {!!isOpen && (
-        <div className="lg:hidden mt-4 p-4 bg-darkBlue">
-          <Link
-            href="/"
-            className="block px-4 py-2 text-white hover:bg-slate-700"
+          {/* Desktop Navigation */}
+          <DesktopNavContainer>
+            <Stack direction="row" spacing={4}>
+              <Link href="/">
+                <NavLink>Home</NavLink>
+              </Link>
+              <Link href="/our-services">
+                <NavLink>Services</NavLink>
+              </Link>
+              <Link href="/about-us">
+                <NavLink>About Us</NavLink>
+              </Link>
+              <Link href="/landscape">
+                <NavLink>Smart Solutions</NavLink>
+              </Link>
+              <Link href="/ar-solutions">
+                <NavLink>AR Solutions</NavLink>
+              </Link>
+              <Link href="/">
+                <NavLink onClick={(e) => scrollToSection(e, "clients")}>
+                  Partners & Clients
+                </NavLink>
+              </Link>
+            </Stack>
+          </DesktopNavContainer>
+
+          {/* Contact Button - Desktop */}
+          <Box sx={{ display: { xs: "none", lg: "block" } }}>
+            <Link href="/contact-us">
+              <Button variant="outlined">Contact Us</Button>
+            </Link>
+          </Box>
+
+          {/* Mobile Menu Button */}
+          <IconButton
+            sx={{ display: { lg: "none" }, color: "white" }}
+            onClick={() => setIsOpen(!isOpen)}
           >
-            Home
-          </Link>
-          <a
-            href="#services"
-            onClick={(e) => scrollToSection(e, "services")}
-            className="block px-4 py-2 text-white hover:bg-slate-700 cursor-pointer"
+            <Menu size={32} />
+          </IconButton>
+        </Stack>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <Box
+            sx={{
+              display: { lg: "none" },
+              mt: 4,
+              p: 4,
+              bgcolor: "background.paper",
+            }}
           >
-            Services
-          </a>
-          <a
-            href="#clients"
-            onClick={(e) => scrollToSection(e, "clients")}
-            className="block px-4 py-2 text-white hover:bg-slate-700 cursor-pointer"
-          >
-            Partners & Clients
-          </a>
-          <Link
-            href="/about-us"
-            className="block px-4 py-2 text-white hover:bg-slate-700"
-          >
-            About Us
-          </Link>
-          <Link
-            href="/landscape"
-            className="block px-4 py-2 text-white hover:bg-slate-700"
-          >
-            Smart Solutions
-          </Link>
-          <Link
-            href="/ar-solutions"
-            className="block px-4 py-2 text-white hover:bg-slate-700"
-          >
-            AR Solutions
-          </Link>
-          {/* <a href="#footer" onClick={(e) => scrollToSection(e, "footer")}> */}
-          <Link href="/contact-us">
-            <Button variant="outlined">Contact Us</Button>
-          </Link>
-          {/* </a> */}
-        </div>
-      )}
-    </nav>
+            <Stack spacing={2}>
+              <Link href="/">
+                <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
+                  Home
+                </NavLink>
+              </Link>
+              <NavLink
+                component="a"
+                href="#services"
+                onClick={(e) => scrollToSection(e, "services")}
+                sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}
+              >
+                Services
+              </NavLink>
+              <NavLink
+                component="a"
+                href="#clients"
+                onClick={(e) => scrollToSection(e, "clients")}
+                sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}
+              >
+                Partners & Clients
+              </NavLink>
+              <Link href="/about-us">
+                <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
+                  About Us
+                </NavLink>
+              </Link>
+              <Link href="/landscape">
+                <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
+                  Smart Solutions
+                </NavLink>
+              </Link>
+              <Link href="/ar-solutions">
+                <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
+                  AR Solutions
+                </NavLink>
+              </Link>
+              <Link href="/contact-us">
+                <Button variant="outlined" fullWidth>
+                  Contact Us
+                </Button>
+              </Link>
+            </Stack>
+          </Box>
+        )}
+      </Container>
+    </StyledNav>
   );
 };
 
