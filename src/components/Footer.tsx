@@ -4,25 +4,9 @@ import { Button, Box, Container, Stack, Typography, Link } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const StyledContainer = styled(Container)(({ theme }) => ({
-  maxWidth: "1472px !important",
-  paddingLeft: theme.spacing(2), // Default for xs
-  paddingRight: theme.spacing(2), // Default for xs
-  [theme.breakpoints.up("sm")]: {
-    paddingLeft: theme.spacing(3),
-    paddingRight: theme.spacing(3),
-  },
-  [theme.breakpoints.up("md")]: {
-    paddingLeft: theme.spacing(6),
-    paddingRight: theme.spacing(6),
-  },
-  [theme.breakpoints.up("lg")]: {
-    paddingLeft: theme.spacing(12),
-    paddingRight: theme.spacing(12),
-  },
-  [theme.breakpoints.up("xl")]: {
-    paddingLeft: theme.spacing(30),
-    paddingRight: theme.spacing(30),
-  },
+  maxWidth: "1070px !important",
+  paddingLeft: "0", 
+  paddingRight: "0"
 }));
 
 const Footer = () => {

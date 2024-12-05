@@ -1,68 +1,123 @@
-import GradientHeading from "./GradientHeading";
+'use client';
+
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+
 import { Typography, Box, Container, Stack } from "@mui/material";
-import Services from "./Services";
-import NavHeader from "./NavBar";
 import Image from "next/image";
+import NavHeader from "./NavBar";
+import GradientHeading from "./GradientHeading";
+import Services from "./Services";
 import Footer from "./Footer";
+
+// Slider background images
+const sliderBackgrounds = [
+  "/images/service-bg1.svg",
+  "/images/service-bg2.svg", 
+  "/images/service-bg3.svg",
+  "/images/service-bg4.svg",
+];
 
 const OurService = () => {
   return (
     <Box id="our-services">
-    <Box className="services-banner">
-    <Container
-        maxWidth={false}
-        sx={{
-          maxWidth: "1472px",
-          px: { xs: 8, md: '0px' },
+      <Swiper
+        modules={[Autoplay, EffectFade]}
+        effect="fade"
+        spaceBetween={0}
+        slidesPerView={1}
+        autoplay={{
+          delay: 3000, 
+          disableOnInteraction: false,
         }}
+        loop={true}
       >
-      <NavHeader />
-      <Box 
-        sx={{ 
-          py: { xs: 12, md: 23.375 }, 
-          px: { xs: 5, md: 0 }   
-        }}
-      >
-        <Box
-          sx={{
-            maxWidth: {
-              xs: "100%",
-              sm: "100%",
-              md: "80%",
-              lg: "60%"
-            }
-          }}
-        >
-          <GradientHeading 
-            gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-          >
-            Over a decade of excellence
-          </GradientHeading>
-          
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: { 
-                xs: "18px", 
-                sm: "20px", 
-                md: "30px" 
-              },
-              fontWeight: 400,
-              color: "rgba(255, 255, 255, 0.8)",
-              mt: 2 // Adding some margin-top for spacing
-            }}
-          >
-            Saudi Vision 2030 empowers us to drive innovation and shape the future of technology in the Kingdom
-          </Typography>
-        </Box>
-      </Box>
-    </Container></Box>
+        {sliderBackgrounds.map((bgImage, index) => (
+          <SwiperSlide key={index}>
+            <Box
+              className="services-banner"
+              sx={{
+                background: `url(${bgImage}) no-repeat center/cover`,
+                backgroundColor:"#0A081F",
+                width: "100%",
+                position: "relative",
+              }}
+            >
+              <Box>
+                <NavHeader />
+              </Box>
+              <Container
+                maxWidth={false}
+                sx={{
+                  maxWidth: "1472px",
+                  px: { xs: 8, md: "0px" },
+                }}
+              >
+                <Box
+                  sx={{
+                    py: { xs: 12, md: 23.375 },
+                    px: { xs: 5, md: 0 },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      maxWidth: {
+                        xs: "100%",
+                        sm: "100%",
+                        md: "80%"
+                      },
+                    }}
+                  >
+                    <Typography
+                      component="h1"
+                      sx={{
+                        background:
+                          "linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        fontSize: {
+                          xs: "32px",
+                          sm: "36px",
+                          md: "48px",
+                        },
+                        fontWeight: 700,
+                        mb: 2,
+                      }}
+                    >
+                      Over a decade of excellence
+                    </Typography>
+
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        fontSize: {
+                          xs: "18px",
+                          sm: "20px",
+                          md: "30px",
+                        },
+                        fontWeight: 400,
+                        color: "rgba(255, 255, 255, 0.8)",
+                        mt: 2,
+                      }}
+                    >
+                      Developing a multi-layered software platform that includes a geographic information system, highly advanced data analysis tools for security purposes, and integration between multiple situational awareness sensors and their various means of communication that have been used for over 13 years in Kingdom.
+                    </Typography>
+                  </Box>
+                </Box>
+              </Container>
+            </Box>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
       <Container
         maxWidth={false}
         sx={{
           maxWidth: "1472px",
-          px: { xs: 8, md: '0px' },
+          px: { xs: 8, md: "0px" },
           pt: { xs: 8, md: "57px" },
         }}
       >
@@ -142,8 +197,8 @@ const OurService = () => {
               />
               <Box
                 sx={{
-                  height: { xs: "100px", lg: "187px" },
-                  width: { xs: "100px", lg: "187px" },
+                  height: { xs: "100px", lg: "100px" },
+                  width: { xs: "100px", lg: "100px" },
                   borderRadius: { xs: "20px", lg: "40px" },
                   bgcolor: "#397EF5",
                   position: "absolute",

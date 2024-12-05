@@ -77,9 +77,9 @@ body::-webkit-scrollbar-thumb:hover {
 .ar-banner {
   background: url("/images/arvr-bg.svg") no-repeat center/cover;
 }
-.services-banner{
+/* .services-banner{
   background: url("/images/service-bg.svg") no-repeat center/cover;
-}
+} */
 .blue-circle::after {
   content: "";
   position: absolute;

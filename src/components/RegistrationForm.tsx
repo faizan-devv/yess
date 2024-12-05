@@ -66,7 +66,7 @@ const RegistrationForm = () => {
 
   return (
     <Box id="contact" sx={{ py: { xs: 6, md: 12.5 } }}>
-      <Container maxWidth={false} sx={{ maxWidth: "1472px" }}>
+      <Container maxWidth={false} sx={{ maxWidth: "1070px" }}>
         <Box>
           <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
             Register your interest

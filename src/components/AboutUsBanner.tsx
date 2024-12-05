@@ -1,19 +1,27 @@
 import React from "react";
 import NavHeader from "./NavBar";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, Box, Container } from "@mui/material";
 import GradientHeading from "./GradientHeading";
+
 const AboutUsBanner = () => {
   return (
-    <div>
-      {" "}
-      <div className="about-us-banner">
+    <Box>
+      <Box className="about-us-banner">
         <NavHeader />
-        <div className="px-[70px]">
+        <Container 
+          maxWidth={false}
+          sx={{
+            px: '0px',
+            maxWidth: "1472px",
+          }}
+        >
           <Stack
-            height="calc(100vh - 164px)"
-            justifyContent="center"
-            alignItems="center"
-            textAlign="center"
+            sx={{
+              height: 'calc(100vh - 164px)',
+              justifyContent: 'center',
+              alignItems: 'center',
+              textAlign: 'center'
+            }}
           >
             <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
               About Us
@@ -21,11 +29,18 @@ const AboutUsBanner = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "20px", md: "30px" },
+                fontSize: { 
+                  xs: "20px", 
+                  md: "30px" 
+                },
                 fontWeight: 400,
                 mb: 2,
+                color: 'rgba(255, 255, 255, 0.8)',
+                width: {
+                  sm: '75%',
+                  xs: '100%'
+                }
               }}
-              className="text-white80 sm:w-3/4"
             >
               YES Solutions (Al Yamamah Engineering Systems Solutions) is a
               Saudi company that has been growing rapidly in IT solutions by
@@ -35,9 +50,9 @@ const AboutUsBanner = () => {
               and signal security.
             </Typography>
           </Stack>
-        </div>
-      </div>
-    </div>
+        </Container>
+      </Box>
+    </Box>
   );
 };
 
