@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button, Box, Container, Stack, Typography, Link } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-const StyledContainer = styled(Container)(({ theme }) => ({
+const StyledContainer = styled(Container)(({ }) => ({
   maxWidth: "1070px !important",
   paddingLeft: "0", 
   paddingRight: "0"
