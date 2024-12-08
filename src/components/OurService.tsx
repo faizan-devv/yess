@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +16,7 @@ import Footer from "./Footer";
 // Slider background images
 const sliderBackgrounds = [
   "/images/service-bg1.svg",
-  "/images/service-bg2.svg", 
+  "/images/service-bg2.svg",
   "/images/service-bg3.svg",
   "/images/service-bg4.svg",
 ];
@@ -30,7 +30,7 @@ const OurService = () => {
         spaceBetween={0}
         slidesPerView={1}
         autoplay={{
-          delay: 3000, 
+          delay: 3000,
           disableOnInteraction: false,
         }}
         loop={true}
@@ -41,7 +41,7 @@ const OurService = () => {
               className="services-banner"
               sx={{
                 background: `url(${bgImage}) no-repeat center/cover`,
-                backgroundColor:"#0A081F",
+                backgroundColor: "#0A081F",
                 width: "100%",
                 position: "relative",
               }}
@@ -67,7 +67,7 @@ const OurService = () => {
                       maxWidth: {
                         xs: "100%",
                         sm: "100%",
-                        md: "80%"
+                        md: "80%",
                       },
                     }}
                   >
@@ -103,7 +103,12 @@ const OurService = () => {
                         mt: 2,
                       }}
                     >
-                      Developing a multi-layered software platform that includes a geographic information system, highly advanced data analysis tools for security purposes, and integration between multiple situational awareness sensors and their various means of communication that have been used for over 13 years in Kingdom.
+                      Developing a multi-layered software platform that includes
+                      a geographic information system, highly advanced data
+                      analysis tools for security purposes, and integration
+                      between multiple situational awareness sensors and their
+                      various means of communication that have been used for
+                      over 13 years in Kingdom.
                     </Typography>
                   </Box>
                 </Box>
@@ -197,9 +202,10 @@ const OurService = () => {
               />
               <Box
                 sx={{
-                  height: { xs: "100px", lg: "100px" },
-                  width: { xs: "100px", lg: "100px" },
-                  borderRadius: { xs: "20px", lg: "40px" },
+                  display: { xs: "none", lg: "block" },
+                  height: "187px",
+                  width: "187px",
+                  borderRadius: "40px",
                   bgcolor: "#397EF5",
                   position: "absolute",
                   top: "10%",

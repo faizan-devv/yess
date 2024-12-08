@@ -1,9 +1,10 @@
 "use client";
 import { useRef, useState } from "react";
 import gsap from "gsap";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Container, Stack } from "@mui/material";
 import GradientHeading from "./GradientHeading";
 import { useGSAP } from "@gsap/react";
+
 const Banner = () => {
   const [animationStarted, setAnimationStarted] = useState(false);
   const container = useRef<HTMLDivElement>(null);
@@ -13,41 +14,45 @@ const Banner = () => {
   const box4Ref = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Initialize GSAP timeline
     setAnimationStarted(true);
     const tl = gsap.timeline();
 
-    // Animate all elements simultaneously
     tl.from(box1Ref.current, { x: -500, duration: 1 }, 0)
       .from(box2Ref.current, { x: -500, duration: 1 }, 0)
       .from(box3Ref.current, { x: 1500, duration: 1 }, 0)
       .from(box4Ref.current, { x: 1500, duration: 1 }, 0);
 
-    // Cleanup
     return () => {
       tl.kill();
       setAnimationStarted(false);
     };
-  }, {scope: container});
+  }, { scope: container });
 
   return (
-    <div className="">
-      {/*  <NavBar /> */}
-      <div
+    <Box>
+      <Container
         ref={container}
-        className="px-[70px] pt-[165px] min-h-dvh lg:min-h-screen "
+        maxWidth={false}
+        sx={{
+          maxWidth: "1472px !important",
+          pt: "165px",
+          px: {sm:"0px"},
+          minHeight: { xs: "100dvh", lg: "100vh" }
+        }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 4,
-            position: "relative",
-          }}
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={4}
+          position="relative"
         >
           {/* Left content */}
-          <Box 
-          sx={{ flex: 1, display: { xs: "none", sm: "inline" } }}>
+          <Box
+            flex={1}
+            sx={{
+              display: { xs: "none", sm: "inline" }
+            }}
+          >
             <GradientHeading
               className={animationStarted ? "show" : "hide"}
               ref={box1Ref}
@@ -81,7 +86,7 @@ const Banner = () => {
                 top: {
                   xs: "110%",
                   sm: "220%",
-                },
+                }
               }}
               className={animationStarted ? "show" : "hide"}
             >
@@ -89,22 +94,22 @@ const Banner = () => {
             </Typography>
           </Box>
 
-          {/* Right image */}
+          {/* Right content */}
           <Box
             className="banner-box"
+            flex={1}
             sx={{
-              flex: 1,
               position: "absolute",
               right: {
                 xs: "-7%",
-                sm: "-6%",
-                md:"12%"
+                sm: "2%",
+                md: "5%"
               },
               bottom: {
-                xs:"-470px",
+                xs: "-470px",
                 sm: "-830%",
-                md: "-511%",
-              },
+                md: "-555%"
+              }
             }}
           >
             <GradientHeading
@@ -124,7 +129,7 @@ const Banner = () => {
                 fontSize: { xs: ".75rem", md: ".875rem" },
                 border: "1px solid #397EF5",
                 background: "#282D4047",
-                color: " #FFFFFFBD",
+                color: "#FFFFFFBD",
                 padding: "25px",
                 width: { sm: "540px" },
                 borderRadius: "31px",
@@ -132,7 +137,7 @@ const Banner = () => {
                 display: "inline-block",
                 backgroundColor: "#282D4047",
                 marginTop: "54px",
-                lineHeight: "30px",
+                lineHeight: "30px"
               }}
             >
               YES Solutions (Al Yamamah Engineering Systems Solutions) is a
@@ -143,9 +148,9 @@ const Banner = () => {
               and signal security
             </Typography>
           </Box>
-        </Box>
-      </div>
-    </div>
+        </Stack>
+      </Container>
+    </Box>
   );
 };
 

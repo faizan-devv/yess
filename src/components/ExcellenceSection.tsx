@@ -1,6 +1,6 @@
 "use client";
 
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Container, Stack, Button } from "@mui/material";
 import GradientHeading from "./GradientHeading";
 import Image from "next/image";
 
@@ -37,89 +37,155 @@ const ExcellenceSection = () => {
   ];
 
   return (
-    <div className="w-full excelence-container overflow-hidden">
-      <div className="min-h-dvh lg:min-h-screen px-4 sm:px-6 md:px-8 lg:px-[70px] pt-16 sm:pt-20 lg:pt-[100px] excelence ">
-        <div className="flex justify-center blue-circle">
-          <Box sx={{ width: { xs: "90%", sm: "80%", md: "70%" } }} className="text-center">
+    <Box className="excelence-container" sx={{ width: '100%', overflow: 'hidden' }}>
+      <Container 
+        maxWidth={false}
+        sx={{
+          minHeight: { xs: '100dvh', lg: '100vh' },
+          px: { xs: 2, sm: 0 },
+          pt: { xs: '64px', sm: '80px', lg: '100px' },
+          maxWidth: '1472px',
+          className: "excelence"
+        }}
+      >
+        <Stack alignItems="center" className="blue-circle">
+          <Box sx={{ width: { xs: '90%', sm: '80%', md: '70%' }, textAlign: 'center' }}>
             <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
               Over a decade of excellence
             </GradientHeading>
-            <div>
-              <Typography
-                variant="h1"
-                sx={{
-                  fontSize: { xs: "18px", sm: "20px", md: "25px", lg: "30px" },
-                  fontWeight: 400,
-                  mb: { xs: 1.5, sm: 2 },
-                }}
-                className="text-white80"
-              >
-                Saudi Vision 2030 empowers us to drive innovation and shape the
-                future of technology in the Kingdom
-              </Typography>
-            </div>
-          </Box>
-        </div>
-
-        {/* Cards Grid */}
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 mt-12 sm:mt-16 xl:mt-20">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`relative rounded-[31px] ${
-                index === 1 || index === 3 ? "sm:top-[20%]" : ""
-              }`}
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: '18px', sm: '20px', md: '25px', lg: '30px' },
+                fontWeight: 400,
+                mb: { xs: 1.5, sm: 2 },
+                color: 'rgba(255, 255, 255, 0.8)'
+              }}
             >
-              <div className="bg-[#282D4063] py-4 sm:py-5 lg:py-6 px-6 sm:px-7 lg:px-9 w-full h-full rounded-[31px] relative border border-[#273F67]">
-                <div className="p-5 sm:p-6 lg:p-7 bg-[#397EF5] rounded-xl flex items-center justify-center mb-4 absolute top-[-12%] sm:top-[-14%] lg:top-[-16%]">
+              Saudi Vision 2030 empowers us to drive innovation and shape the
+              future of technology in the Kingdom
+            </Typography>
+          </Box>
+        </Stack>
+
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              xl: 'repeat(4, 1fr)'
+            },
+            gap: { xs: 4, sm: 6, lg: 8 },
+            mt: { xs: 6, sm: 8, xl: 10 },
+            position: 'relative'
+          }}
+        >
+          {services.map((service, index) => (
+            <Box
+              key={index}
+              sx={{
+                position: 'relative',
+                borderRadius: '31px',
+                ...(index === 1 || index === 3 ? {
+                  top: { sm: '20%' }
+                } : {})
+              }}
+            >
+              <Box
+                sx={{
+                  bgcolor: 'rgba(40, 45, 64, 0.39)',
+                  py: { xs: 2, sm: 2.5, lg: 3 },
+                  px: { xs: 3, sm: 3.5, lg: 4.5 },
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '31px',
+                  position: 'relative',
+                  border: '1px solid #273F67'
+                }}
+              >
+                <Box
+                  sx={{
+                    p: { xs: 2.5, sm: 3, lg: 3.5 },
+                    bgcolor: '#397EF5',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mb: 2,
+                    position: 'absolute',
+                    top: { xs: '-12%', sm: '-14%', lg: '-16%' }
+                  }}
+                >
                   <Image
                     src={service.icon}
                     alt={service.title}
                     width={32}
                     height={32}
-                    className="w-[32px] h-[32px] sm:w-[36px] sm:h-[36px] lg:w-[40px] lg:h-[40px]"
+                    style={{
+                      width: { xs: '32px', sm: '36px', lg: '40px' },
+                      height: { xs: '32px', sm: '36px', lg: '40px' }
+                    }}
                   />
-                </div>
-                <div className="mb-5 sm:mb-6 lg:mb-7">
-                  <button className="text-white70 hover:text-white transition-colors flex items-center gap-2 text-[14px] sm:text-[15px] float-end">
+                </Box>
+                
+                <Box sx={{ mb: { xs: 2.5, sm: 3, lg: 3.5 } }}>
+                  <Button
+                    sx={{
+                      color: 'rgba(255, 255, 255, 0.7)',
+                      '&:hover': { color: 'white' },
+                      transition: 'colors',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 1,
+                      fontSize: { xs: '14px', sm: '15px' },
+                      float: 'right'
+                    }}
+                  >
                     View more
                     <Image
                       src="/images/gray-arrow-right.svg"
                       alt="arrow"
                       width={14}
                       height={14}
-                      className="w-[14px] h-[14px] sm:w-[16px] sm:h-[16px]"
+                      style={{
+                        width: { xs: '14px', sm: '16px' },
+                        height: { xs: '14px', sm: '16px' }
+                      }}
                     />
-                  </button>
-                </div>
+                  </Button>
+                </Box>
 
-                <div className="mt-[40px] sm:mt-[48px] lg:mt-[54px]">
+                <Box sx={{ mt: { xs: '40px', sm: '48px', lg: '54px' } }}>
                   <GradientHeading
                     variant="subtitle1"
-                    fontSize={{ xs: "16px", sm: "18px", md: "20px" }}
+                    sx={{
+                      fontSize: { xs: '16px', sm: '18px', md: '20px' },
+                      fontWeight: 700
+                    }}
                     gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-                    fontWeight={700}
                   >
                     {service.title}
                   </GradientHeading>
-                </div>
+                </Box>
 
                 <Typography
                   variant="subtitle1"
-                  className="text-white70 mt-2 sm:mt-[10px]"
-                  sx={{ 
-                    fontSize: { xs: "14px", sm: "15px", md: "16px" },
-                    lineHeight: { xs: "24px", sm: "26px", md: "28px" }
+                  sx={{
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    mt: { xs: 1, sm: 1.25 },
+                    fontSize: { xs: '14px', sm: '15px', md: '16px' },
+                    lineHeight: { xs: '24px', sm: '26px', md: '28px' }
                   }}
                 >
                   {service.description}
                 </Typography>
-              </div>
-            </div>
+              </Box>
+            </Box>
           ))}
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

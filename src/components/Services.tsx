@@ -53,8 +53,8 @@ const Services = () => {
                   color: 'rgba(255, 255, 255, 0.8)'
                 }}
               >
-                Saudi Vision 2030 empowers us to drive innovation and shape the
-                future of technology in the Kingdom
+                Al Yamamah Engineering Solutions operates in a range of cutting-edge areas, offering state-of-the-art IT services and transforming traditional professional services into exemplary implementation units. 
+
               </Typography>
             </Box>
           </Box>
