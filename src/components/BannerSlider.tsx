@@ -55,7 +55,7 @@ const sliderContent = [
 ];
 
 const CustomSlider = () => {
-  const [swiper, setSwiper] = useState(null);
+  const [swiper, setSwiper] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -68,7 +68,7 @@ const CustomSlider = () => {
           prevEl: ".custom-prev-button",
           nextEl: ".custom-next-button",
         }}
-        onSwiper={setSwiper}
+        onSwiper={setSwiper as any}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className="w-full h-full"
       >
@@ -79,7 +79,7 @@ const CustomSlider = () => {
               sx={{
                 maxWidth: "100%",
                 px: { xs: 0 },
-                pl: { xs: 0},
+                pl: { xs: 0 },
                 height: "100%",
                 position: "relative",
               }}
@@ -109,7 +109,9 @@ const CustomSlider = () => {
                     alignItems: "center",
                     order: index % 2 === 1 ? 2 : 1,
                   }}
-                  className={`${index % 2 === 1 ? "justify-self-end pr-[70px]" : "pl-[70px]"}`}
+                  className={`${
+                    index % 2 === 1 ? "justify-self-end pr-[70px]" : "pl-[70px]"
+                  }`}
                 >
                   <Box sx={{ maxWidth: "570px", py: "100px" }}>
                     <Box
@@ -250,7 +252,9 @@ const CustomSlider = () => {
           {sliderContent.map((_, index) => (
             <button
               key={index}
-              onClick={() => swiper.slideTo(index + 1)}
+              onClick={() => {
+                swiper?.slideTo(index + 1);
+              }}
               className={`w-2 h-2 rounded-full transition-all ${
                 index === activeIndex ? "bg-white w-4" : "bg-white/50"
               }`}
