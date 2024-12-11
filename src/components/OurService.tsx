@@ -8,11 +8,10 @@ import "swiper/css/effect-fade"; */
 
 import { Typography, Box, Container, Stack } from "@mui/material";
 import Image from "next/image";
-import NavHeader from "./NavBar";
 import GradientHeading from "./GradientHeading";
 import Services from "./Services";
 import Footer from "./Footer";
-import BannerSlider from "./BannerSlider"
+import BannerSlider from "./BannerSlider";
 // Slider background images
 /* const sliderBackgrounds = [
   "/images/service-bg1.svg",
