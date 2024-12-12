@@ -3,10 +3,10 @@ import Image from "next/image";
 import { Button, Box, Container, Stack, Typography, Link } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-const StyledContainer = styled(Container)(({ }) => ({
+const StyledContainer = styled(Container)(({}) => ({
   maxWidth: "1070px !important",
-  paddingLeft: "0", 
-  paddingRight: "0"
+  paddingLeft: "0",
+  paddingRight: "0",
 }));
 
 const Footer = () => {
@@ -25,16 +25,16 @@ const Footer = () => {
   ];
 
   const help = [
-    { name: "FAQs", href: "/help/faqs" },
-    { name: "Contact Us", href: "/help/contact" },
+    { name: "FAQs", href: "/faqs" },
+    { name: "Contact Us", href: "/contact-us" },
   ];
 
   return (
-    <Box 
-      component="footer" 
-      id="footer" 
-      sx={{ 
-        mb: { xs: 8, md: 16, lg: "100px" }
+    <Box
+      component="footer"
+      id="footer"
+      sx={{
+        mb: { xs: 8, md: 16, lg: "100px" },
       }}
     >
       <StyledContainer>
@@ -44,10 +44,10 @@ const Footer = () => {
             gridTemplateColumns: {
               xs: "1fr",
               sm: "repeat(2, 1fr)",
-              lg: "repeat(4, 1fr)"
+              lg: "repeat(4, 1fr)",
             },
             gap: 4,
-            mb: 3
+            mb: 3,
           }}
         >
           {/* Logo and Contact Section */}
@@ -63,61 +63,76 @@ const Footer = () => {
               // }}
             />
             <Stack spacing={4} sx={{ my: 4 }}>
-              <Typography variant="subtitle1" sx={{ fontSize: { xs: 16, md: 17 }, fontWeight: 500 }}>
+              <Typography
+                variant="subtitle1"
+                sx={{ fontSize: { xs: 16, md: 17 }, fontWeight: 500 }}
+              >
                 Office Location:
               </Typography>
               <Link
-                href="https://www.google.com/maps"
+                href="https://maps.app.goo.gl/gcbHhq7KPSW6wDJm7"
                 target="_blank"
                 rel="noopener noreferrer"
                 underline="none"
               >
                 <Box sx={{ maxWidth: 230 }}>
-                  <Typography 
-                    variant="subtitle1" 
-                    sx={{ 
-                      fontSize: { xs: 16, md: 17 }, 
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      fontSize: { xs: 16, md: 17 },
                       fontWeight: 400,
-                      mb: 2 ,
-                      color: "#ffffff"
+                      mb: 2,
+                      color: "#ffffff",
                     }}
                   >
                     King Abdulaziz Road, Riyad, KSA
                   </Typography>
                 </Box>
               </Link>
-              
-              <Typography variant="subtitle1" sx={{ fontSize: { xs: 16, md: 17 }, fontWeight: 500 }}>
+
+              <Typography
+                variant="subtitle1"
+                sx={{ fontSize: { xs: 16, md: 17 }, fontWeight: 500 }}
+              >
                 Head Office Location:
               </Typography>
-              <Box sx={{ maxWidth: 230 }}>
-                <Typography 
-                  variant="subtitle1" 
-                  sx={{ 
-                    fontSize: { xs: 16, md: 17 }, 
-                    fontWeight: 400,
-                    mb: 2 
-                  }}
-                >
-                  8384, Prince Mohammed Bin Fahd Road, Al Firdaws, 5237 PO Box 2150 Postal Code 34251
-                </Typography>
-              </Box>
-              
-              <Typography 
-                variant="subtitle1" 
-                sx={{ 
-                  fontSize: { xs: 16, md: 17 }, 
+              <Link
+                href="https://maps.app.goo.gl/TUNEsTsw7fZYc7KA8"
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="none"
+              >
+                <Box sx={{ maxWidth: 230 }}>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      fontSize: { xs: 16, md: 17 },
+                      fontWeight: 400,
+                      mb: 2,
+                      color: "#ffffff",
+                    }}
+                  >
+                    8384, Prince Mohammed Bin Fahd Road, Al Firdaws, 5237 PO Box
+                    2150 Postal Code 34251
+                  </Typography>
+                </Box>
+              </Link>
+
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  fontSize: { xs: 16, md: 17 },
                   fontWeight: 400,
-                  mb: 2 
+                  mb: 2,
                 }}
               >
                 Quick Contact: +966-13-828-1002
               </Typography>
-              
-              <Button 
-                variant="outlined" 
-                sx={{ 
-                  width: { xs: "100%", sm: "auto" } 
+
+              <Button
+                variant="outlined"
+                sx={{
+                  width: { xs: "100%", sm: "auto" },
                 }}
               >
                 Get Started
@@ -127,13 +142,13 @@ const Footer = () => {
 
           {/* Services */}
           <Box sx={{ mt: { xs: 6, sm: 0 } }}>
-            <Typography 
-              variant="subtitle1" 
-              sx={{ 
-                fontSize: { xs: 16, md: 17 }, 
+            <Typography
+              variant="subtitle1"
+              sx={{
+                fontSize: { xs: 16, md: 17 },
                 lineHeight: "21px",
                 fontWeight: 400,
-                mb: 2 
+                mb: 2,
               }}
             >
               Services
@@ -147,7 +162,7 @@ const Footer = () => {
                     lineHeight: "18px",
                     fontWeight: 400,
                     color: "white",
-                    mb: 1.5
+                    mb: 1.5,
                   }}
                 >
                   {item.name}
@@ -158,13 +173,13 @@ const Footer = () => {
 
           {/* About */}
           <Box sx={{ mt: { xs: 6, sm: 0 } }}>
-            <Typography 
-              variant="subtitle1" 
-              sx={{ 
-                fontSize: { xs: 16, md: 17 }, 
+            <Typography
+              variant="subtitle1"
+              sx={{
+                fontSize: { xs: 16, md: 17 },
                 lineHeight: "21px",
                 fontWeight: 400,
-                mb: 2 
+                mb: 2,
               }}
             >
               About
@@ -178,7 +193,7 @@ const Footer = () => {
                     lineHeight: "18px",
                     fontWeight: 400,
                     color: "white",
-                    mb: 1.5
+                    mb: 1.5,
                   }}
                 >
                   {item.name}
@@ -189,31 +204,38 @@ const Footer = () => {
 
           {/* Help */}
           <Box sx={{ mt: { xs: 6, sm: 0 } }}>
-            <Typography 
-              variant="subtitle1" 
-              sx={{ 
-                fontSize: { xs: 16, md: 17 }, 
+            <Typography
+              variant="subtitle1"
+              sx={{
+                fontSize: { xs: 16, md: 17 },
                 lineHeight: "21px",
                 fontWeight: 400,
-                mb: 2 
+                mb: 2,
               }}
             >
               Help
             </Typography>
             <Stack spacing={1.5}>
               {help.map((item) => (
-                <Typography
+                <Link
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  underline="none"
                   key={item.name}
-                  sx={{
-                    fontSize: { xs: 14, md: 15 },
-                    lineHeight: "18px",
-                    fontWeight: 400,
-                    color: "white",
-                    mb: 1.5
-                  }}
                 >
-                  {item.name}
-                </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: { xs: 14, md: 15 },
+                      lineHeight: "18px",
+                      fontWeight: 400,
+                      color: "white",
+                      mb: 1.5,
+                    }}
+                  >
+                    {item.name}
+                  </Typography>
+                </Link>
               ))}
             </Stack>
           </Box>
@@ -227,7 +249,7 @@ const Footer = () => {
             flexDirection: { xs: "column", sm: "row" },
             justifyContent: "space-between",
             alignItems: "center",
-            gap: { xs: 3, sm: 0 }
+            gap: { xs: 3, sm: 0 },
           }}
         >
           <Stack
@@ -241,7 +263,7 @@ const Footer = () => {
                 lineHeight: "19px",
                 fontWeight: 400,
                 color: "white",
-                mr: { sm: 5 }
+                mr: { sm: 5 },
               }}
             >
               Terms & Conditions
@@ -251,7 +273,7 @@ const Footer = () => {
                 fontSize: { xs: 14, md: 15 },
                 lineHeight: "19px",
                 fontWeight: 400,
-                color: "white"
+                color: "white",
               }}
             >
               Privacy Policy
@@ -262,7 +284,7 @@ const Footer = () => {
             direction="row"
             spacing={3}
             sx={{
-              mt: { xs: 3, sm: 0 }
+              mt: { xs: 3, sm: 0 },
             }}
           >
             <Image

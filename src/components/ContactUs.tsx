@@ -1,6 +1,14 @@
 "use client";
 import Image from "next/image";
-import { TextField, Button, Typography, Box, MenuItem } from "@mui/material";
+import { 
+  TextField, 
+  Button, 
+  Typography, 
+  Box, 
+  MenuItem, 
+  Container, 
+  Grid 
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import GradientHeading from "./GradientHeading";
 import NavBar from "./NavBar";
@@ -32,7 +40,6 @@ const StyledTextField = styled(TextField)({
   },
   "& input::placeholder": {
     color: "#828282",
-    /* opacity: 1, */
   },
   "& .MuiSelect-select": {
     color: "white",
@@ -41,6 +48,7 @@ const StyledTextField = styled(TextField)({
     color: "white",
   },
 });
+
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -49,14 +57,22 @@ const ContactUs = () => {
     source: "",
   });
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
   };
+
   return (
     <div className="contact-us">
       <NavBar />
-      <div className="py-[100px] px-[70px]">
+      <Container 
+        maxWidth={false} 
+        sx={{ 
+          width: '1472px', 
+          px: '70px', 
+          py: '100px' 
+        }}
+      >
         <div className="flex justify-center mb-[60px]">
           <Box
             sx={{
@@ -88,8 +104,13 @@ const ContactUs = () => {
           </Box>
         </div>
         <div className="form border border-[#397EF5] rounded-[50px] ">
-          <div className="grid grid-cols-1 lg:grid-cols-4 items-center overflow-hidden">
-            <div className="space-y-4 w-full bg-darkBlue col-span-3 py-[57px] pl-[57px] pr-[121px] rounded-tl-[50px] rounded-bl-[50px]">
+          <Grid container className="items-center overflow-hidden">
+            <Grid 
+              item 
+              xs={12} 
+              lg={9} 
+              className="space-y-4 w-full bg-darkBlue col-span-3 py-[57px] pl-[57px] pr-[121px] rounded-tl-[50px] rounded-bl-[50px]"
+            >
               <div className="w-[80%]">
                 <Typography
                   variant="h1"
@@ -230,16 +251,24 @@ const ContactUs = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="hidden lg:block col-span-1 h-full">
-              <div className="rounded-3xl h-[83%] w-[100%]">
+            </Grid>
+
+            <Grid 
+              item 
+              lg={3} 
+              sx={{ 
+                display: { xs: "none", lg: "block" } 
+              }}
+              className="h-full"
+            >
+              <div className="rounded-3xl h-[90%] w-[100%]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.8673004774145!2d50.0984!3d26.4235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49ef85c961edcd%3A0x7b2db98f2941c78c!2sAl%20Yamama%20Company%20for%20trading%20and%20Contracting!5e0!3m2!1sen!2sus!4v1658247416186!5i0"
+                  src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d3622.0176250322284!2d46.654904!3d24.79485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e2!4m0!4m3!3m2!1d24.79485!2d46.654903999999995!5e0!3m2!1sen!2s!4v1734002416169!5m2!1sen!2s"
                   style={{
                     border: 0,
                     width: "100%",
                     height: "100%",
-                    minHeight: "418px",
+                    minHeight: "635px",
                     borderRadius: "1.5rem",
                     position: "relative",
                     top: "10%",
@@ -251,12 +280,13 @@ const ContactUs = () => {
                   className="rounded-tr-[50px] rounded-br-[50px]"
                 ></iframe>
               </div>
-            </div>
-          </div>
+            </Grid>
+          </Grid>
         </div>
-      </div>
+      </Container>
       <Footer />
     </div>
   );
 };
+
 export default ContactUs;

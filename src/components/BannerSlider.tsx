@@ -23,15 +23,15 @@ const sliderContent = [
     image: "/images/service2.svg",
   },
   {
-    title: "Cloud Services",
+    title: "Over a decade of excellence",
     description:
-      "Scalable and secure cloud solutions that enable business agility, reduce costs, and improve collaboration across teams.",
+      "Developing a multi-layered software platform that includes a geographic information system, highly advanced data analysis tools for security purposes, and integration between multiple situational awareness sensors and their various means of communication that have been used for over 13 years in Kingdom.",
     image: "/images/service3.svg",
   },
   {
-    title: "Cloud Services",
+    title: "AR and VR Solutions",
     description:
-      "Scalable and secure cloud solutions that enable business agility, reduce costs, and improve collaboration across teams.",
+      " Our AR and VR solutions create immersive environments for training, marketing, and entertainment, revolutionizing user experiences.",
     image: "/images/service4.svg",
   },
   {
@@ -41,15 +41,15 @@ const sliderContent = [
     image: "/images/service5.svg",
   },
   {
-    title: "Cloud Services",
+    title: " In-House Software Development",
     description:
-      "Scalable and secure cloud solutions that enable business agility, reduce costs, and improve collaboration across teams.",
+      "We focus on creating open architecture systems with customized solutions. Our proprietary multi layer software delivers precise, localized support, enabling clients to achieve fast and flexible results.",
     image: "/images/service6.svg",
   },
   {
-    title: "Cloud Services",
+    title: "Migration Services",
     description:
-      "Scalable and secure cloud solutions that enable business agility, reduce costs, and improve collaboration across teams.",
+      "Our specialized migration services ensure seamless data and application transitions to new platforms, minimizing downtime and maintaining data integrity.",
     image: "/images/service7.svg",
   },
 ];
@@ -113,7 +113,7 @@ const CustomSlider = () => {
                     index % 2 === 1 ? "justify-self-end pr-[70px]" : "pl-[70px]"
                   }`}
                 >
-                  <Box sx={{ maxWidth: "570px", py: "100px" }}>
+                  <Box sx={{ maxWidth: "645px", py: "100px" }}>
                     <Box
                       component="h2"
                       sx={{
