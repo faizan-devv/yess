@@ -38,7 +38,7 @@ const sliderContent = [
     title: "Cloud Services",
     description:
       "Scalable and secure cloud solutions that enable business agility, reduce costs, and improve collaboration across teams.",
-    image: "/images/service5.svg",
+    image: "/images/cloud.svg",
   },
   {
     title: " In-House Software Development",
