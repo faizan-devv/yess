@@ -98,9 +98,9 @@ const NavHeader = () => {
               <Link href="/about-us">
                 <NavLink>About Us</NavLink>
               </Link>
-              <Link href="/landscape">
+              {/* <Link href="/landscape">
                 <NavLink>Smart Solutions</NavLink>
-              </Link>
+              </Link> */}
               <Link href="/ar-solutions">
                 <NavLink>AR Solutions</NavLink>
               </Link>
@@ -165,11 +165,11 @@ const NavHeader = () => {
                   About Us
                 </NavLink>
               </Link>
-              <Link href="/landscape">
+              {/* <Link href="/landscape">
                 <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
                   Smart Solutions
                 </NavLink>
-              </Link>
+              </Link> */}
               <Link href="/ar-solutions">
                 <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
                   AR Solutions

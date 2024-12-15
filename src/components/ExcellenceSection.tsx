@@ -70,8 +70,8 @@ const ExcellenceSection = () => {
                 color: "rgba(255, 255, 255, 0.8)",
               }}
             >
-              Saudi Vision 2030 empowers us to drive innovation and shape the
-              future of technology in the Kingdom
+             
+Developing a multi-layered software platform that includes a geographic information system, highly advanced data analysis tools for security purposes, and integration between multiple situational awareness sensors and their various means of communication that have been used for over 13 years in Kingdom.
             </Typography>
           </Box>
         </Stack>

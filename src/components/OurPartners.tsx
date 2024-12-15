@@ -52,8 +52,7 @@ const OurPartners = () => {
             }}
             className="text-white80"
           >
-            Saudi Vision 2030 empowers us to drive innovation and shape the
-            future of technology in the Kingdom
+            We are proud to collaborate with industry-leading partners and serve a diverse range of valued clients. Together, we drive innovation, deliver exceptional results, and achieve success.
           </Typography>
         </Box>
       </div>
