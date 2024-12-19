@@ -60,6 +60,16 @@ const CustomSlider = () => {
 
   return (
     <Box sx={{ position: "relative", height: "576px", bgcolor: "#0A081F" }}>
+       <Box
+        sx={{
+          position: "absolute",
+          zIndex: "20",
+          width: "100%",
+          top: 0,
+        }}
+      >
+        <NavHeader />
+      </Box>
       <Swiper
         modules={[Navigation]}
         speed={1000}
@@ -85,7 +95,7 @@ const CustomSlider = () => {
               }}
               disableGutters
             >
-              <Box
+              {/* <Box
                 sx={{
                   position: "absolute",
                   zIndex: "10",
@@ -93,7 +103,7 @@ const CustomSlider = () => {
                 }}
               >
                 <NavHeader />
-              </Box>
+              </Box> */}
               <Box
                 sx={{
                   display: "grid",

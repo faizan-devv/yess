@@ -98,9 +98,9 @@ const NavHeader = () => {
               <Link href="/about-us">
                 <NavLink>About Us</NavLink>
               </Link>
-              {/* <Link href="/landscape">
+              <Link href="/landscape">
                 <NavLink>Smart Solutions</NavLink>
-              </Link> */}
+              </Link>
               <Link href="/ar-solutions">
                 <NavLink>AR Solutions</NavLink>
               </Link>
