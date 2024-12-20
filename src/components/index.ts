@@ -16,3 +16,6 @@ export { default as OurPartners } from "./OurPartners";
 export { default as ContactUs } from "./ContactUs";
 export { default as ArSolutions } from "./ArSolutions";
 export { default as OurService } from "./OurService";
+export { default as Initative } from "./Initative";
+export { default as GreenProject } from "./GreenProject";
+export { default as SmartSolutions } from "./SmartSolutions";

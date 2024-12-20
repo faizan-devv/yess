@@ -66,7 +66,21 @@ body::-webkit-scrollbar-thumb:hover {
   background: url("/images/excelence-bg.svg") no-repeat center/cover;
 }
 .land-scape {
+  /* background: url("/images/buildings.svg") no-repeat center/contain; */
+  background-color: #000101;
+}
+.Initative{
   background: url("/images/landscape-bg.svg") no-repeat center/cover;
+}
+.green{
+  background: url("/images/green-bg.svg") no-repeat center/cover;
+}
+.landscap{
+  position: absolute;
+  top: 24%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
 }
 .about-us {
   background: url("/images/aboutus-bg.svg") no-repeat center/cover;
