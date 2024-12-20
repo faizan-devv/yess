@@ -1,4 +1,4 @@
-import { Typography, Box, Stack, Container } from "@mui/material";
+import { Typography, Container } from "@mui/material";
 const SmartSolutions = () => {
   return (
     <Container
@@ -6,7 +6,7 @@ const SmartSolutions = () => {
       sx={{
         maxWidth: "1472px",
         height: "100dvh",
-        marginTop:"117px"
+        marginTop: "117px",
       }}
       className=""
     >
@@ -41,7 +41,7 @@ const SmartSolutions = () => {
           mb: { xs: 1.5, sm: 2 },
           color: "rgba(255, 255, 255, 0.8)",
           lineHeight: "39px",
-          marginTop:"55px"
+          marginTop: "55px",
         }}
       >
         Yamama Engineering is a technology based leading service integrator

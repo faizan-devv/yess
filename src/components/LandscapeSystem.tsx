@@ -1,4 +1,4 @@
-import { Typography, Box, Stack, Container } from "@mui/material";
+import { Typography, Box} from "@mui/material";
 import GradientHeading from "./GradientHeading";
 import Image from "next/image";
 
