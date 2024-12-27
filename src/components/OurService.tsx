@@ -153,7 +153,7 @@ const OurService = () => {
             />
             <Box sx={{ position: "relative", display: "flex", }}>
               <Image
-                src="/images/img3.png"
+                src="/images/img33.svg"
                 alt="Signal Security Systems"
                 width={516}
                 height={426}

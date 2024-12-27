@@ -66,11 +66,13 @@ body::-webkit-scrollbar-thumb:hover {
   background: url("/images/excelence-bg.svg") no-repeat center/cover;
 }
 .land-scape {
-  /* background: url("/images/buildings.svg") no-repeat center/contain; */
-  background-color: #000101;
+  background: url("/images/smart-sol.svg") no-repeat center/cover;
 }
 .Initative{
-  background: url("/images/landscape-bg.svg") no-repeat center/cover;
+  background: url("/images/globe.svg") no-repeat center/cover;
+}
+.smart{
+  background: url("/images/building.svg") no-repeat center/cover;
 }
 .green{
   background: url("/images/green-bg.svg") no-repeat center/cover;
