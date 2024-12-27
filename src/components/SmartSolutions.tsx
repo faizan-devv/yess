@@ -1,4 +1,5 @@
 import { Typography, Container } from "@mui/material";
+import Image from "next/image";
 const SmartSolutions = () => {
   return (
     <Container
@@ -10,38 +11,21 @@ const SmartSolutions = () => {
       }}
       className=""
     >
+      <Image
+        src="/images/blue-blur.svg"
+        alt="blue overlay"
+        fill
+        style={{ left: "-15%", zIndex: "-1" }}
+      />
       <Typography
         variant="h1"
         sx={{
-          fontSize: { xs: "18px", sm: "20px", md: "25px" },
+          fontSize: { xs: "12px", sm: "14px", md: "16px" },
           fontWeight: 400,
           mb: { xs: 1.5, sm: 2 },
-          color: "rgba(255, 255, 255, 0.8)",
+          color: "#FFFFFFDB",
           lineHeight: "39px",
-        }}
-      >
-        strategy of the Green Riyadh project which is one of the most ambitious
-        urban afforestation projects in the world Planting 7.5 million trees
-        across the capital. The current parks lack interactivity and fail to
-        fully capitalize on the potential for environmental education and
-        awareness. Visitors often miss out on understanding the ecosystem's
-        intricacies and their role in environmental preservation. The need for a
-        cohesive and innovative solution to bridge this gap has become evident.
-        Therefore, Yamama focusing on an engaging and informative experience
-        that complements the natural surroundings. The visitors would be able to
-        seamlessly interact with the environment, have access to valuable
-        information, and an opportunity to contribute to environmental
-        conservation efforts.
-      </Typography>
-      <Typography
-        variant="h1"
-        sx={{
-          fontSize: { xs: "18px", sm: "20px", md: "25px" },
-          fontWeight: 400,
-          mb: { xs: 1.5, sm: 2 },
-          color: "rgba(255, 255, 255, 0.8)",
-          lineHeight: "39px",
-          marginTop: "55px",
+          width:"75%",
         }}
       >
         Yamama Engineering is a technology based leading service integrator
