@@ -1,6 +1,4 @@
 import { Typography, Box } from "@mui/material";
-import GradientHeading from "./GradientHeading";
-import Image from "next/image";
 
 const LandscapeSystem = () => {
   return (

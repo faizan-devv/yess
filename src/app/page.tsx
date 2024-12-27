@@ -12,7 +12,6 @@ import {
   Footer,
   OurPartners,
   NavBar,
-  OurVisionAR,
 } from "@/components";
 
 export default function Home() {
@@ -43,7 +42,7 @@ export default function Home() {
         </div>
 
         <section className="fullpage-section">
-          <OurVisionAR />
+          <OurVision />
         </section>
 
         <section
