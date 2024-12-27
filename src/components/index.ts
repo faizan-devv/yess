@@ -19,3 +19,6 @@ export { default as OurService } from "./OurService";
 export { default as Initative } from "./Initative";
 export { default as GreenProject } from "./GreenProject";
 export { default as SmartSolutions } from "./SmartSolutions";
+export { default as NavbarAr } from "./NavbarAR";
+export { default as BannerAR } from "./BannerAR";
+export { default as OurVisionAR } from "./OurVisionAR";

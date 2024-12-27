@@ -2,7 +2,7 @@
 
 import {
   MainLayout,
-  Banner,
+  BannerAR,
   OurVision,
   Projects,
   Services,
@@ -11,8 +11,7 @@ import {
   RegistrationForm,
   Footer,
   OurPartners,
-  NavBar,
-  OurVisionAR,
+  NavbarAr,
 } from "@/components";
 
 export default function Home() {
@@ -36,14 +35,14 @@ export default function Home() {
         <div className="banner">
           <section className="fullpage-section">
             <div className="relative top-[5.5%]">
-              <NavBar />
+              <NavbarAr />
             </div>
-            <Banner />
+            <BannerAR />
           </section>
         </div>
 
         <section className="fullpage-section">
-          <OurVisionAR />
+          <OurVision />
         </section>
 
         <section
