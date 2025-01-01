@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import { Typography, Box, Container, Stack } from "@mui/material";
 import Image from "next/image";
 import GradientHeading from "./GradientHeading";
+import { motion } from "framer-motion";
 
 const AboutUsOurVisionBanner = () => {
   const cardStyle = {
@@ -38,20 +40,46 @@ const AboutUsOurVisionBanner = () => {
     border: "1px solid #397EF5",
   };
 
+  // Animation variants
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const MotionBox = motion(Box);
+  const MotionTypography = motion(Typography);
+
   return (
-    <Container maxWidth={false} sx={{ maxWidth: "1472px", padding:"0" }}>
+    <Container maxWidth={false} sx={{ maxWidth: "1472px", padding: "0" }}>
       <Box sx={{ px: { xs: "20px", md: "0px" } }}>
-        <Stack 
+        <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={0}
-          sx={{ 
+          sx={{
             pb: "95px",
             pt: "40px",
             position: "relative"
           }}
         >
           {/* Left Column */}
-          <Box 
+          <MotionBox
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInLeft}
             sx={{
               flex: 1,
               borderRight: { xs: "none", sm: "1px solid #454545" },
@@ -65,8 +93,12 @@ const AboutUsOurVisionBanner = () => {
               >
                 Our Vision
               </GradientHeading>
-              <Typography
+              <MotionTypography
                 variant="h1"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={fadeInLeft}
                 sx={{
                   fontSize: { xs: "20px", md: "25px" },
                   fontWeight: 400,
@@ -79,9 +111,13 @@ const AboutUsOurVisionBanner = () => {
                 for knowledge transfer in emerging technologies such as artificial
                 intelligence, blockchain, the Internet of Things, and big data
                 analytics.
-              </Typography>
-              <Typography
+              </MotionTypography>
+              <MotionTypography
                 variant="h1"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={fadeInLeft}
                 sx={{
                   fontSize: { xs: "20px", md: "25px" },
                   fontWeight: 400,
@@ -94,12 +130,20 @@ const AboutUsOurVisionBanner = () => {
                 solutions that enhance the quality of life for citizens and drive
                 the adoption of advanced technologies in cities throughout the
                 Kingdom of Saudi Arabia.
-              </Typography>
+              </MotionTypography>
             </Box>
 
             {/* First Card */}
-            <Box sx={{ mt: "140px", position: "relative" }}>
+            <MotionBox
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInLeft}
+              sx={{ mt: "140px", position: "relative" }}
+            >
+              {/* ... Rest of the first card code remains the same ... */}
               <Box sx={cardStyle} display="flex" justifyContent="center" alignItems="center" position="relative">
+                {/* ... Card content remains the same ... */}
                 <Box position="absolute" sx={innerCardStyle}>
                   <Box display="flex" alignItems="center" sx={overlayCardStyle}>
                     <GradientHeading
@@ -170,10 +214,16 @@ const AboutUsOurVisionBanner = () => {
                   </Box>
                 </Box>
               </Box>
-            </Box>
+            </MotionBox>
 
             {/* Second Card */}
-            <Box>
+            <MotionBox
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInLeft}
+            >
+              {/* ... Rest of the second card code remains the same ... */}
               <Box
                 display="flex"
                 alignItems="center"
@@ -185,6 +235,7 @@ const AboutUsOurVisionBanner = () => {
                   bottom: { xs: "0px", xl: "167px" }
                 }}
               >
+                {/* ... Card content remains the same ... */}
                 <Box position="absolute" sx={innerCardStyle}>
                   <Box display="flex" alignItems="center" sx={overlayCardStyle}>
                     <GradientHeading
@@ -256,12 +307,19 @@ const AboutUsOurVisionBanner = () => {
                   </Box>
                 </Box>
               </Box>
-            </Box>
-          </Box>
+            </MotionBox>
+          </MotionBox>
 
           {/* Right Column */}
-          <Box sx={{ flex: 1 }}>
+          <MotionBox
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInRight}
+            sx={{ flex: 1 }}
+          >
             <Box display="flex" justifyContent="center">
+              {/* ... Third card code remains the same ... */}
               <Box
                 display="flex"
                 justifyContent="center"
@@ -349,15 +407,25 @@ const AboutUsOurVisionBanner = () => {
               </Box>
             </Box>
 
-            <Box sx={{ pl: { sm: "70px" } }}>
+            <MotionBox
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInRight}
+              sx={{ pl: { sm: "70px" } }}
+            >
               <GradientHeading
                 gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
                 fontSize={{ xs: "30px", md: "50px" }}
               >
                 Our Mission
               </GradientHeading>
-              <Typography
+              <MotionTypography
                 variant="h1"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={fadeInRight}
                 sx={{
                   fontSize: { xs: "20px", md: "25px" },
                   fontWeight: 400,
@@ -373,9 +441,9 @@ const AboutUsOurVisionBanner = () => {
                 specifically tailored to meet customer needs. We aim to streamline
                 processes, enhance security, and open new market opportunities to
                 help you achieve your goals
-              </Typography>
-            </Box>
-          </Box>
+              </MotionTypography>
+            </MotionBox>
+          </MotionBox>
         </Stack>
       </Box>
     </Container>

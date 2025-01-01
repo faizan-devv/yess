@@ -1,9 +1,42 @@
+"use client";
 import React from "react";
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import GradientHeading from "./GradientHeading";
+import { motion } from "framer-motion";
 
 const CEOMessage = () => {
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const MotionBox = motion(Box);
+  const MotionTypography = motion(Typography);
+  const MotionStack = motion(Stack);
+
   return (
     <Box
       sx={{
@@ -22,7 +55,13 @@ const CEOMessage = () => {
       >
         <Grid container spacing={2}>
           <Grid item xs={12} md={8}>
-            <Stack spacing={2}>
+            <MotionStack
+              spacing={2}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInLeft}
+            >
               <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
                 CEO Message
               </GradientHeading>
@@ -34,7 +73,8 @@ const CEOMessage = () => {
               >
                 Digital Saudia
               </GradientHeading>
-              <Typography
+              <MotionTypography
+                variants={fadeInLeft}
                 sx={{
                   fontSize: { xs: "20px", sm: "25px" },
                   fontWeight: 400,
@@ -54,11 +94,16 @@ const CEOMessage = () => {
                 we have created a level of support that is unmatched in the
                 industry, allowing us to offer tailored solutions that meet the
                 specific and true needs of our clients.
-              </Typography>
-            </Stack>
+              </MotionTypography>
+            </MotionStack>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Box>
+            <MotionBox
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInRight}
+            >
               <Box
                 sx={{
                   display: "flex",
@@ -74,7 +119,10 @@ const CEOMessage = () => {
                   mt: { xs: 4, md: "100px" }
                 }}
               >
-                <Box
+                <MotionBox
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
                   sx={{
                     position: "absolute",
                     bottom: 50,
@@ -97,8 +145,12 @@ const CEOMessage = () => {
                       alt="ceo-img"
                     />
                   </Box>
-                </Box>
-                <Box
+                </MotionBox>
+                
+                <MotionBox
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
                   sx={{
                     position: "absolute",
                     top: 2,
@@ -138,8 +190,12 @@ const CEOMessage = () => {
                       />
                     </Box>
                   </Box>
-                </Box>
-                <Box
+                </MotionBox>
+                
+                <MotionBox
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 0.2 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                   sx={{
                     position: "absolute",
                     zIndex: -1,
@@ -153,15 +209,12 @@ const CEOMessage = () => {
                   <Box
                     sx={{
                       position: "relative",
-                      top: 0,
-                      left: 0,
                       background:
                         "linear-gradient(138.35deg, #29313F -0.03%, #397EF5 30.27%, #29313F 100.96%)",
                       maxWidth: "388px",
                       width: "100%",
                       height: "457px",
                       borderRadius: "31px",
-                      opacity: 0.2
                     }}
                   >
                     <Box
@@ -184,8 +237,6 @@ const CEOMessage = () => {
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
-                          top: 2,
-                          left: 2,
                           backgroundColor: "#282D4063",
                           maxWidth: "386px",
                           width: "100%",
@@ -195,9 +246,9 @@ const CEOMessage = () => {
                       />
                     </Box>
                   </Box>
-                </Box>
+                </MotionBox>
               </Box>
-            </Box>
+            </MotionBox>
           </Grid>
         </Grid>
       </Container>
