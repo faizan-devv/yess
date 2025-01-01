@@ -11,10 +11,16 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-const AnimatedBox = ({ children, direction = "left" }) => {
+const AnimatedBox = ({
+  children,
+  direction = "left",
+}: {
+  children: any;
+  direction: string;
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   return (
     <motion.div
       ref={ref}
@@ -78,9 +84,9 @@ const OurService = () => {
                 }}
               >
                 We develop and implement advanced solutions for analyzing and
-                managing signals. These systems enhance performance, security, and
-                operational efficiency by providing reliable and precise signal
-                processing.
+                managing signals. These systems enhance performance, security,
+                and operational efficiency by providing reliable and precise
+                signal processing.
               </Typography>
             </AnimatedBox>
           </Stack>
@@ -217,7 +223,11 @@ const OurService = () => {
                   color: "rgba(255, 255, 255, 0.8)",
                 }}
               >
-                Our team specializes in designing and implementing platforms that protect sensitive information, whether they are based on the internet or on applications. Our solutions ensure secure and uninterrupted communication for critical operations by preventing unauthorized access and interference
+                Our team specializes in designing and implementing platforms
+                that protect sensitive information, whether they are based on
+                the internet or on applications. Our solutions ensure secure and
+                uninterrupted communication for critical operations by
+                preventing unauthorized access and interference
               </Typography>
             </AnimatedBox>
           </Stack>
@@ -261,7 +271,11 @@ const OurService = () => {
                   color: "rgba(255, 255, 255, 0.8)",
                 }}
               >
-                Our signal security solutions offer reliable protection against potential threats. We design our systems in such a way that they detect, prevent, and mitigate risks, allowing our clients to feel confident that their communications infrastructure is secure.
+                Our signal security solutions offer reliable protection against
+                potential threats. We design our systems in such a way that they
+                detect, prevent, and mitigate risks, allowing our clients to
+                feel confident that their communications infrastructure is
+                secure.
               </Typography>
             </AnimatedBox>
           </Stack>
@@ -398,7 +412,12 @@ const OurService = () => {
                   color: "rgba(255, 255, 255, 0.8)",
                 }}
               >
-                We provide situational awareness systems that deliver real-time data and insights, enabling informed decision-making and strategic planning. In these systems, multiple data sources are integrated to provide a comprehensive picture of the operational environment, which enhances situational awareness and response capabilities
+                We provide situational awareness systems that deliver real-time
+                data and insights, enabling informed decision-making and
+                strategic planning. In these systems, multiple data sources are
+                integrated to provide a comprehensive picture of the operational
+                environment, which enhances situational awareness and response
+                capabilities
               </Typography>
             </AnimatedBox>
           </Stack>

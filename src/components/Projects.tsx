@@ -5,7 +5,10 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-const AnimatedBox = ({ children, direction = "left" }) => {
+const AnimatedBox = ({ children, direction = "left" }: {
+  children: any;
+  direction: string;
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   
