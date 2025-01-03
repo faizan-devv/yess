@@ -324,7 +324,11 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100dvh;
   }
 }
-
+@media (max-width: 1230px) {
+  .custom-section {
+    height: auto !important;
+  }
+}
 .fullpage-section,
 .normal-scroll-sections {
   transition: opacity 0.3s ease;

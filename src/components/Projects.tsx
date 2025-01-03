@@ -42,7 +42,7 @@ const Projects = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "20px", md: "30px" },
+                fontSize: { xs: "14px", sm: "16px", md: "20px", lg: "30px" },
                 fontWeight: 400,
                 mb: 2,
               }}
@@ -69,7 +69,7 @@ const Projects = () => {
                   <Typography
                     variant="h1"
                     sx={{
-                      fontSize: { xs: "30px", md: "48px" },
+                      fontSize: { xs: "16px", sm: "20px", md: "30px", lg: "48px" },
                       fontWeight: 700,
                       mb: 2,
                     }}
@@ -149,7 +149,7 @@ const Projects = () => {
                   <Typography
                     variant="h1"
                     sx={{
-                      fontSize: { xs: "30px", md: "48px" },
+                      fontSize: { xs: "16px", sm: "20px", md: "30px", lg: "48px" },
                       fontWeight: 700,
                       mb: 2,
                     }}
@@ -227,7 +227,7 @@ const Projects = () => {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "30px", md: "48px" },
+                  fontSize: { xs: "16px", sm: "20px", md: "30px", lg: "48px" },
                   fontWeight: 700,
                 }}
                 className="text-white"
@@ -273,7 +273,7 @@ const Projects = () => {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "30px", md: "48px" },
+                  fontSize: { xs: "16px", sm: "20px", md: "30px", lg: "48px" },
                   fontWeight: 700,
                 }}
                 className="text-white"
@@ -313,7 +313,7 @@ const Projects = () => {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "30px", md: "48px" },
+                  fontSize: { xs: "16px", sm: "20px", md: "30px", lg: "48px" },
                   fontWeight: 700,
                 }}
                 className="text-white"

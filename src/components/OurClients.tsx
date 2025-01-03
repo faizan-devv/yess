@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Typography, Box, Container, Stack } from "@mui/material";
 import GradientHeading from "./GradientHeading";
+import { motion } from "framer-motion";
 
 const OurClients = () => {
   const clients = [
@@ -32,58 +33,159 @@ const OurClients = () => {
     },
   ];
 
+  const fadeInDown = {
+    hidden: { 
+      opacity: 0, 
+      y: -50,
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.6, 
+        ease: "easeOut" 
+      }
+    }
+  };
+
+  const fadeInUp = {
+    hidden: { 
+      opacity: 0, 
+      y: 50 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.6, 
+        ease: "easeOut",
+        delay: 0.3 
+      }
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.5
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const MotionBox = motion(Box);
+  const MotionStack = motion(Stack);
+  const MotionTypography = motion(Typography);
+
   return (
     <Box
+      component={motion.div}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
       id="clients"
       className="our-clients clients-section blue-circle"
-      sx={{ my: "100px", px: { sm: "0px" } }}
+      sx={{
+        my: { xs: 5, sm: 7, md: 10 },
+        width: "100%",
+        overflow: "hidden",
+        position: "relative"
+      }}
     >
-      <Container maxWidth={false} sx={{ width: "1472px" }}>
-        <Stack alignItems="center">
+      <Container
+        maxWidth="xl"
+        sx={{
+          maxWidth: { lg: "1440px" },
+          px: { xs: 2, sm: 3, md: 4 }
+        }}
+      >
+        <MotionStack
+          variants={fadeInDown}
+          alignItems="center"
+        >
           <Box
             sx={{
-              width: {
-                sm: "100%",
+              width: "100%",
+              maxWidth: {
+                xs: "95%",
+                sm: "90%",
                 md: "80%",
                 lg: "60%",
               },
+              textAlign: "center"
             }}
-            className="text-center"
           >
-            <GradientHeading>Our Clients</GradientHeading>
-            <Box>
-              <Typography
-                variant="h1"
-                sx={{
-                  fontSize: { xs: "20px", md: "30px" },
-                  fontWeight: 400,
-                  mb: 2,
-                }}
-                className="text-white80"
-              >
-                We take pride in partnering with forward-thinking organizations and supporting clients who trust us to bring their visions to life. Our journey is built on collaboration, innovation, and shared success
-              </Typography>
-            </Box>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ 
+                opacity: 1, 
+                scale: 1,
+                transition: {
+                  duration: 0.5,
+                  delay: 0.2
+                }
+              }}
+              viewport={{ once: true }}
+            >
+              <GradientHeading>Our Clients</GradientHeading>
+            </motion.div>
+            <MotionTypography
+              variant="h1"
+              variants={fadeInUp}
+              sx={{
+                fontSize: { xs: "14px", sm: "16px", md: "20px", lg: "30px" },
+                fontWeight: 400,
+                mb: { xs: 1.5, sm: 2 },
+                lineHeight: { xs: 1.4, md: 1.6 }
+              }}
+              className="text-white80"
+            >
+              We take pride in partnering with forward-thinking organizations and supporting clients who trust us to bring their visions to life. Our journey is built on collaboration, innovation, and shared success
+            </MotionTypography>
           </Box>
-        </Stack>
+        </MotionStack>
 
-        {/* Clients Grid */}
-        <Box sx={{ my: { xs: "30px", lg: "100px" } }}>
+        <MotionBox 
+          variants={containerVariants}
+          sx={{ my: { xs: 3, sm: 5, md: 7.5, lg: 10 } }}
+        >
           <Stack
             direction="row"
             flexWrap="wrap"
             justifyContent="center"
-            alignItems="center"
+            alignItems="stretch"
             sx={{
-              gap: { xs: "24px", md: "56px", lg: 0 },
+              mx: -2,
+              gap: { xs: 2, sm: 3, md: 4, lg: 0 }
             }}
           >
             {clients.map((client, index) => (
-              <Box
+              <MotionBox
                 key={client.name}
+                variants={itemVariants}
                 sx={{
                   position: "relative",
-                  width: { xs: "100%", md: "20%" },
+                  width: {
+                    xs: "100%",
+                    sm: "calc(50% - 24px)",
+                    md: "calc(33.333% - 32px)",
+                    lg: "20%"
+                  },
+                  px: 2
                 }}
               >
                 {index !== clients.length - 1 && (
@@ -96,39 +198,43 @@ const OurClients = () => {
                       transform: "translateY(-50%)",
                       width: "1px",
                       height: "128px",
-                    }}
-                  >
-                    <Box
-                      sx={{
+                      "& > div": {
                         width: "100%",
                         height: "100%",
-                        background:
-                          "linear-gradient(180deg, #0B0920 6.69%, #FFFFFF 55.61%, #0B0920 96.46%)",
-                      }}
-                    />
+                        background: "linear-gradient(180deg, #0B0920 6.69%, #FFFFFF 55.61%, #0B0920 96.46%)"
+                      }
+                    }}
+                  >
+                    <Box />
                   </Box>
                 )}
 
-                {/* Client Logo and Text */}
-                <Stack alignItems="center" sx={{ p: { lg: 3 } }}>
+                <Stack
+                  alignItems="center"
+                  sx={{
+                    height: "100%",
+                    p: { xs: 2, sm: 2.5, md: 3 }
+                  }}
+                >
                   <Box
                     sx={{
-                      width: "200px",
-                      height: "200px",
-                      mb: 2.5,
+                      width: "100%",
+                      maxWidth: { xs: "150px", sm: "175px", md: "200px" },
+                      aspectRatio: "1/1",
                       position: "relative",
+                      mb: { xs: 1.5, sm: 2, md: 2.5 }
                     }}
                   >
                     <Image
                       src={client.logo}
                       alt={client.name}
                       fill
-                      className="object-contain"
+                      style={{ objectFit: "contain" }}
                     />
                   </Box>
                   <GradientHeading
                     variant="subtitle1"
-                    fontSize={{ xs: "16px", md: "20px" }}
+                    fontSize={{ xs: "14px", sm: "16px", md: "18px", lg: "20px" }}
                     gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
                     fontWeight={600}
                   >
@@ -138,17 +244,18 @@ const OurClients = () => {
                     variant="subtitle1"
                     className="text-white"
                     sx={{
-                      fontSize: { xs: "16px", md: "20px" },
-                      fontWeight: 600,
+                      fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "20px" },
+                      fontWeight: 600
                     }}
                   >
                     {client.nameAr}
                   </Typography>
                 </Stack>
-              </Box>
+              </MotionBox>
             ))}
           </Stack>
-        </Box>
+        </MotionBox>
+
       </Container>
     </Box>
   );

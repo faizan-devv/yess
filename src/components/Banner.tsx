@@ -56,7 +56,7 @@ const Banner = () => {
             <GradientHeading
               className={animationStarted ? "show" : "hide"}
               ref={box1Ref}
-              fontSize={{ xs: "30px", md: "80px" }}
+              fontSize={{ xs: "20px", sm: "30px", md: "50px", lg: "80px" }}
               fontWeight={800}
             >
               Linking Minds
@@ -115,7 +115,7 @@ const Banner = () => {
             <GradientHeading
               className={animationStarted ? "show" : "hide"}
               ref={box3Ref}
-              fontSize={{ xs: "30px", md: "80px" }}
+              fontSize={{ xs: "20px", sm: "30px", md: "50px", lg: "80px" }}
               fontWeight={800}
             >
               Bridging Worlds

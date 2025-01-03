@@ -57,7 +57,7 @@ export default function Home() {
           <OurClients />
         </div>
 
-        <section className="fullpage-section overflow-hidden">
+        <section className="fullpage-section custom-section overflow-hidden">
           <ExcellenceSection />
         </section>
         <div className="normal-scroll-sections">

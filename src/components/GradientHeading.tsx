@@ -6,7 +6,7 @@ import { CSSProperties } from "react";
 
 interface GradientHeadingProps extends TypographyProps {
   gradient?: string;
-  fontSize?: { xs?: string; md?: string; sm?: string };
+  fontSize?: { xs?: string; md?: string; sm?: string ; lg?: string };
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1";
   fontWeight?: number | string;
 }
@@ -15,7 +15,7 @@ const GradientHeading = ({
   children,
   variant = "h1",
   gradient = "linear-gradient(130deg, #FFFFFF 31.58%, #100D31 98.2%)",
-  fontSize = { xs: "2rem", md: "3.75rem" },
+  fontSize = { xs: "18px", sm:"20px",  md: "40px", lg:"60px" },
   fontWeight = 700,
   sx,
   ...props
@@ -35,6 +35,7 @@ const GradientHeading = ({
           xs: fontSize.xs,
           md: fontSize.md,
           sm: fontSize.sm,
+          lg: fontSize.lg,
         },
         fontWeight,
         mb: 2,

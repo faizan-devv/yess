@@ -64,7 +64,7 @@ const ExcellenceSection = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "18px", sm: "20px", md: "25px", lg: "30px" },
+                fontSize: { xs: "14px", sm: "16px", md: "20px", lg: "30px" },
                 fontWeight: 400,
                 mb: { xs: 1.5, sm: 2 },
                 color: "rgba(255, 255, 255, 0.8)",
@@ -164,7 +164,7 @@ Developing a multi-layered software platform that includes a geographic informat
                   <GradientHeading
                     variant="subtitle1"
                     sx={{
-                      fontSize: { xs: "16px", sm: "18px", md: "20px" },
+                      fontSize: { xs: "13px", sm: "14px", md: "20px" },
                       fontWeight: 700,
                     }}
                     gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
@@ -178,7 +178,7 @@ Developing a multi-layered software platform that includes a geographic informat
                   sx={{
                     color: "rgba(255, 255, 255, 0.7)",
                     mt: { xs: 1, sm: 1.25 },
-                    fontSize: { xs: "14px", sm: "15px", md: "16px" },
+                    fontSize: { xs: "12px", sm: "13px", md: "16px" },
                     lineHeight: { xs: "24px", sm: "26px", md: "28px" },
                   }}
                 >
