@@ -22,7 +22,7 @@ const LandscapeSystem = () => {
         <Typography
           variant="h1"
           sx={{
-            fontSize: { xs: "40px", md: "71px" },
+            fontSize: { xs:"30px", sm: "40px",md:"60", lg: "71px" },
             fontWeight: 800,
             color: "#FFFFFFFA",
             position: "relative",

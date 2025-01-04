@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Typography, Box } from "@mui/material";
 import GradientHeading from "./GradientHeading";
-
+import { motion } from "framer-motion"; 
 const OurPartners = () => {
   const partners = [
     { url: "", logo: "/images/partner-1.svg" },
@@ -17,29 +17,56 @@ const OurPartners = () => {
     { url: "", logo: "/images/partner-8.svg" },
     { url: "", logo: "/images/partner-10.svg" },
   ];
-
+  const MotionBox = motion.create(Box);
+  const fadeInDown = {
+    hidden: {
+      opacity: 0,
+      y: -50,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
   return (
     <div className="our-clients partners-section mt-[180px] sm:mt-[100px] px-4 sm:px-6 md:px-8 lg:px-[70px]">
       <div className="flex justify-center">
-        <Box 
-          sx={{ 
-            width: { 
-              xs: "90%", 
-              sm: "80%", 
-              md: "70%", 
-              lg: "60%" 
-            } 
-          }} 
-          className="text-center"
-        >
+      <MotionBox
+            variants={fadeInDown}
+            sx={{
+              width: {
+                xs: "90%",
+                sm: "80%",
+                md: "70%",
+                lg:"60%"
+              },
+              textAlign: "center",
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{
+                opacity: 1,
+                scale: 1,
+                transition: {
+                  duration: 0.5,
+                  delay: 0.2,
+                },
+              }}
+              viewport={{ once: true }}
+            >
           <GradientHeading>Our Partners</GradientHeading>
           <Typography
             variant="h1"
             sx={{
               fontSize: { 
-                xs: "16px", 
-                sm: "18px", 
-                md: "25px", 
+                xs: "14px", 
+                sm: "16px", 
+                md: "20px", 
                 lg: "30px" 
               },
               fontWeight: 400,
@@ -54,7 +81,8 @@ const OurPartners = () => {
           >
             We are proud to collaborate with industry-leading partners and serve a diverse range of valued clients. Together, we drive innovation, deliver exceptional results, and achieve success.
           </Typography>
-        </Box>
+          </motion.div>
+          </MotionBox>
       </div>
 
       <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-[100px] relative w-full overflow-hidden">

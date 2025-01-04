@@ -43,7 +43,7 @@ const services = [
 ];
 
 const MotionPaper = motion(Paper);
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 const MotionTypography = motion(Typography);
 
 const ServiceCard = ({
@@ -82,7 +82,7 @@ const ServiceCard = ({
     <Image src={image} alt={title} width={30} height={30} />
     <GradientHeading
       gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-      fontSize={{ xs: "14px", md: "20px" }}
+      fontSize={{ xs: "12px", sm:"14px", md: "20px" }}
       fontWeight={500}
     >
       {title}
@@ -156,8 +156,10 @@ const ArSolutions = () => {
                   variants={fadeInUp}
                   sx={{
                     fontSize: {
-                      xs: "20px",
-                      md: "30px",
+                      xs: "14px",
+                      sm:"16px",
+                      md: "20px",
+                      lg:"30px"
                     },
                     fontWeight: 400,
                     mb: 2,
@@ -188,9 +190,9 @@ const ArSolutions = () => {
                 variant="h1"
                 variants={fadeInUp}
                 sx={{
-                  fontSize: { xs: "16px", md: "20px" },
+                  fontSize: { xs: "12px", sm:"14px", md: "20px" },
                   fontWeight: 400,
-                  lineHeight: "39px",
+                 lineHeight: { xs: "25px", sm: "39px" },
                   color: "rgba(255, 255, 255, 0.8)",
                 }}
               >
@@ -212,9 +214,9 @@ const ArSolutions = () => {
                 variant="h1"
                 variants={fadeInUp}
                 sx={{
-                  fontSize: { xs: "16px", md: "20px" },
+                  fontSize: { xs: "12px", sm:"14px", md: "20px" },
                   fontWeight: 400,
-                  lineHeight: "39px",
+                 lineHeight: { xs: "25px", sm: "39px" },
                   color: "rgba(255, 255, 255, 0.8)",
                 }}
               >
@@ -228,9 +230,9 @@ const ArSolutions = () => {
                 variant="h1"
                 variants={fadeInUp}
                 sx={{
-                  fontSize: { xs: "16px", md: "20px" },
+                  fontSize: { xs: "12px", sm:"14px", md: "20px" },
                   fontWeight: 400,
-                  lineHeight: "39px",
+                 lineHeight: { xs: "25px", sm: "39px" },
                   color: "rgba(255, 255, 255, 0.8)",
                 }}
               >

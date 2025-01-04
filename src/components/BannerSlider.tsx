@@ -60,7 +60,7 @@ const CustomSlider = () => {
 
   return (
     <Box sx={{ position: "relative", height: "576px", bgcolor: "#0A081F" }}>
-       <Box
+      <Box
         sx={{
           position: "absolute",
           zIndex: "20",
@@ -107,7 +107,10 @@ const CustomSlider = () => {
               <Box
                 sx={{
                   display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
+                  gridTemplateColumns:{
+                    xs: "2fr 1fr",
+                    md: "repeat(2, 1fr)",
+                  },
                   height: "100%",
                 }}
               >
@@ -127,12 +130,25 @@ const CustomSlider = () => {
                     <Box
                       component="h2"
                       sx={{
-                        fontSize: "50px",
+                        fontSize: {
+                          xs: "16px",
+                          sm: "20px",
+                          md: "30px",
+                          lg: "50px",
+                        },
                         fontWeight: 700,
-                        lineHeight: "72px",
+                        lineHeight: {
+                          xs: "30px",
+                          sm: "40px",
+                          lg: "72px",
+                        },
                         letterSpacing: "-0.01em",
                         color: "#fff",
-                        marginBottom: "24px",
+                        marginBottom: {
+                          xs: "14px",
+                          sm: "18px",
+                          lg: "24px",
+                        },
                         transition: "all 0.7s",
                         transform:
                           index === activeIndex
@@ -146,9 +162,18 @@ const CustomSlider = () => {
                     <Box
                       component="p"
                       sx={{
-                        fontSize: "25px",
+                        fontSize: {
+                          xs: "14px",
+                          sm: "16px",
+                          md: "20px",
+                          lg: "25px",
+                        },
                         fontWeight: 400,
-                        lineHeight: "39px",
+                        lineHeight:{
+                          xs: "20px",
+                          sm: "25px",
+                          lg: "39px",
+                        },
                         letterSpacing: "-0.01em",
                         color: "#E5E7EB",
                         transition: "all 0.7s",

@@ -68,7 +68,7 @@ const ContactUs = () => {
       <Container 
         maxWidth={false} 
         sx={{ 
-          width: '1472px', 
+          maxWidth: '1472px', 
           px: '70px', 
           py: '100px' 
         }}
@@ -103,8 +103,8 @@ const ContactUs = () => {
             </div>
           </Box>
         </div>
-        <div className="form border border-[#397EF5] rounded-[50px] ">
-          <Grid container className="items-center overflow-hidden">
+        <div className="form rounded-[50px] ">
+          <Grid container className="items-center overflow-hidden  border border-[#397EF5] rounded-[50px] ">
             <Grid 
               item 
               xs={12} 
@@ -255,6 +255,7 @@ const ContactUs = () => {
 
             <Grid 
               item 
+              xs={12}
               lg={3} 
               sx={{ 
                 display: { xs: "none", lg: "block" } 

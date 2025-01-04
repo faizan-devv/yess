@@ -64,67 +64,61 @@ const OurClients = () => {
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
+  const fadeIn = {
+    hidden: { 
+      opacity: 0
+    },
+    visible: { 
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.5
+      transition: { 
+        duration: 0.8,
+        delay: 0.5 
       }
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const MotionBox = motion(Box);
+  const MotionBox = motion.create(Box);
   const MotionStack = motion(Stack);
   const MotionTypography = motion(Typography);
 
   return (
-    <Box
+    <Box 
+      id="clients" 
       component={motion.div}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      id="clients"
-      className="our-clients clients-section blue-circle"
       sx={{
-        my: { xs: 5, sm: 7, md: 10 },
-        width: "100%",
-        overflow: "hidden",
-        position: "relative"
+        minHeight: '100dvh',
+        mt: '100px',
+        position: 'relative',
+        overflow: 'hidden'
       }}
+      className="our-clients clients-section blue-circle"
     >
-      <Container
-        maxWidth="xl"
+      <Container 
+        maxWidth={false}
         sx={{
-          maxWidth: { lg: "1440px" },
-          px: { xs: 2, sm: 3, md: 4 }
+          maxWidth: '1472px !important'
         }}
       >
         <MotionStack
-          variants={fadeInDown}
           alignItems="center"
+          variants={fadeInDown}
+          sx={{
+            mb: '15px',
+            pt: '100px',
+            position: 'relative',
+          }}
+          className="custom blue-circle"
         >
-          <Box
+          <MotionBox
+            variants={fadeInDown}
             sx={{
-              width: "100%",
-              maxWidth: {
-                xs: "95%",
-                sm: "90%",
-                md: "80%",
-                lg: "60%",
+              width: {
+                xs: '100%',
+                md: '80%',
+                lg: '60%'
               },
               textAlign: "center"
             }}
@@ -143,25 +137,26 @@ const OurClients = () => {
             >
               <GradientHeading>Our Clients</GradientHeading>
             </motion.div>
-            <MotionTypography
-              variant="h1"
-              variants={fadeInUp}
-              sx={{
-                fontSize: { xs: "14px", sm: "16px", md: "20px", lg: "30px" },
-                fontWeight: 400,
-                mb: { xs: 1.5, sm: 2 },
-                lineHeight: { xs: 1.4, md: 1.6 }
-              }}
-              className="text-white80"
-            >
-              We take pride in partnering with forward-thinking organizations and supporting clients who trust us to bring their visions to life. Our journey is built on collaboration, innovation, and shared success
-            </MotionTypography>
-          </Box>
+            
+            <Box>
+              <MotionTypography
+                variant="h1"
+                variants={fadeInUp}
+                sx={{
+                  fontSize: { xs: "14px", sm: "16px", md: "20px", lg: "30px" },
+                  fontWeight: 400,
+                  mb: 2,
+                  color: 'rgba(255, 255, 255, 0.8)'
+                }}
+              >
+                We take pride in partnering with forward-thinking organizations and supporting clients who trust us to bring their visions to life. Our journey is built on collaboration, innovation, and shared success
+              </MotionTypography>
+            </Box>
+          </MotionBox>
         </MotionStack>
-
-        <MotionBox 
-          variants={containerVariants}
-          sx={{ my: { xs: 3, sm: 5, md: 7.5, lg: 10 } }}
+        
+        <MotionBox
+          variants={fadeIn}
         >
           <Stack
             direction="row"
@@ -174,9 +169,8 @@ const OurClients = () => {
             }}
           >
             {clients.map((client, index) => (
-              <MotionBox
+              <Box
                 key={client.name}
-                variants={itemVariants}
                 sx={{
                   position: "relative",
                   width: {
@@ -251,11 +245,10 @@ const OurClients = () => {
                     {client.nameAr}
                   </Typography>
                 </Stack>
-              </MotionBox>
+              </Box>
             ))}
           </Stack>
         </MotionBox>
-
       </Container>
     </Box>
   );

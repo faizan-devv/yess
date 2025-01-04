@@ -24,8 +24,11 @@ const SmartSolutions = () => {
           fontWeight: 400,
           mb: { xs: 1.5, sm: 2 },
           color: "#FFFFFFDB",
-          lineHeight: "39px",
-          width:"75%",
+          lineHeight: { xs: "25px", sm: "39px" },
+          width: {
+            xs: "95%",
+            sm: "75%",
+          },
         }}
       >
         Yamama Engineering is a technology based leading service integrator

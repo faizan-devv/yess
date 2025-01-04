@@ -36,7 +36,7 @@ const Banner = () => {
         sx={{
           maxWidth: "1472px !important",
           pt: "165px",
-          px: {sm:"0px"},
+          px: { xs: "16px", sm: "0px" },
           minHeight: { xs: "100dvh", lg: "100vh" }
         }}
       >
@@ -49,9 +49,6 @@ const Banner = () => {
           {/* Left content */}
           <Box
             flex={1}
-            sx={{
-              display: { xs: "none", sm: "inline" }
-            }}
           >
             <GradientHeading
               className={animationStarted ? "show" : "hide"}
@@ -101,14 +98,14 @@ const Banner = () => {
             sx={{
               position: "absolute",
               right: {
-                xs: "-7%",
-                sm: "2%",
+                xs: "7%",
                 md: "5%"
               },
               bottom: {
                 xs: "-470px",
                 sm: "-830%",
-                md: "-555%"
+                md: "-690%",
+                lg: "-555%"
               }
             }}
           >
@@ -131,7 +128,8 @@ const Banner = () => {
                 background: "#282D4047",
                 color: "#FFFFFFBD",
                 padding: "25px",
-                width: { sm: "540px" },
+                width: "100%",
+                maxWidth: { xs: "100%", md: "540px" },
                 borderRadius: "31px",
                 backdropFilter: "blur(30px)",
                 display: "inline-block",
@@ -154,4 +152,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default Banner;  

@@ -177,6 +177,11 @@ body::-webkit-scrollbar-thumb:hover {
   filter: blur(210px) !important;
   left: 33%;
 }
+.custom.blue-circle::after{
+  top: -20% !important;
+  width: 615px !important;
+  filter: blur(245px) !important;
+}
 .hide {
   opacity: 0;
 }

@@ -8,32 +8,32 @@ import { motion } from "framer-motion";
 const CEOMessage = () => {
   const fadeInLeft = {
     hidden: { opacity: 0, x: -50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const fadeInRight = {
     hidden: { opacity: 0, x: 50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   // const fadeInUp = {
   //   hidden: { opacity: 0, y: 50 },
-  //   visible: { 
-  //     opacity: 1, 
+  //   visible: {
+  //     opacity: 1,
   //     y: 0,
   //     transition: { duration: 0.6, ease: "easeOut" }
   //   }
   // };
 
-  const MotionBox = motion(Box);
+  const MotionBox = motion.create(Box);
   const MotionTypography = motion(Typography);
   const MotionStack = motion(Stack);
 
@@ -43,14 +43,14 @@ const CEOMessage = () => {
         px: { xs: 2, md: "0px" },
         py: { xs: 4, md: "95px" },
         position: "relative",
-        overflow: "hidden"
+        overflow: "hidden",
       }}
     >
       <Container
         maxWidth={false}
         sx={{
           maxWidth: "1472px",
-          position: "relative"
+          position: "relative",
         }}
       >
         <Grid container spacing={2}>
@@ -68,7 +68,7 @@ const CEOMessage = () => {
               <GradientHeading
                 gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
                 sx={{
-                  fontSize: { xs: "30px", md: "50px" }
+                  fontSize: { xs: "16px", sm: "20px", md: "30px", lg: "50px" },
                 }}
               >
                 Digital Saudia
@@ -76,11 +76,11 @@ const CEOMessage = () => {
               <MotionTypography
                 variants={fadeInLeft}
                 sx={{
-                  fontSize: { xs: "20px", sm: "25px" },
+                  fontSize: { xs: "14px", sm: "16px", md: "20px", lg: "25px"},
                   fontWeight: 400,
                   letterSpacing: -1,
                   color: "#FFFFFFCC",
-                  maxWidth: "762px"
+                  maxWidth: "762px",
                 }}
               >
                 Our mission at YES Solutions in today's digital world is to
@@ -116,7 +116,7 @@ const CEOMessage = () => {
                   width: "100%",
                   height: "462px",
                   borderRadius: "31px",
-                  mt: { xs: 4, md: "100px" }
+                  mt: { xs: 4, md: "100px" },
                 }}
               >
                 <MotionBox
@@ -131,10 +131,15 @@ const CEOMessage = () => {
                     "& > div": {
                       position: "absolute",
                       bottom: -30,
-                      right: -90,
+                      right: {
+                        xs:"0",
+                        sm:"-90px",
+                        md:"0",
+                        xl:"-90px"
+                      },
                       height: 67,
-                      width: 302
-                    }
+                      width: 302,
+                    },
                   }}
                 >
                   <Box>
@@ -146,7 +151,7 @@ const CEOMessage = () => {
                     />
                   </Box>
                 </MotionBox>
-                
+
                 <MotionBox
                   initial={{ scale: 0.9, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
@@ -159,7 +164,7 @@ const CEOMessage = () => {
                     maxWidth: "391px",
                     width: "100%",
                     height: "460px",
-                    borderRadius: "31px"
+                    borderRadius: "31px",
                   }}
                 >
                   <Box
@@ -171,7 +176,7 @@ const CEOMessage = () => {
                       width: "100%",
                       height: "457px",
                       borderRadius: "31px",
-                      overflow: "hidden"
+                      overflow: "hidden",
                     }}
                   >
                     <Box
@@ -179,7 +184,7 @@ const CEOMessage = () => {
                         position: "relative",
                         width: "100%",
                         height: "100%",
-                        overflow: "hidden"
+                        overflow: "hidden",
                       }}
                     >
                       <Image
@@ -191,7 +196,7 @@ const CEOMessage = () => {
                     </Box>
                   </Box>
                 </MotionBox>
-                
+
                 <MotionBox
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 0.2 }}
@@ -203,7 +208,7 @@ const CEOMessage = () => {
                     left: 24,
                     maxWidth: "388px",
                     width: "100%",
-                    height: "457px"
+                    height: "457px",
                   }}
                 >
                   <Box
@@ -229,7 +234,7 @@ const CEOMessage = () => {
                         maxWidth: "384px",
                         width: "100%",
                         height: "457px",
-                        borderRadius: "31px"
+                        borderRadius: "31px",
                       }}
                     >
                       <Box
@@ -241,7 +246,7 @@ const CEOMessage = () => {
                           maxWidth: "386px",
                           width: "100%",
                           height: "457px",
-                          borderRadius: "31px"
+                          borderRadius: "31px",
                         }}
                       />
                     </Box>

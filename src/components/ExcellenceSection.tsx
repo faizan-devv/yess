@@ -3,8 +3,26 @@
 import { Typography, Box, Container, Stack, Button } from "@mui/material";
 import GradientHeading from "./GradientHeading";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ExcellenceSection = () => {
+  const fadeInDown = {
+    hidden: {
+      opacity: 0,
+      y: -50,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  // Create motion components
+  const MotionBox = motion.create(Box);
   const services = [
     {
       icon: "/images/presention-chart.svg",
@@ -39,6 +57,10 @@ const ExcellenceSection = () => {
   return (
     <Box
       className="excelence-container"
+      component={motion.div}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
       sx={{ width: "100%", overflow: "hidden" }}
     >
       <Container
@@ -52,28 +74,55 @@ const ExcellenceSection = () => {
         }}
       >
         <Stack alignItems="center" className="blue-circle">
-          <Box
+          <MotionBox
+            variants={fadeInDown}
             sx={{
-              width: { xs: "90%", sm: "80%", md: "70%" },
+              width: {
+                xs: "90%",
+                md: "80%",
+                lg: "70%",
+              },
               textAlign: "center",
             }}
           >
-            <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
-              Over a decade of excellence
-            </GradientHeading>
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: { xs: "14px", sm: "16px", md: "20px", lg: "30px" },
-                fontWeight: 400,
-                mb: { xs: 1.5, sm: 2 },
-                color: "rgba(255, 255, 255, 0.8)",
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{
+                opacity: 1,
+                scale: 1,
+                transition: {
+                  duration: 0.5,
+                  delay: 0.2,
+                },
               }}
+              viewport={{ once: true }}
             >
-             
-Developing a multi-layered software platform that includes a geographic information system, highly advanced data analysis tools for security purposes, and integration between multiple situational awareness sensors and their various means of communication that have been used for over 13 years in Kingdom.
-            </Typography>
-          </Box>
+              <GradientHeading gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)">
+                Over a decade of excellence
+              </GradientHeading>
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: {
+                    xs: "14px",
+                    sm: "16px",
+                    md: "20px",
+                    lg: "25px",
+                    xl: "30",
+                  },
+                  fontWeight: 400,
+                  mb: { xs: 1.5, sm: 2 },
+                  color: "rgba(255, 255, 255, 0.8)",
+                }}
+              >
+                Developing a multi-layered software platform that includes a
+                geographic information system, highly advanced data analysis
+                tools for security purposes, and integration between multiple
+                situational awareness sensors and their various means of
+                communication that have been used for over 13 years in Kingdom.
+              </Typography>
+            </motion.div>
+          </MotionBox>
         </Stack>
 
         <Box
@@ -82,7 +131,7 @@ Developing a multi-layered software platform that includes a geographic informat
             gridTemplateColumns: {
               xs: "1fr",
               sm: "repeat(2, 1fr)",
-              xl: "repeat(4, 1fr)",
+              lg: "repeat(4, 1fr)",
             },
             gap: { xs: 4, sm: 6, lg: 8 },
             mt: { xs: 6, sm: 8, xl: 10 },

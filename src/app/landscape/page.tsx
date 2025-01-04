@@ -29,12 +29,15 @@ export default function Landscape() {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "16px", md: "20px" },
+                  fontSize: { xs: "12px", sm:"14px", md: "20px" },
                   fontWeight: 400,
                   mb: 2,
                   color: "#FFFFFFDB",
-                  lineHeight: "39px",
-                  width: "75%",
+                  lineHeight: { xs: "25px", sm: "39px" },
+                  width: {
+                    xs: "95%",
+                    sm: "75%",
+                  },
                   textAlign:"center"
                 }}
               >

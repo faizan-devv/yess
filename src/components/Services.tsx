@@ -50,7 +50,7 @@ const Services = () => {
   };
 
   // Create motion components
-  const MotionBox = motion(Box);
+  const MotionBox = motion.create(Box);
   const MotionStack = motion(Stack);
   const MotionTypography = motion(Typography);
 

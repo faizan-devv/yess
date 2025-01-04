@@ -25,7 +25,7 @@ const Initative = () => {
           />
           <GradientHeading
             gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-            fontSize={{ xs: "30px", md: "40px" }}
+            fontSize={{xs: "20px", sm: "30px", md: "40px" }}
             fontWeight={700}
           >
             The initiative of Digital landscape system
@@ -37,8 +37,11 @@ const Initative = () => {
               fontWeight: 400,
               mb: { xs: 1.5, sm: 2 },
               color: "#FFFFFFDB",
-              lineHeight: "39px",
-              width: "80%",
+              lineHeight: { xs: "25px", sm: "39px" },
+              width: {
+                xs: "95%",
+                sm: "80%",
+              },
             }}
           >
             is to provide a seamless technology experience to visitors in the
