@@ -31,7 +31,7 @@ export { default as RegistrationFormAR } from "./RegistrationFormAR";
 export { default as FooterAR } from "./FooterAR";
 export { default as OurPartnersAR } from "./OurPartnersAR";
 export { default as ServicesAR } from "./ServicesAR";
-export { default as ArSolutinosAR } from "./ArSolutionsAR";
+export { default as ArSolutionsAR } from "./ArSolutionsAR";
 export { default as ContactUsAR } from "./ContactUsAR";
 export { default as SmartSolutionsAR } from "./SmartSolutionsAR";
 export { default as GreenProjectAR } from "./GreenProjectAR";

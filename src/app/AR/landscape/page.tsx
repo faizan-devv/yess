@@ -1,7 +1,7 @@
 import {
   MainLayout,
   LandscapeSystemAR,
-  NavBarAR,
+  NavbarAr,
   RegistrationFormAR,
   FooterAR,
   InitativeAR,
@@ -17,7 +17,7 @@ export default function Landscape() {
         <div className="">
           <section className="fullpage-section">
             <div className="land-scape">
-              <NavBarAR />
+              <NavbarAr />
               <LandscapeSystemAR />
             </div>
             <Box

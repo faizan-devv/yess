@@ -35,18 +35,18 @@ const OurVision = () => {
     }
   };
 
-  const fadeIn = {
-    hidden: { 
-      opacity: 0
-    },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        duration: 0.8,
-        delay: 0.5 
-      }
-    }
-  };
+  // const fadeIn = {
+  //   hidden: { 
+  //     opacity: 0
+  //   },
+  //   visible: { 
+  //     opacity: 1,
+  //     transition: { 
+  //       duration: 0.8,
+  //       delay: 0.5 
+  //     }
+  //   }
+  // };
 
   // Create motion components
   const MotionBox = motion.create(Box);
