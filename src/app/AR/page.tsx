@@ -3,14 +3,14 @@
 import {
   MainLayout,
   BannerAR,
-  OurVision,
-  Projects,
-  Services,
-  OurClients,
-  ExcellenceSection,
-  RegistrationForm,
-  Footer,
-  OurPartners,
+  OurVisionAR,
+  ProjectsAR,
+  ServicesAR,
+  OurClientsAR,
+  ExcellenceSectionAR,
+  RegistrationFormAR,
+  FooterAR,
+  OurPartnersAR,
   NavbarAr,
 } from "@/components";
 
@@ -42,33 +42,33 @@ export default function Home() {
         </div>
 
         <section className="fullpage-section">
-          <OurVision />
+          <OurVisionAR />
         </section>
 
         <section
           id="services"
           className="fullpage-section overflow-hidden z-10"
         >
-          <Services />
+          <ServicesAR />
         </section>
 
         <div className="normal-scroll-sections">
-          <Projects />
-          <OurClients />
+          <ProjectsAR />
+          <OurClientsAR />
         </div>
 
         <section className="fullpage-section overflow-hidden">
-          <ExcellenceSection />
+          <ExcellenceSectionAR />
         </section>
         <div className="normal-scroll-sections">
-          <OurPartners />
+          <OurPartnersAR />
         </div>
         <section id="contact" className="fullpage-section">
-          <RegistrationForm />
+          <RegistrationFormAR />
         </section>
 
         <div className="normal-scroll-sections">
-          <Footer />
+          <FooterAR />
         </div>
       </div>
     </MainLayout>
