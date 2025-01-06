@@ -1,7 +1,7 @@
 "use client";
 import GradientHeading from "./GradientHeading";
 import { Typography, Box, Container, Stack } from "@mui/material";
-import ServiceSlider from "./ServiceSlider";
+import ServiceSliderAR from "./ServiceSliderAR";
 import { motion } from "framer-motion";
 
 const Services = () => {
@@ -82,7 +82,8 @@ const Services = () => {
             mb: '15px',
             pt: '100px',
             position: 'relative',
-            flexDirection: 'row' // Added for row-reverse direction
+            flexDirection: 'row',
+            justifyContent:"center"
           }}
           className="blue-circle"
         >
@@ -138,7 +139,7 @@ const Services = () => {
         <MotionBox
           variants={fadeIn}
         >
-          <ServiceSlider />
+          <ServiceSliderAR />
         </MotionBox>
       </Container>
     </Box>

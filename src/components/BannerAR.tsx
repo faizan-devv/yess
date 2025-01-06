@@ -111,7 +111,7 @@ const BannerAR = () => {
               bottom: {
                 xs: "-470px",
                 sm: "-830%",
-                md: "-555%",
+                md: "-460%",
               },
             }}
           >
