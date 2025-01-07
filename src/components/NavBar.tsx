@@ -21,9 +21,13 @@ interface NavLinkProps extends TypographyProps {
 }
 
 interface StyledNavProps extends BoxProps {
-  component?: React.ElementType; // Include the `component` prop explicitly
+  component?: React.ElementType;
 }
-// Styled components to maintain the same design
+
+interface NavHeaderProps {
+  onMenuStateChange?: (isOpen: boolean) => void;
+}
+
 const StyledNav = styled(Box)<StyledNavProps>(() => ({
   paddingTop: "37px",
   paddingLeft: "0px",
@@ -52,8 +56,13 @@ const NavLink = styled(Typography)<NavLinkProps>(({ theme }) => ({
   },
 }));
 
-const NavHeader = () => {
+const NavHeader: React.FC<NavHeaderProps> = ({ onMenuStateChange }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleMenuToggle = (newState: boolean) => {
+    setIsOpen(newState);
+    onMenuStateChange?.(newState);
+  };
 
   const scrollToSection = (e: any, sectionId: any) => {
     e.preventDefault();
@@ -63,7 +72,7 @@ const NavHeader = () => {
         behavior: "smooth",
         block: "start",
       });
-      setIsOpen(false);
+      handleMenuToggle(false);
     }
   };
 
@@ -122,7 +131,7 @@ const NavHeader = () => {
           {/* Mobile Menu Button */}
           <IconButton
             sx={{ display: { lg: "none" }, color: "white" }}
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => handleMenuToggle(!isOpen)}
           >
             <Menu size={32} />
           </IconButton>
@@ -165,11 +174,6 @@ const NavHeader = () => {
                   About Us
                 </NavLink>
               </Link>
-              {/* <Link href="/landscape">
-                <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
-                  Smart Solutions
-                </NavLink>
-              </Link> */}
               <Link href="/ar-solutions">
                 <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
                   AR Solutions

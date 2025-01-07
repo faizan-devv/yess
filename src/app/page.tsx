@@ -1,5 +1,5 @@
-// app/page.js
-
+"use client";
+import { useState, useEffect } from 'react';
 import {
   MainLayout,
   Banner,
@@ -11,31 +11,29 @@ import {
   RegistrationForm,
   Footer,
   OurPartners,
-  NavBar,
+  NavBar
 } from "@/components";
+import { useTheme, useMediaQuery } from '@mui/material';
 
 export default function Home() {
-  // const containerRef = useRef(null);
-
-  // useEffect(() => {
-  //   // Handle initial hash navigation if any
-  //   if (window.location.hash) {
-  //     const id = window.location.hash.substring(1);
-  //     const element = document.getElementById(id);
-  //     if (element) {
-  //       element.scrollIntoView({ behavior: "smooth" });
-  //     }
-  //   }
-  // }, []);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
     <MainLayout>
       <div className="fullpage-container">
-        {/* Full-page snap sections */}
         <div className="banner">
           <section className="fullpage-section">
-            <div className="relative top-[5.5%]">
-              <NavBar />
+            <div 
+              style={{
+                position: 'relative',
+                top: isMenuOpen ? (isMobile ? '30.5%' : '5.5%') : '5.5%',
+                transition: 'top 0.3s ease',
+                zIndex:"10"
+              }}
+            >
+              <NavBar onMenuStateChange={setIsMenuOpen} />
             </div>
             <Banner />
           </section>
@@ -45,10 +43,7 @@ export default function Home() {
           <OurVision />
         </section>
 
-        <section
-          id="services"
-          className="fullpage-section overflow-hidden z-10"
-        >
+        <section id="services" className="fullpage-section overflow-hidden z-10">
           <Services />
         </section>
 
@@ -60,9 +55,11 @@ export default function Home() {
         <section className="fullpage-section custom-section overflow-hidden">
           <ExcellenceSection />
         </section>
+
         <div className="normal-scroll-sections">
           <OurPartners />
         </div>
+
         <section id="contact" className="fullpage-section">
           <RegistrationForm />
         </section>
