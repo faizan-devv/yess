@@ -17,19 +17,22 @@ export default function Landscape() {
         <div className="">
           <section className="fullpage-section">
             <div className="land-scape">
+              <video autoPlay muted loop>
+                <source src="/images/smart-sol.mp4" type="video/mp4" />
+              </video>
               <NavBar />
               <LandscapeSystem />
             </div>
             <Box
               sx={{
-                display:"flex",
-                justifyContent:"center"
+                display: "flex",
+                justifyContent: "center",
               }}
             >
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "12px", sm:"14px", md: "20px" },
+                  fontSize: { xs: "12px", sm: "14px", md: "20px" },
                   fontWeight: 400,
                   mb: 2,
                   color: "#FFFFFFDB",
@@ -38,7 +41,7 @@ export default function Landscape() {
                     xs: "95%",
                     sm: "75%",
                   },
-                  textAlign:"center"
+                  textAlign: "center",
                 }}
               >
                 Yamama is the part of visionary initiative for digital landscape

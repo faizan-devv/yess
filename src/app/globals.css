@@ -66,7 +66,19 @@ body::-webkit-scrollbar-thumb:hover {
   background: url("/images/excelence-bg.svg") no-repeat center/cover;
 }
 .land-scape {
-  background: url("/images/smart-sol.svg") no-repeat center/cover;
+  position: relative;
+  width: 100%;
+}
+
+.land-scape video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: -1;
 }
 .Initative{
   background: url("/images/globe.svg") no-repeat center/cover;

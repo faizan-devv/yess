@@ -109,7 +109,7 @@ const ContactUs = () => {
               item 
               xs={12} 
               lg={9} 
-              className="space-y-4 w-full bg-darkBlue col-span-3 py-[57px] pl-[57px] pr-[121px] rounded-tl-[50px] rounded-bl-[50px]"
+              className="space-y-4 w-full bg-darkBlue col-span-3 py-[57px] pl-[20px] pl-sm-[57px] pr-sm-[121px] rounded-tl-[50px] rounded-bl-[50px]"
             >
               <div className="w-[80%]">
                 <Typography
@@ -215,14 +215,24 @@ const ContactUs = () => {
                     />
                     <div>
                       <Typography
-                        className="text-white70 text-xs"
+                        className="text-white70"
                         sx={{
-                          fontSize: "14px",
+                          fontSize: {
+                            xs:"12px",
+                            sm:"14px"
+                          },
                         }}
                       >
                         Phone
                       </Typography>
-                      <Typography className="text-white font-medium">
+                      <Typography className="text-white font-medium"
+                      sx={{
+                        fontSize: {
+                          xs:"14px",
+                          sm:"16px"
+                        },
+                      }}
+                      >
                         +966-13-828-1002
                       </Typography>
                     </div>
@@ -237,14 +247,24 @@ const ContactUs = () => {
                     />
                     <div>
                       <Typography
-                        className="text-white70 text-xs"
+                        className="text-white70"
                         sx={{
-                          fontSize: "14px",
+                          fontSize: {
+                            xs:"12px",
+                            sm:"14px"
+                          },
                         }}
                       >
                         Email
                       </Typography>
-                      <Typography className="text-white font-medium">
+                      <Typography className="text-white font-medium"
+                      sx={{
+                        fontSize: {
+                          xs:"14px",
+                          sm:"16px"
+                        },
+                      }}
+                      >
                         info@yess.com.sa
                       </Typography>
                     </div>
