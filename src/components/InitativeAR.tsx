@@ -1,49 +1,80 @@
 import { Typography, Box, Stack, Container } from "@mui/material";
 import GradientHeading from "./GradientHeading";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
+const MotionTypography = motion(Typography);
+const MotionBox = motion(Box);
 
 const Initative = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 30
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <Container
       maxWidth={false}
       sx={{
         maxWidth: "1472px",
-        height: "100vh", // Full viewport height
-        position: "relative", // Position image correctly
+        height: "100dvh",
       }}
       className="flex items-center"
-      dir="rtl" // Set the text direction to RTL
     >
-      <Stack direction="column" alignItems="center" justifyContent="center">
-        <Box
+      <Stack>
+        <MotionBox
+          ref={ref}
+          component={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
           sx={{
-            position: "relative", // Position image behind content
-            width: { xs: "90%", sm: "80%", md: "70%" },
-            zIndex: 1, // Ensure content stays on top
+            width: { xs: "90%" },
           }}
         >
           <Image
             src="/images/blue-blur.svg"
             alt="blue overlay"
             fill
-            style={{
-              left: "-15%",
-              top: "0", // Ensure image stays in place
-              zIndex: -1, // Keep the image behind content
-            }}
+            style={{ left: "-15%", zIndex: "-1" }}
           />
-          <GradientHeading
-            gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-            fontSize={{ xs: "20px", sm: "30px", md: "40px" }}
-            fontWeight={700}
-            sx={{
-              textAlign: "center", // Center the heading
-              mb: 2, // Add spacing between heading and content
-            }}
-          >
+          <motion.div variants={itemVariants}>
+            <GradientHeading
+              gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
+              fontSize={{xs: "20px", sm: "30px", md: "40px" }}
+              fontWeight={700}
+            >
             مبادرة النظام الرقمي للمشاهد الطبيعية
-          </GradientHeading>
-          <Typography
+            </GradientHeading>
+          </motion.div>
+          
+          <MotionTypography
+            variants={itemVariants}
             variant="h1"
             sx={{
               fontSize: { xs: "12px", sm: "14px", md: "16px" },
@@ -51,13 +82,17 @@ const Initative = () => {
               mb: { xs: 1.5, sm: 2 },
               color: "#FFFFFFDB",
               lineHeight: { xs: "25px", sm: "39px" },
-              textAlign: "center", // Center the paragraph
-              width: "100%", // Ensure the text takes up full width
+              width: {
+                xs: "95%",
+                sm: "80%",
+              },
             }}
           >
-            تهدف المبادرة إلى توفير تجربة تكنولوجية سلسة للزوار في البيئة. حيث سيتم ربطهم بالميزات التفاعلية عبر التطبيق المحمول، ونقاط التفاعل الرقمية، والنظارات الذكية، والمناظير، إضافة إلى دمج الواقع المعزز والذكاء الاصطناعي. مبادرة النظام الرقمي للمشاهد الطبيعية.
-          </Typography>
-        </Box>
+       
+       تهدف المبادرة إلى توفير تجربة تكنولوجية سلسة للزوار في البيئة. حيث سيتم ربطهم بالميزات التفاعلية عبر التطبيق المحمول، ونقاط التفاعل الرقمية، والنظارات الذكية، والمناظير، إضافة إلى دمج الواقع المعزز والذكاء الاصطناعي. مبادرة النظام الرقمي للمشاهد الطبيعية.
+        
+          </MotionTypography>
+        </MotionBox>
       </Stack>
     </Container>
   );

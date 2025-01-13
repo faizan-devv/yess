@@ -1,20 +1,58 @@
 import { Typography, Box, Stack, Container } from "@mui/material";
 import GradientHeading from "./GradientHeading";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
+const MotionTypography = motion(Typography);
+const MotionBox = motion(Box);
 
 const GreenProject = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 30
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <Container
       maxWidth={false}
       sx={{
         maxWidth: "1472px",
-        height: "100vh", // Adjusted for full viewport height
+        height: "100dvh",
       }}
       className="flex items-center"
-      dir="rtl" // Added RTL support
     >
       <Stack>
-        <Box
+        <MotionBox
+          ref={ref}
+          component={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
           sx={{
             width: { xs: "90%" },
           }}
@@ -25,17 +63,18 @@ const GreenProject = () => {
             fill
             style={{ left: "-15%", zIndex: "-1" }}
           />
-          <GradientHeading
-            gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
-            fontSize={{ xs: "20px", sm: "30px", md: "40px" }}
-            fontWeight={700}
-            sx={{
-              textAlign: "center", // Center the heading for RTL
-            }}
-          >
+          <motion.div variants={itemVariants}>
+            <GradientHeading
+              gradient="linear-gradient(90deg, #FFFFFF 78.31%, #635E5E 116.02%)"
+              fontSize={{ xs: "20px", sm: "30px", md: "40px" }}
+              fontWeight={700}
+            >
             استراتيجية مشروع الرياض الأخضر
-          </GradientHeading>
-          <Typography
+            </GradientHeading>
+          </motion.div>
+          
+          <MotionTypography
+            variants={itemVariants}
             variant="h1"
             sx={{
               fontSize: { xs: "12px", sm: "14px", md: "16px" },
@@ -47,15 +86,17 @@ const GreenProject = () => {
                 xs: "95%",
                 sm: "80%",
               },
-              textAlign: "center", // Center text for RTL
             }}
           >
-            هو واحد من أكثر مشاريع التشجير الحضرية طموحًا في العالم، حيث سيتم
+          
+          هو واحد من أكثر مشاريع التشجير الحضرية طموحًا في العالم، حيث سيتم
             زراعة 7.5 مليون شجرة عبر العاصمة. الحدائق الحالية تفتقر إلى التفاعل
             ولا تستفيد بالكامل من الإمكانيات المتاحة للتعليم البيئي وزيادة
             الوعي. غالبًا ما يفوت الزوار فرصة فهم ...
-          </Typography>
-          <Typography
+          </MotionTypography>
+
+          <MotionTypography
+            variants={itemVariants}
             variant="h1"
             sx={{
               fontSize: { xs: "12px", sm: "14px", md: "16px" },
@@ -68,9 +109,9 @@ const GreenProject = () => {
                 sm: "75%",
               },
               marginTop: "40px",
-              textAlign: "center", // Ensure text alignment for RTL
             }}
           >
+            
             استراتيجية مشروع الرياض الأخضر هو أحد أكثر مشاريع التشجير
             الحضرية طموحًا في العالم، حيث سيتم زراعة 7.5 مليون شجرة عبر
             العاصمة. الحدائق الحالية تفتقر إلى التفاعل ولا تستفيد بالكامل
@@ -81,8 +122,8 @@ const GreenProject = () => {
             ومفيدة تكمل المحيط الطبيعي. سيتمكن الزوار من التفاعل بسلاسة
             مع البيئة، والحصول على معلومات قيمة، والمساهمة في جهود
             الحفاظ على البيئة.
-          </Typography>
-        </Box>
+          </MotionTypography>
+        </MotionBox>
       </Stack>
     </Container>
   );

@@ -1,7 +1,33 @@
 import { Typography, Container } from "@mui/material";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
+const MotionTypography = motion(Typography);
 
 const SmartSolutions = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { 
+    once: true, 
+    margin: "-100px"
+  });
+
+  const textVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 30
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <Container
       maxWidth={false}
@@ -10,7 +36,7 @@ const SmartSolutions = () => {
         height: "100dvh",
         marginTop: "117px",
       }}
-      dir="rtl" // Added RTL support
+      className=""
     >
       <Image
         src="/images/blue-blur.svg"
@@ -18,8 +44,12 @@ const SmartSolutions = () => {
         fill
         style={{ left: "-15%", zIndex: "-1" }}
       />
-      <Typography
+      <MotionTypography
+        ref={ref}
         variant="h1"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={textVariants}
         sx={{
           fontSize: { xs: "12px", sm: "14px", md: "16px" },
           fontWeight: 400,
@@ -32,6 +62,7 @@ const SmartSolutions = () => {
           },
         }}
       >
+        
         ياماما للهندسة هي شركة رائدة تعتمد على التكنولوجيا وتقدم نظام
         المناظر الرقمية بالكامل، ملتزمة بتقديم حلول تكنولوجيا المعلومات
         وحلول الإنترنت الذكي (IoT) للمدن والبلديات والمنظمات الخاصة. مع التركيز
@@ -42,7 +73,7 @@ const SmartSolutions = () => {
         تمكين وتغذية أسلوب الحياة من خلال نظام رقمي قوي، تُمكّن اليمامة مدن
         المملكة العربية السعودية من دمج التكنولوجيا والتعاون الوثيق مع
         المواطنين من أجل تطوير حضري شامل.
-      </Typography>
+      </MotionTypography>
     </Container>
   );
 };

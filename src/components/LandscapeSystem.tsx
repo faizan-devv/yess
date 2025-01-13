@@ -1,13 +1,31 @@
+import React from 'react';
 import { Typography, Box } from "@mui/material";
+import { motion } from "framer-motion";
+
+const MotionTypography = motion(Typography);
 
 const LandscapeSystem = () => {
+  const textVariants = {
+    hidden: { 
+      opacity: 0,
+      y: -50
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <Box
       sx={{
         height: "70dvh",
         display: "flex",
         justifyContent: "center",
-        /*  alignItems:"center" */
       }}
     >
       <Box
@@ -19,10 +37,13 @@ const LandscapeSystem = () => {
           width: "80%",
         }}
       >
-        <Typography
+        <MotionTypography
           variant="h1"
+          initial="hidden"
+          animate="visible"
+          variants={textVariants}
           sx={{
-            fontSize: { xs:"30px", sm: "40px",md:"60", lg: "71px" },
+            fontSize: { xs: "30px", sm: "40px", md: "60px", lg: "71px" },
             fontWeight: 800,
             color: "#FFFFFFFA",
             position: "relative",
@@ -30,14 +51,7 @@ const LandscapeSystem = () => {
           }}
         >
           Smart Solutions
-        </Typography>
-        {/* <Image
-          src="/images/buildings.svg"
-          alt="buildings"
-          width={993}
-          height={466}
-        /> */}
-       
+        </MotionTypography>
       </Box>
     </Box>
   );

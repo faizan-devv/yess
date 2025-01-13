@@ -1,3 +1,6 @@
+"use client";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   MainLayout,
   LandscapeSystem,
@@ -8,19 +11,50 @@ import {
   GreenProject,
   SmartSolutions,
 } from "@/components";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, useTheme, useMediaQuery } from "@mui/material";
+
+const MotionTypography = motion(Typography);
+
 export default function Landscape() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
+
+  const descriptionVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 30
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <MainLayout>
       <div className="fullpage-container">
-        {/* Full-page snap sections */}
         <div className="">
           <section className="fullpage-section">
             <div className="land-scape">
               <video autoPlay muted loop>
                 <source src="/images/smart-sol.mp4" type="video/mp4" />
               </video>
-              <NavBar />
+              <div 
+                style={{
+                  position: 'relative',
+                  top: isMenuOpen ? (isMobile ? '25.5%' : '3%') : '2%',
+                  transition: 'top 0.3s ease',
+                  zIndex: "10"
+                }}
+              >
+                <NavBar onMenuStateChange={setIsMenuOpen} />
+              </div>
               <LandscapeSystem />
             </div>
             <Box
@@ -29,8 +63,11 @@ export default function Landscape() {
                 justifyContent: "center",
               }}
             >
-              <Typography
+              <MotionTypography
                 variant="h1"
+                initial="hidden"
+                animate="visible"
+                variants={descriptionVariants}
                 sx={{
                   fontSize: { xs: "12px", sm: "14px", md: "20px" },
                   fontWeight: 400,
@@ -52,7 +89,7 @@ export default function Landscape() {
                 creation of a network for sharing vital environmental data
                 across the smart cities, parks etc establishing a strong
                 community bond focused on sustainable practices.
-              </Typography>
+              </MotionTypography>
             </Box>
           </section>
         </div>
