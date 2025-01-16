@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import {
   MainLayout,
   LandscapeSystemAR,
-  NavBarAR,
+  NavbarAr,
   RegistrationFormAR,
   FooterAR,
   InitativeAR,
@@ -53,7 +53,7 @@ export default function Landscape() {
                   zIndex: "10"
                 }}
               >
-                <NavBarAR onMenuStateChange={setIsMenuOpen} />
+                <NavbarAr onMenuStateChange={setIsMenuOpen} />
               </div>
               <LandscapeSystemAR />
             </div>

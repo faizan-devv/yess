@@ -13,6 +13,7 @@ import {
   styled,
   BoxProps,
   TypographyProps,
+  Direction,
 } from "@mui/material";
 
 interface NavLinkProps extends TypographyProps {
@@ -21,9 +22,14 @@ interface NavLinkProps extends TypographyProps {
 }
 
 interface StyledNavProps extends BoxProps {
-  component?: React.ElementType; // Include the `component` prop explicitly
+  component?: React.ElementType;
 }
-// Styled components to maintain the same design
+
+interface NavHeaderProps {
+  onMenuStateChange?: (isOpen: boolean) => void;
+  direction?: Direction;
+}
+
 const StyledNav = styled(Box)<StyledNavProps>(() => ({
   paddingTop: "37px",
   paddingLeft: "0px",
@@ -47,15 +53,24 @@ const NavLink = styled(Typography)<NavLinkProps>(({ theme }) => ({
   color: "white",
   cursor: "pointer",
   transition: "colors 0.3s",
+  fontFamily: "var(--font-arabic)", // Arabic font variable
   "&:hover": {
     color: theme.palette.primary.main,
   },
 }));
 
-const NavHeaderAR = () => {
+const NavHeader: React.FC<NavHeaderProps> = ({ 
+  onMenuStateChange,
+  direction = "rtl" // Default to RTL
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (e: any, sectionId: any) => {
+  const handleMenuToggle = (newState: boolean) => {
+    setIsOpen(newState);
+    onMenuStateChange?.(newState);
+  };
+
+  const scrollToSection = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
@@ -63,12 +78,22 @@ const NavHeaderAR = () => {
         behavior: "smooth",
         block: "start",
       });
-      setIsOpen(false);
+      handleMenuToggle(false);
     }
   };
 
+  // Arabic navigation items
+  const navItems = [
+    { href: "/", label: "الرئيسية" },
+    { href: "/our-services", label: "خدماتنا" },
+    { href: "/about-us", label: "من نحن" },
+    { href: "/landscape", label: "الحلول الذكية" },
+    { href: "/ar-solutions", label: "حلول الواقع المعزز" },
+    { href: "/", label: "شركاؤنا وعملاؤنا", section: "clients" }
+  ];
+
   return (
-    <StyledNav component="nav">
+    <StyledNav component="nav" dir={direction}>
       <Container maxWidth={false} sx={{ maxWidth: "1472px", px: { sm: "0" } }}>
         <Stack
           direction="row"
@@ -89,32 +114,21 @@ const NavHeaderAR = () => {
           {/* Desktop Navigation */}
           <DesktopNavContainer>
             <Stack direction="row" spacing={4}>
-              <Link href="/AR">
-                <NavLink>الرئيسية</NavLink>
-              </Link>
-              <Link href="/AR/our-services">
-                <NavLink>من نحن</NavLink>
-              </Link>
-              <Link href="/AR/about-us">
-                <NavLink> من نحن</NavLink>
-              </Link>
-              <Link href="/AR/landscape">
-                <NavLink>الحلول الذكية</NavLink>
-              </Link>
-              <Link href="/AR/ar-solutions">
-                <NavLink> حلول الواقع المعزز</NavLink>
-              </Link>
-              <Link href="/">
-                <NavLink onClick={(e) => scrollToSection(e, "clients")}>
-                  الشركاء والعملاء
-                </NavLink>
-              </Link>
+              {navItems.map((item) => (
+                <Link href={item.href} key={item.label}>
+                  <NavLink
+                    onClick={item.section ? (e) => scrollToSection(e, item.section!) : undefined}
+                  >
+                    {item.label}
+                  </NavLink>
+                </Link>
+              ))}
             </Stack>
           </DesktopNavContainer>
 
           {/* Contact Button - Desktop */}
           <Box sx={{ display: { xs: "none", lg: "block" } }}>
-            <Link href="/AR/contact-us">
+            <Link href="/contact-us">
               <Button variant="outlined">اتصل بنا</Button>
             </Link>
           </Box>
@@ -122,7 +136,7 @@ const NavHeaderAR = () => {
           {/* Mobile Menu Button */}
           <IconButton
             sx={{ display: { lg: "none" }, color: "white" }}
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => handleMenuToggle(!isOpen)}
           >
             <Menu size={32} />
           </IconButton>
@@ -139,45 +153,19 @@ const NavHeaderAR = () => {
             }}
           >
             <Stack spacing={2}>
-              <Link href="/AR">
-                <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
-                  الرئيسية
-                </NavLink>
-              </Link>
-              <NavLink
-                component="a"
-                href="#services"
-                onClick={(e) => scrollToSection(e, "services")}
-                sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}
-              >
-                الخدمات
-              </NavLink>
-              <NavLink
-                component="a"
-                href="#clients"
-                onClick={(e) => scrollToSection(e, "clients")}
-                sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}
-              >
-                الشركاء والعملاء
-              </NavLink>
-              <Link href="/about-us">
-                <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
-                  من نحن
-                </NavLink>
-              </Link>
-              <Link href="/landscape">
-                <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
-                  Smart Solutions
-                </NavLink>
-              </Link>
-              <Link href="/ar-solutions">
-                <NavLink sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}>
-                  حلول الواقع المعزز
-                </NavLink>
-              </Link>
+              {navItems.map((item) => (
+                <Link href={item.href} key={item.label}>
+                  <NavLink
+                    onClick={item.section ? (e) => scrollToSection(e, item.section!) : undefined}
+                    sx={{ p: 2, "&:hover": { bgcolor: "action.hover" } }}
+                  >
+                    {item.label}
+                  </NavLink>
+                </Link>
+              ))}
               <Link href="/contact-us">
                 <Button variant="outlined" fullWidth>
-                  الحلول الذكية
+                  اتصل بنا
                 </Button>
               </Link>
             </Stack>
@@ -188,4 +176,4 @@ const NavHeaderAR = () => {
   );
 };
 
-export default NavHeaderAR;
+export default NavHeader;

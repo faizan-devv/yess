@@ -1,3 +1,4 @@
+"use client";
 import { Typography, Container } from "@mui/material";
 import Image from "next/image";
 import { motion } from "framer-motion";
