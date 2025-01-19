@@ -1,5 +1,5 @@
 // app/page.js
-
+"use client";
 import {
   MainLayout,
   BannerAR,

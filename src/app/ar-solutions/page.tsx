@@ -1,3 +1,4 @@
+"use client";
 import { MainLayout, ArSolutions } from "@/components";
 
 export default function ARSolutions() {

@@ -1,4 +1,5 @@
-import { MainLayout, ContactUs } from '@/components'; 
+"use client";
+import { MainLayout, ContactUs } from "@/components";
 
 export default function Contact() {
   return (
