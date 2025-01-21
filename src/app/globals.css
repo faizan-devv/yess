@@ -72,10 +72,10 @@ body::-webkit-scrollbar-thumb:hover {
 
 .land-scape video {
   position: absolute;
-  top: 20%;
+  top: 36%;
   left: 0;
   width: 100%;
-  height: 80%;
+  height: 70%;
   object-fit: contain;
   object-position: center;
   z-index: -1;
