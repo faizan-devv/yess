@@ -80,6 +80,11 @@ body::-webkit-scrollbar-thumb:hover {
   object-position: center;
   z-index: -1;
 }
+.css-1gl4qdw-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
+  background-color: transparent !important;
+  top: 15% !important;
+  border: 1px solid #3D3D3D;
+}
 .Initative{
   background: url("/images/globe.svg") no-repeat center/cover;
 }

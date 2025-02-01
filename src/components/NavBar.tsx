@@ -13,6 +13,9 @@ import {
   styled,
   BoxProps,
   TypographyProps,
+  Select,
+  MenuItem,
+  SelectChangeEvent,
 } from "@mui/material";
 
 interface NavLinkProps extends TypographyProps {
@@ -32,6 +35,51 @@ const StyledNav = styled(Box)<StyledNavProps>(() => ({
   paddingTop: "37px",
   paddingLeft: "0px",
   paddingRight: "0px",
+}));
+
+const StyledSelect = styled(Select)(() => ({
+  fontFamily: '"Plus Jakarta Sans", sans-serif !important',
+  borderRadius: "100px",
+  border:"1px solid #3D3D3D",
+  color: "#ffffff",
+  padding: "10px 24px",
+  height: '46.50px',
+  marginRight: '16px',
+  width: '137px',
+  transition: "none",
+  textTransform: 'capitalize',
+  '& .MuiOutlinedInput-notchedOutline': {
+    border: 'none',
+  },
+  '&:hover': {
+    backgroundColor: "#e3e5e724",
+    '& .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#3D3D3D',
+    },
+  },
+  '&:active': {
+    backgroundColor: "#e3e5e71a",
+  },
+  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    borderColor: '#3D3D3D',
+  },
+  '& .MuiSelect-icon': {
+    color: 'white',
+  },
+}));
+
+const StyledMenuItem = styled(MenuItem)(() => ({
+  fontFamily: '"Plus Jakarta Sans", sans-serif !important',
+  textTransform: 'capitalize',
+  '&:hover': {
+    backgroundColor: "#e3e5e724",
+  },
+  '&.Mui-selected': {
+    backgroundColor: "#e3e5e71a",
+    '&:hover': {
+      backgroundColor: "#e3e5e724",
+    },
+  },
 }));
 
 const DesktopNavContainer = styled(Box)(({ theme }) => ({
@@ -58,10 +106,15 @@ const NavLink = styled(Typography)<NavLinkProps>(({ theme }) => ({
 
 const NavHeader: React.FC<NavHeaderProps> = ({ onMenuStateChange }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [language, setLanguage] = useState('en');
 
   const handleMenuToggle = (newState: boolean) => {
     setIsOpen(newState);
     onMenuStateChange?.(newState);
+  };
+
+  const handleLanguageChange = (event: SelectChangeEvent) => {
+    setLanguage(event.target.value);
   };
 
   const scrollToSection = (e: any, sectionId: any) => {
@@ -120,9 +173,16 @@ const NavHeader: React.FC<NavHeaderProps> = ({ onMenuStateChange }) => {
               </Link>
             </Stack>
           </DesktopNavContainer>
-
-          {/* Contact Button - Desktop */}
-          <Box sx={{ display: { xs: "none", lg: "block" } }}>
+          
+          <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center" }}>
+            <StyledSelect
+              value={language}
+              onChange={handleLanguageChange}
+              variant="outlined"
+            >
+              <StyledMenuItem value="en">Eng</StyledMenuItem>
+              <StyledMenuItem value="ar">عربی</StyledMenuItem>
+            </StyledSelect>
             <Link href="/contact-us">
               <Button variant="outlined">Contact Us</Button>
             </Link>
@@ -179,6 +239,22 @@ const NavHeader: React.FC<NavHeaderProps> = ({ onMenuStateChange }) => {
                   AR Solutions
                 </NavLink>
               </Link>
+              {/* Language Select - Mobile */}
+              <StyledSelect
+                value={language}
+                onChange={handleLanguageChange}
+                variant="outlined"
+                MenuProps={{
+                  PaperProps: {
+                    sx: {
+                      width: '150px',
+                    },
+                  },
+                }}
+              >
+                <StyledMenuItem value="en">English</StyledMenuItem>
+                <StyledMenuItem value="ar">Arabic</StyledMenuItem>
+              </StyledSelect>
               <Link href="/contact-us">
                 <Button variant="outlined" fullWidth>
                   Contact Us
