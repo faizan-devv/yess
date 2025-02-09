@@ -7,6 +7,7 @@ import { useState } from "react";
 import Footer from "./Footer";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { NavbarAr } from ".";
+import emailjs from "@emailjs/browser";
 
 const StyledTextField = styled(TextField)(() => ({
   "& .MuiOutlinedInput-root": {
@@ -50,9 +51,50 @@ const ContactUs = () => {
     source: "",
   });
 
+
+  const publickey = "YyhTVkzHQbGRa5jp5";
+  const serviceId = "service_9q9kw0b";
+  const templateId = "template_ikpaqmk";
+
+
+  const templateParams = {
+    from_name: formData.name,
+    from_contact_number: formData.phone,
+    to_name: "Waqar Munawar",
+    from_email: formData.email,
+    found_from: formData.source,
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
+    if (formData.email.length === 0) {
+      alert("Email cannot be empty!");
+      return;
+    }
+    if (formData.name.length === 0) {
+      alert("Name cannot be empty!");
+      return;
+    }
+    if (formData.phone.length === 0) {
+      alert("Phone number cannot be empty!");
+      return;
+    }
+    emailjs
+      .send(serviceId, templateId, templateParams, publickey)
+      .then((response) => {
+        console.log("response", response);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          source: "",
+        });
+        alert("Email sent successfully!");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Something Went Wrong Please try Again Later!");
+      });
   };
 
   // Create custom theme for RTL

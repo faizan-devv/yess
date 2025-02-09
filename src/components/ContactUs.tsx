@@ -1,19 +1,20 @@
 "use client";
 import Image from "next/image";
-import { 
-  TextField, 
-  Button, 
-  Typography, 
-  Box, 
-  MenuItem, 
-  Container, 
-  Grid 
+import {
+  TextField,
+  Button,
+  Typography,
+  Box,
+  MenuItem,
+  Container,
+  Grid,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import GradientHeading from "./GradientHeading";
 import NavBar from "./NavBar";
 import { useState } from "react";
 import Footer from "./Footer";
+import emailjs from "@emailjs/browser";
 
 const StyledTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
@@ -56,21 +57,58 @@ const ContactUs = () => {
     phone: "",
     source: "",
   });
+  const publickey = "YyhTVkzHQbGRa5jp5";
+  const serviceId = "service_9q9kw0b";
+  const templateId = "template_ikpaqmk";
 
+  const templateParams = {
+    from_name: formData.name,
+    from_contact_number: formData.phone,
+    to_name: "Waqar Munawar",
+    from_email: formData.email,
+    found_from: formData.source,
+  };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
+    if (formData.email.length === 0) {
+      alert("Email cannot be empty!");
+      return;
+    }
+    if (formData.name.length === 0) {
+      alert("Name cannot be empty!");
+      return;
+    }
+    if (formData.phone.length === 0) {
+      alert("Phone number cannot be empty!");
+      return;
+    }
+    emailjs
+      .send(serviceId, templateId, templateParams, publickey)
+      .then((response) => {
+        console.log("response", response);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          source: "",
+        });
+        alert("Email sent successfully!");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Something Went Wrong Please try Again Later!");
+      });
   };
 
   return (
     <div className="contact-us">
       <NavBar />
-      <Container 
-        maxWidth={false} 
-        sx={{ 
-          maxWidth: '1472px', 
-          px: '70px', 
-          py: '100px' 
+      <Container
+        maxWidth={false}
+        sx={{
+          maxWidth: "1472px",
+          px: "70px",
+          py: "100px",
         }}
       >
         <div className="flex justify-center mb-[60px]">
@@ -104,11 +142,14 @@ const ContactUs = () => {
           </Box>
         </div>
         <div className="form rounded-[50px] ">
-          <Grid container className="items-center overflow-hidden  border border-[#397EF5] rounded-[50px] ">
-            <Grid 
-              item 
-              xs={12} 
-              lg={9} 
+          <Grid
+            container
+            className="items-center overflow-hidden  border border-[#397EF5] rounded-[50px] "
+          >
+            <Grid
+              item
+              xs={12}
+              lg={9}
               className="space-y-4 w-full bg-darkBlue col-span-3 py-[57px] pl-[20px] pl-sm-[57px] pr-sm-[121px] rounded-tl-[50px] rounded-bl-[50px]"
             >
               <div className="w-[80%]">
@@ -124,7 +165,7 @@ const ContactUs = () => {
                   Get in <span className="text-[#397EF5]">Touch</span>
                 </Typography>
 
-                <Typography
+                {/* <Typography
                   variant="subtitle1"
                   className="text-white mt-4 pb-8 pd:pt-[20px] md:pb-10"
                   sx={{
@@ -134,7 +175,7 @@ const ContactUs = () => {
                 >
                   Enim tempor eget pharetra facilisis sed maecenas adipiscing.
                   Eu leo molestie vel, ornare non id blandit netus.
-                </Typography>
+                </Typography> */}
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <StyledTextField
                     required
@@ -218,20 +259,21 @@ const ContactUs = () => {
                         className="text-white70"
                         sx={{
                           fontSize: {
-                            xs:"12px",
-                            sm:"14px"
+                            xs: "12px",
+                            sm: "14px",
                           },
                         }}
                       >
                         Phone
                       </Typography>
-                      <Typography className="text-white font-medium"
-                      sx={{
-                        fontSize: {
-                          xs:"14px",
-                          sm:"16px"
-                        },
-                      }}
+                      <Typography
+                        className="text-white font-medium"
+                        sx={{
+                          fontSize: {
+                            xs: "14px",
+                            sm: "16px",
+                          },
+                        }}
                       >
                         +966-13-828-1002
                       </Typography>
@@ -250,20 +292,21 @@ const ContactUs = () => {
                         className="text-white70"
                         sx={{
                           fontSize: {
-                            xs:"12px",
-                            sm:"14px"
+                            xs: "12px",
+                            sm: "14px",
                           },
                         }}
                       >
                         Email
                       </Typography>
-                      <Typography className="text-white font-medium"
-                      sx={{
-                        fontSize: {
-                          xs:"14px",
-                          sm:"16px"
-                        },
-                      }}
+                      <Typography
+                        className="text-white font-medium"
+                        sx={{
+                          fontSize: {
+                            xs: "14px",
+                            sm: "16px",
+                          },
+                        }}
                       >
                         info@yess.com.sa
                       </Typography>
@@ -273,12 +316,12 @@ const ContactUs = () => {
               </div>
             </Grid>
 
-            <Grid 
-              item 
+            <Grid
+              item
               xs={12}
-              lg={3} 
-              sx={{ 
-                display: { xs: "none", lg: "block" } 
+              lg={3}
+              sx={{
+                display: { xs: "none", lg: "block" },
               }}
               className="h-full"
             >

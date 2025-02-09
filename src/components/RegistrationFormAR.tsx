@@ -1,5 +1,5 @@
 "use client";
-
+import emailjs from "@emailjs/browser";
 import {
   TextField,
   Button,
@@ -7,14 +7,55 @@ import {
   Container,
   Box,
   Stack,
-  Grid
+  Grid,
 } from "@mui/material";
 import GradientHeading from "./GradientHeading";
 import Image from "next/image";
+import { useState } from "react";
 
 const RegistrationForm = () => {
+  const [email, setEmail] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [message, setMessage] = useState("");
+
+  const publickey = "YyhTVkzHQbGRa5jp5";
+  const serviceId = "service_9q9kw0b";
+  const templateId = "template_i4znjhz";
+
+  const templateParams = {
+    from_company_name: companyName,
+    from_company_email: email,
+    to_name: "Waqar Munawar",
+    message: message,
+  };
+
   const handleSubmit = () => {
     // Handle form submission
+    if (email.length === 0) {
+      alert("Email cannot be empty!");
+      return;
+    }
+    if (companyName.length === 0) {
+      alert("Company cannot be empty!");
+      return;
+    }
+    if (message.length === 0) {
+      alert("Message cannot be empty!");
+      return;
+    }
+    emailjs
+      .send(serviceId, templateId, templateParams, publickey)
+      .then((response) => {
+        console.log("response", response);
+        setCompanyName("");
+        setEmail("");
+        setMessage("");
+        alert("Email sent successfully!");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Something Went Wrong Please try Again Later!");
+      });
   };
 
   const textFieldSx = {
@@ -74,17 +115,22 @@ const RegistrationForm = () => {
 
           <Typography
             variant="subtitle1"
-            sx={{ 
+            sx={{
               color: "rgba(255, 255, 255, 0.7)",
               mt: { xs: 2, md: 2.5 },
               fontSize: { xs: "24px", md: "30px" },
-              lineHeight: { xs: "32px", md: "39px" }
+              lineHeight: { xs: "32px", md: "39px" },
             }}
           >
             ستبدأ أعمال الحفر في 2024.
           </Typography>
 
-          <Grid container spacing={4} sx={{ mt: { xs: 4, md: 6.25 } }} alignItems="center">
+          <Grid
+            container
+            spacing={4}
+            sx={{ mt: { xs: 4, md: 6.25 } }}
+            alignItems="center"
+          >
             <Grid item xs={12} lg={6}>
               <Stack component="form" onSubmit={handleSubmit} spacing={3}>
                 <Box sx={{ mb: { xs: 3, md: 4.75 } }}>
@@ -107,6 +153,10 @@ const RegistrationForm = () => {
                     InputProps={inputProps}
                     InputLabelProps={labelProps}
                     sx={textFieldSx}
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
                   />
                 </Box>
 
@@ -127,9 +177,13 @@ const RegistrationForm = () => {
                     fullWidth
                     label="Rachel@domain.com"
                     variant="filled"
+                    value={companyName}
                     InputProps={inputProps}
                     InputLabelProps={labelProps}
                     sx={textFieldSx}
+                    onChange={(e) => {
+                      setCompanyName(e.target.value);
+                    }}
                   />
                 </Box>
 
@@ -155,23 +209,39 @@ const RegistrationForm = () => {
                     InputProps={inputProps}
                     InputLabelProps={labelProps}
                     sx={textFieldSx}
+                    value={message}
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                    }}
                   />
                 </Box>
 
-                <Button 
-                  variant="outlined" 
-                  sx={{ 
+                <Button
+                  variant="outlined"
+                  sx={{
                     px: { xs: 3, md: 4.5 },
-                    width: { xs: "100%", sm: "fit-content" }
+                    width: { xs: "100%", sm: "fit-content" },
                   }}
+                  onClick={handleSubmit}
                 >
                   إرسال
                 </Button>
               </Stack>
             </Grid>
 
-            <Grid item xs={12} lg={6} sx={{ display: { xs: 'none', lg: 'block' } }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Grid
+              item
+              xs={12}
+              lg={6}
+              sx={{ display: { xs: "none", lg: "block" } }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
                 <Image
                   src="/images/yess-logo.svg"
                   alt="yess-logo"
