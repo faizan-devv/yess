@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import NavBar from "./NavBar";
+import NavBar from "./NavbarAR";
 import GradientHeading from "./GradientHeading";
 import { Typography, Box, Container, Stack, Grid, Paper } from "@mui/material";
 import RegistrationForm from "./RegistrationForm";
