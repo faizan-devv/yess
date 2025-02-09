@@ -1,12 +1,11 @@
 "use client";
-
 import React from "react";
 import { Typography, Box, Container, Stack } from "@mui/material";
 import Image from "next/image";
 import GradientHeading from "./GradientHeading";
 import Services from "./Services";
 import Footer from "./Footer";
-import BannerSlider from "./BannerSlider";
+import BannerSlider from "./BannerSliderAR";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";

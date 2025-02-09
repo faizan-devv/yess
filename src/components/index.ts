@@ -36,3 +36,6 @@ export { default as ContactUsAR } from "./ContactUsAR";
 export { default as SmartSolutionsAR } from "./SmartSolutionsAR";
 export { default as GreenProjectAR } from "./GreenProjectAR";
 export { default as LandscapeSystemAR } from "./LandscapeSystemAR";
+export { default as AboutUsBannerAR } from "./AboutUsBannerAR";
+export { default as AboutUsOurVisionAR } from "./AboutUsOurVisionAR";
+export { default as CEOMessageAR } from "./CEOMessageAR";

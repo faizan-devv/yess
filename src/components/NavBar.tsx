@@ -17,7 +17,7 @@ import {
   MenuItem,
   SelectChangeEvent,
 } from "@mui/material";
-
+import { useRouter, usePathname } from "next/navigation";
 interface NavLinkProps extends TypographyProps {
   component?: React.ElementType;
   href?: string;
@@ -40,43 +40,43 @@ const StyledNav = styled(Box)<StyledNavProps>(() => ({
 const StyledSelect = styled(Select)(() => ({
   fontFamily: '"Plus Jakarta Sans", sans-serif !important',
   borderRadius: "100px",
-  border:"1px solid #3D3D3D",
+  border: "1px solid #3D3D3D",
   color: "#ffffff",
   padding: "10px 24px",
-  height: '46.50px',
-  marginRight: '16px',
-  width: '137px',
+  height: "46.50px",
+  marginRight: "16px",
+  width: "137px",
   transition: "none",
-  textTransform: 'capitalize',
-  '& .MuiOutlinedInput-notchedOutline': {
-    border: 'none',
+  textTransform: "capitalize",
+  "& .MuiOutlinedInput-notchedOutline": {
+    border: "none",
   },
-  '&:hover': {
+  "&:hover": {
     backgroundColor: "#e3e5e724",
-    '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#3D3D3D',
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#3D3D3D",
     },
   },
-  '&:active': {
+  "&:active": {
     backgroundColor: "#e3e5e71a",
   },
-  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-    borderColor: '#3D3D3D',
+  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#3D3D3D",
   },
-  '& .MuiSelect-icon': {
-    color: 'white',
+  "& .MuiSelect-icon": {
+    color: "white",
   },
 }));
 
 const StyledMenuItem = styled(MenuItem)(() => ({
   fontFamily: '"Plus Jakarta Sans", sans-serif !important',
-  textTransform: 'capitalize',
-  '&:hover': {
+  textTransform: "capitalize",
+  "&:hover": {
     backgroundColor: "#e3e5e724",
   },
-  '&.Mui-selected': {
+  "&.Mui-selected": {
     backgroundColor: "#e3e5e71a",
-    '&:hover': {
+    "&:hover": {
       backgroundColor: "#e3e5e724",
     },
   },
@@ -105,16 +105,33 @@ const NavLink = styled(Typography)<NavLinkProps>(({ theme }) => ({
 }));
 
 const NavHeader: React.FC<NavHeaderProps> = ({ onMenuStateChange }) => {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState(
+    pathname.includes("AR") ? "ar" : "en"
+  );
 
   const handleMenuToggle = (newState: boolean) => {
     setIsOpen(newState);
     onMenuStateChange?.(newState);
   };
 
-  const handleLanguageChange = (event: SelectChangeEvent) => {
-    setLanguage(event.target.value);
+  const handleLanguageChange = (event: SelectChangeEvent<unknown>) => {
+    setLanguage(event.target.value as string);
+    if (event.target.value === "en") {
+    } else {
+      const normalizedRoute = pathname.startsWith("/")
+        ? pathname
+        : `/${pathname}`;
+
+      // Prepend '/AR' if it's not already present
+      if (normalizedRoute.startsWith("/AR/")) {
+        return normalizedRoute;
+      }
+
+      router.push(`/AR${normalizedRoute}`);
+    }
   };
 
   const scrollToSection = (e: any, sectionId: any) => {
@@ -173,8 +190,10 @@ const NavHeader: React.FC<NavHeaderProps> = ({ onMenuStateChange }) => {
               </Link>
             </Stack>
           </DesktopNavContainer>
-          
-          <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center" }}>
+
+          <Box
+            sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center" }}
+          >
             <StyledSelect
               value={language}
               onChange={handleLanguageChange}
@@ -247,7 +266,7 @@ const NavHeader: React.FC<NavHeaderProps> = ({ onMenuStateChange }) => {
                 MenuProps={{
                   PaperProps: {
                     sx: {
-                      width: '150px',
+                      width: "150px",
                     },
                   },
                 }}

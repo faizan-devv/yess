@@ -3,10 +3,10 @@ import Image from "next/image";
 import { TextField, Button, Typography, Box, MenuItem, Container, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import GradientHeading from "./GradientHeading";
-import NavBar from "./NavBar";
 import { useState } from "react";
 import Footer from "./Footer";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { NavbarAr } from ".";
 
 const StyledTextField = styled(TextField)(() => ({
   "& .MuiOutlinedInput-root": {
@@ -63,7 +63,7 @@ const ContactUs = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="contact-us">
-        <NavBar />
+        <NavbarAr />
         <Container 
           maxWidth={false} 
           sx={{ 
